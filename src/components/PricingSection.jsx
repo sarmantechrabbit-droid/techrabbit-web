@@ -33,7 +33,7 @@ const plans = [
     pause: "Pause or cancel anytime",
     cta: "Get Started Today",
     icon: "⚡",
-    iconBg: "bg-linear-to-br from-blue-500 to-indigo-600",
+    iconBg: "bg-linear-to-br from-(--color-brand-blue) to-(--color-brand-green)",
     features: [
       "Functional MVP built with Lovable",
       "Database + API integrations (Supabase, OpenAI, etc)",
@@ -52,9 +52,9 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <Reveal className="text-center mb-16">
-          <h2 className="text-[32px] md:text-[44px] font-bold text-gray-900 leading-tight font-[Outfit] max-w-3xl mx-auto">
+          <h2 className="text-[32px] md:text-[44px] font-bold text-(--color-text-primary) leading-tight font-heading max-w-3xl mx-auto">
             Our Pricing.{" "}
-            <span className="text-gray-400">
+            <span className="text-(--color-text-muted)">
               Your own fractionalized team, with flexible pricing. No contract
               term.
             </span>
@@ -72,8 +72,8 @@ export default function PricingSection() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`rounded-[2.5rem] p-8 md:p-12 border transition-all duration-500 ${
                 plan.featured
-                  ? "bg-[#111] border-transparent text-white"
-                  : "bg-white border-gray-100 shadow-sm"
+                  ? "bg-(--color-text-primary) border-transparent text-white"
+                  : "bg-(--color-bg-page) border-(--color-border-default) shadow-sm"
               }`}
             >
               <div className="flex items-center gap-4 mb-8">
@@ -84,35 +84,35 @@ export default function PricingSection() {
                 </div>
                 <div>
                   <h3
-                    className={`text-xl font-bold font-[Outfit] ${plan.featured ? "text-white" : "text-gray-900"}`}
+                    className={`text-xl font-bold font-heading ${plan.featured ? "text-white" : "text-(--color-text-primary)"}`}
                   >
                     {plan.title}
                   </h3>
-                  <p className="text-gray-500 text-sm font-medium">
+                  <p className="text-(--color-text-body) text-sm font-medium">
                     {plan.subtitle}
                   </p>
                 </div>
               </div>
 
               <p
-                className={`text-sm leading-relaxed mb-8 ${plan.featured ? "text-gray-400" : "text-gray-500"}`}
+                className={`text-sm leading-relaxed mb-8 ${plan.featured ? "text-(--color-text-muted)" : "text-(--color-text-body)"}`}
               >
                 {plan.description}
               </p>
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-black text-[#E93E8C] font-[Outfit] tracking-tight">
+                  <span className="text-5xl font-black text-(--color-price-accent) font-heading tracking-tight">
                     {plan.price}
                   </span>
                   <span
-                    className={`text-sm font-bold ${plan.featured ? "text-gray-300" : "text-gray-400"}`}
+                    className={`text-sm font-bold ${plan.featured ? "text-(--color-text-lighter)" : "text-(--color-text-muted)"}`}
                   >
                     {plan.period}
                   </span>
                 </div>
                 <p
-                  className={`text-xs mt-2 font-semibold ${plan.featured ? "text-gray-500" : "text-gray-400"}`}
+                  className={`text-xs mt-2 font-semibold ${plan.featured ? "text-(--color-text-body)" : "text-(--color-text-muted)"}`}
                 >
                   {plan.pause}
                 </p>
@@ -121,8 +121,8 @@ export default function PricingSection() {
               <button
                 className={`w-full py-4 rounded-full text-sm font-bold transition-all duration-300 mb-10 ${
                   plan.featured
-                    ? "bg-white text-black hover:bg-gray-100"
-                    : "bg-white border border-gray-200 text-gray-900 hover:bg-gray-50"
+                    ? "bg-white text-black hover:bg-(--color-bg-card)"
+                    : "bg-white border border-(--color-border-subtle) text-(--color-text-primary) hover:bg-(--color-bg-card-light)"
                 }`}
               >
                 {plan.cta}
@@ -130,14 +130,14 @@ export default function PricingSection() {
 
               <div className="space-y-4">
                 <p
-                  className={`text-sm font-bold ${plan.featured ? "text-white" : "text-gray-900"}`}
+                  className={`text-sm font-bold ${plan.featured ? "text-white" : "text-(--color-text-primary)"}`}
                 >
                   What's included:
                 </p>
                 {plan.features.map((feature) => (
                   <div key={feature} className="flex items-start gap-3">
                     <div
-                      className={`mt-1 shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${plan.featured ? "bg-white/10 text-white" : "bg-gray-100 text-gray-900"}`}
+                      className={`mt-1 shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${plan.featured ? "bg-white/10 text-white" : "bg-(--color-bg-card) text-(--color-text-primary)"}`}
                     >
                       <svg
                         width="10"
@@ -153,7 +153,7 @@ export default function PricingSection() {
                       </svg>
                     </div>
                     <span
-                      className={`text-[13.5px] font-medium leading-tight ${plan.featured ? "text-gray-400" : "text-gray-500"}`}
+                      className={`text-[13.5px] font-medium leading-tight ${plan.featured ? "text-(--color-text-muted)" : "text-(--color-text-body)"}`}
                     >
                       {feature}
                     </span>
@@ -166,7 +166,7 @@ export default function PricingSection() {
 
         {/* Bottom CTA */}
         <Reveal>
-          <div className="max-w-xl mx-auto bg-gray-50/50 border border-gray-100 rounded-4xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="max-w-xl mx-auto bg-(--color-bg-card-light)/50 border border-(--color-border-default) rounded-4xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
                 <img
@@ -176,15 +176,15 @@ export default function PricingSection() {
                 />
               </div>
               <div>
-                <h4 className="text-gray-900 font-bold text-base font-[Outfit]">
+                <h4 className="text-(--color-text-primary) font-bold text-base font-heading">
                   Book a call
                 </h4>
-                <p className="text-gray-400 text-sm">
+                <p className="text-(--color-text-muted) text-sm">
                   Book a 15-minute free call with our team
                 </p>
               </div>
             </div>
-            <button className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#111] text-white font-bold text-sm hover:bg-black transition-all shadow-lg shadow-gray-200/50">
+            <button className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#111] text-white font-bold text-sm hover:bg-black transition-all shadow-lg shadow-(--color-text-dark)/10">
               <svg
                 width="16"
                 height="16"

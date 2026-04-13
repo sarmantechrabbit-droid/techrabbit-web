@@ -58,17 +58,17 @@ const faqCategories = [
 
 function FAQItem({ faq, isOpen, onClick }) {
   return (
-    <div className="border border-gray-100 rounded-2xl overflow-hidden bg-white hover:shadow-md hover:shadow-gray-100/60 transition-all duration-300">
+    <div className="border border-(--color-border-default) rounded-2xl overflow-hidden bg-(--color-bg-page) hover:shadow-md hover:shadow-(--color-text-dark)/5 transition-all duration-300">
       <button
         onClick={onClick}
         className="w-full flex items-center justify-between p-5 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="text-gray-900 font-semibold text-sm pr-4">{faq.q}</span>
+        <span className="text-(--color-text-primary) font-semibold text-sm pr-4">{faq.q}</span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="text-gray-300 text-xl shrink-0 group-hover:text-indigo-500 transition-colors"
+          className="text-(--color-text-faint) text-xl shrink-0 group-hover:text-(--color-brand-blue) transition-colors"
         >
           +
         </motion.span>
@@ -82,8 +82,8 @@ function FAQItem({ faq, isOpen, onClick }) {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="px-5 pb-5 border-t border-gray-50">
-              <p className="text-gray-500 text-sm leading-relaxed pt-4">{faq.a}</p>
+            <div className="px-5 pb-5 border-t border-(--color-border-light)">
+              <p className="text-(--color-text-body) text-sm leading-relaxed pt-4">{faq.a}</p>
             </div>
           </motion.div>
         )}
@@ -99,8 +99,8 @@ export default function FAQSection() {
     <section id="faqs" className="py-24 px-5 md:px-8">
       <div className="max-w-3xl mx-auto">
         <Reveal className="text-center mb-16">
-          <p className="text-indigo-600 text-sm font-semibold uppercase tracking-widest mb-3">FAQ</p>
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 font-[Outfit]">
+          <p className="text-(--color-brand-blue) text-sm font-semibold uppercase tracking-widest mb-3">FAQ</p>
+          <h2 className="text-3xl md:text-5xl font-black text-(--color-text-primary) font-heading">
             Questions? Answers.
           </h2>
         </Reveal>
@@ -108,7 +108,7 @@ export default function FAQSection() {
         <div className="space-y-8">
           {faqCategories.map((cat) => (
             <Reveal key={cat.category}>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 pl-1">{cat.category}</h3>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-(--color-text-muted) mb-4 pl-1">{cat.category}</h3>
               <div className="space-y-2">
                 {cat.faqs.map((faq, i) => {
                   const globalIndex = `${cat.category}-${i}`

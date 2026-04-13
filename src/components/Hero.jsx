@@ -79,10 +79,10 @@ export default function Hero() {
               { value: "100%", label: "Inhouse" },
             ].map((s) => (
               <div key={s.label}>
-                <div className="text-3xl font-black text-gray-900 font-heading">
+                <div className="text-3xl font-black text-(--color-text-primary) font-heading">
                   {s.value}
                 </div>
-                <div className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-1">
+                <div className="text-(--color-text-muted) text-[10px] font-bold uppercase tracking-widest mt-1">
                   {s.label}
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function Hero() {
       </div>
 
       {/* Products Shipped Marquee */}
-      <div className="absolute bottom-0 left-0 right-0 border-y border-gray-100 bg-gray-50/50 py-4 overflow-hidden mask-fade-edges">
+      {/* <div className="absolute bottom-0 left-0 right-0 border-y border-(--color-border-default) bg-(--color-bg-card-light)/50 py-4 overflow-hidden mask-fade-edges">
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: "-50%" }}
@@ -102,9 +102,9 @@ export default function Hero() {
           {[...Array(2)].map((_, i) => (
             <div
               key={i}
-              className="flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400"
+              className="flex items-center gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-(--color-text-muted)"
             >
-              <span className="text-gray-900 border-r border-gray-200 pr-12">
+              <span className="text-(--color-text-primary) border-r border-(--color-border-subtle) pr-12">
                 Products we've shipped
               </span>
               {[
@@ -116,16 +116,16 @@ export default function Hero() {
                 "Aident",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-12">
-                  <span className="text-gray-900 font-black font-heading text-xs lowercase tracking-tight">
+                  <span className="text-(--color-text-primary) font-black font-heading text-xs lowercase tracking-tight">
                     {item}
                   </span>
-                  <span className="text-gray-200">|</span>
+                  <span className="text-(--color-text-faint)">|</span>
                 </span>
               ))}
             </div>
           ))}
         </motion.div>
-      </div>
+      </div> */}
     </section>
   );
 }

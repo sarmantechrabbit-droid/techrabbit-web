@@ -42,16 +42,16 @@ const comparisonData = [
 
 export default function ComparisonSection() {
   return (
-    <section className="py-24 bg-gray-50/50 px-6 md:px-12">
+    <section className="py-24 bg-(--color-bg-card)/50 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <Reveal className="mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-100 bg-indigo-50 text-indigo-600 text-[10px] font-bold tracking-widest uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-(--color-brand-blue)/20 bg-(--color-brand-blue)/5 text-(--color-brand-blue) text-[10px] font-bold tracking-widest uppercase mb-6">
             Why TechRabbit
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 font-heading tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-(--color-text-primary) mb-6 font-heading tracking-tight">
             Why we stand out
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
+          <p className="text-(--color-text-body) text-lg max-w-2xl leading-relaxed">
             Traditional offshore agencies give you developers. We give you a
             product team that ships.
           </p>
@@ -60,21 +60,21 @@ export default function ComparisonSection() {
         {/* Comparison Table / Grid */}
         <Reveal>
           <div className="overflow-x-auto">
-            <div className="min-w-[800px] bg-white border border-gray-100 rounded-[2.5rem] shadow-sm overflow-hidden mb-12">
-              <div className="grid grid-cols-4 border-b border-gray-50 bg-gray-50/50">
+            <div className="min-w-[800px] bg-(--color-bg-page) border border-(--color-border-default) rounded-[2.5rem] shadow-sm overflow-hidden mb-12">
+              <div className="grid grid-cols-4 border-b border-(--color-border-light) bg-(--color-bg-card)/50">
                 <div className="p-8"></div>
-                <div className="p-8 text-center border-x border-gray-50">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#09B87F]">
+                <div className="p-8 text-center border-x border-(--color-border-light)">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-(--color-brand-green)">
                     Tech Rabbit
                   </span>
                 </div>
                 <div className="p-8 text-center">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-(--color-text-muted)">
                     Freelancer
                   </span>
                 </div>
-                <div className="p-8 text-center border-l border-gray-50">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                <div className="p-8 text-center border-l border-(--color-border-light)">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-(--color-text-muted)">
                     Traditional Offshore
                   </span>
                 </div>
@@ -83,21 +83,21 @@ export default function ComparisonSection() {
               {comparisonData.map((row, i) => (
                 <div
                   key={row.label}
-                  className={`grid grid-cols-4 items-center transition-colors hover:bg-gray-50/30 ${
-                    i !== comparisonData.length - 1 ? "border-b border-gray-50" : ""
+                  className={`grid grid-cols-4 items-center transition-colors hover:bg-(--color-bg-card)/30 ${
+                    i !== comparisonData.length - 1 ? "border-b border-(--color-border-light)" : ""
                   }`}
                 >
-                  <div className="p-8 text-sm font-bold text-gray-900 font-heading">
+                  <div className="p-8 text-sm font-bold text-(--color-text-primary) font-heading">
                     {row.label}
                   </div>
-                  <div className="p-8 text-center border-x border-gray-50 bg-[#09B87F]/2">
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-gray-700">
+                  <div className="p-8 text-center border-x border-(--color-border-light) bg-(--color-brand-green)/2">
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-(--color-text-dark)">
                       <svg
                         width="14"
                         height="10"
                         viewBox="0 0 14 10"
                         fill="none"
-                        className="text-[#09B87F] shrink-0"
+                        className="text-(--color-brand-green) shrink-0"
                       >
                         <path
                           d="M1.5 5.5L5 9L12.5 1.5"
@@ -111,12 +111,12 @@ export default function ComparisonSection() {
                     </div>
                   </div>
                   <div className="p-8 text-center">
-                    <span className="text-sm font-medium text-gray-400">
+                    <span className="text-sm font-medium text-(--color-text-muted)">
                       {row.freelancer}
                     </span>
                   </div>
-                  <div className="p-8 text-center border-l border-gray-50">
-                    <span className="text-sm font-medium text-gray-400">
+                  <div className="p-8 text-center border-l border-(--color-border-light)">
+                    <span className="text-sm font-medium text-(--color-text-muted)">
                       {row.offshore}
                     </span>
                   </div>
@@ -128,18 +128,18 @@ export default function ComparisonSection() {
 
         {/* Bottom Guarantee Card */}
         <Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-center bg-gray-900 rounded-[2.5rem] p-8 md:p-12 text-white overflow-hidden relative group">
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-indigo-500/10 to-transparent pointer-events-none" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-center bg-(--color-bg-dark-surface) rounded-[2.5rem] p-8 md:p-12 text-white overflow-hidden relative group">
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-(--color-brand-blue)/10 to-transparent pointer-events-none" />
             
             <div className="lg:col-span-8 relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-white/60 text-[10px] font-bold tracking-widest uppercase mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-(--color-border-on-dark) bg-white/5 text-(--color-text-on-dark) text-[10px] font-bold tracking-widest uppercase mb-6">
                 Our Guarantee
               </div>
               <h3 className="text-3xl md:text-4xl font-bold font-heading mb-6 tracking-tight">
                 100% In-house. <br className="hidden md:block" />
                 <span className="text-white/60">No freelancers. No exceptions.</span>
               </h3>
-              <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+              <p className="text-(--color-text-muted) text-lg max-w-xl leading-relaxed">
                 Every person on your project sits in the same room in Ahmedabad.
                 Same standup. Same sprint. Same accountability.
               </p>
@@ -155,7 +155,7 @@ export default function ComparisonSection() {
                   <div className="text-2xl md:text-3xl font-black font-heading mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-[#09B87F]">
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-(--color-brand-green)">
                     {stat.label}
                   </div>
                 </div>

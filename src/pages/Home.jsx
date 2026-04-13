@@ -6,11 +6,13 @@ import PortfolioSection from "../components/PortfolioSection";
 import Testimonials from "../components/Testimonials";
 import FAQSection from "../components/FAQSection";
 import CTASection from "../components/CTASection";
+import PortfolioMarquee from "../components/Portfoliomarquee";
 
 export default function Home() {
   return (
     <div className="bg-white">
       <Hero />
+      <PortfolioMarquee />
 
       {/* Pricing - Second Section */}
       <PricingSection />
