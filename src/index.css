@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TECHRABBIT — COLOR THEME VARIABLES
+   ============================================================ */
+
+:root {
+
+  /* ─── BRAND GRADIENT ──────────────────────────────────────── */
+  --color-brand-blue:           #2AABD7;
+  --color-brand-green:          #24B574;
+  --color-brand-blue-alt:       #2BAAE2;
+  --color-brand-green-alt:      #24B47E;
+
+  --gradient-brand:
+    linear-gradient(90deg, var(--color-brand-blue) 35%, var(--color-brand-green) 100%);
+
+  --gradient-brand-hover:
+    linear-gradient(90deg, var(--color-brand-green) 35%, var(--color-brand-blue) 100%);
+
+  --gradient-brand-vertical:
+    linear-gradient(to bottom, var(--color-brand-blue), var(--color-brand-green-alt));
+
+  /* ─── FOOTER / OFFICE LABEL GRADIENT ─────────────────────── */
+  --color-teal-start:           #22989F;
+  --color-teal-end:             #1DBB91;
+  --gradient-footer-label:
+    linear-gradient(to right, var(--color-teal-start), var(--color-teal-end));
+
+  /* ─── DEVELOPER SECTION GRADIENT ─────────────────────────── */
+  --gradient-developer-section:
+    linear-gradient(
+      to bottom,
+      #18958E,
+      #2AABD5,
+      #27AFAA,
+      #27B0A1,
+      #25B388,
+      #24B47C,
+      #6CE5CF,
+      #FFFFFF
+    );
+
+  /* ─── CONSULTATION POPUP GRADIENT ────────────────────────── */
+  --gradient-consultation-popup:
+    linear-gradient(to bottom, #24B574, #2BAAE2);
+
+  /* ─── BANNER / BREADCRUMB GRADIENT ───────────────────────── */
+  --gradient-banner:
+    linear-gradient(to bottom, #25B57E, #2BAAE2);
+
+  /* ─── SUCCESS BUTTON GRADIENT ────────────────────────────── */
+  --gradient-success-btn:
+    linear-gradient(90deg, #91FFB4 0%, #18DE85 100%);
+
+  /* ─── TEXT COLORS ─────────────────────────────────────────── */
+  --color-text-primary:         #111111;
+  --color-text-heading-dark:    #191919;
+  --color-text-heading-deepest: #0A0322;
+  --color-text-heading-alt:     #020710;
+  --color-text-dark:            #2D2D2D;
+  --color-text-secondary:       #4D4D4D;
+  --color-text-body:            #636363;
+  --color-text-muted:           #6E717B;
+  --color-text-subtle:          #818181;
+  --color-text-disabled:        #8C8C8C;
+  --color-text-soft:            #9D9D9D;
+  --color-text-lighter:         #ADACB0;
+  --color-text-faint:           #B4B4B4;
+  --color-text-nav:             #CCCCCC;
+  --color-text-nav-alt:         #C7C7C7;
+  --color-text-on-dark:         #FFFFFFCC;
+
+  /* ─── BACKGROUND COLORS ──────────────────────────────────── */
+  --color-bg-page:              #FFFFFF;
+  --color-bg-footer:            #2D2D2D;
+  --color-bg-dark-surface:      #0c0c0c;
+  --color-bg-card:              #F4F5F6;
+  --color-bg-card-alt:          #F2F4F6;
+  --color-bg-card-light:        #F8F8F9;
+  --color-bg-card-table-header: #F7F8FA;
+  --color-bg-card-hover:        #F9F9F9;
+  --color-bg-overlay-dark:      rgba(0, 0, 0, 0.9);
+  --color-bg-overlay-video:     #000000B5;
+  --color-bg-input:             #f0f0f0;
+
+  /* ─── BORDER COLORS ──────────────────────────────────────── */
+  --color-border-default:       #E1E4EB;
+  --color-border-card:          #EBEDEF;
+  --color-border-subtle:        #DCDCDC;
+  --color-border-dashed:        #DADADA;
+  --color-border-input:         #8888884F;
+  --color-border-light:         #EEF0F3;
+  --color-border-on-dark:       #FFFFFF1A;
+  --color-border-brand:         #FFFFFF29;
+  --color-border-nav-active:    #2AACD2;
+
+  /* ─── UI ACCENT COLORS ────────────────────────────────────── */
+  --color-accent-blue:          #2E89FF;
+  --color-accent-blue-light:    #4A90E2;
+  --color-accent-blue-hero:     #37BFE7;
+  --color-accent-blue-form:     #5FACEB;
+  --color-accent-blue-link:     #2563eb;
+
+  /* ─── PRICE / SPECIAL ACCENTS ─────────────────────────────── */
+  --color-price-accent:         #E93E8C;
+
+  /* ─── STATE COLORS ────────────────────────────────────────── */
+  --color-warning-bg:           #ffe08a;
+  --color-warning-border:       #f2c94c;
+  --color-warning-text:         #000000;
+  --color-success-text:         #FFFFFF;
+  --color-dot-default:          #cccccc;
+
+  /* ─── GRID / PATTERN COLORS ──────────────────────────────── */
+  --color-grid-dot:             #e5e7eb;
+
+  /* ─── WORLD MAP REGION COLORS ─────────────────────────────── */
+  --color-map-water:            #C5EFF7;
+  --color-map-north-america:    #90C695;
+  --color-map-south-america:    #E26A6A;
+  --color-map-europe:           #BE90D4;
+  --color-map-africa:           #FDE3A7;
+  --color-map-asia:             #F4B350;
+  --color-map-australia:        #1E824C;
+  --color-map-minimal:          #eeeeee;
+
+}
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-display);
+}
+
+.mask-fade-edges {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-brand-blue) 15%, transparent);
+  color: var(--color-text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-card-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-subtle);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-disabled);
+}
