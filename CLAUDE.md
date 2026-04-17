@@ -97,7 +97,7 @@ Hash anchor routes used across the site: `/#pricing`, `/#testimonials`, `/#faqs`
 
 ### Component Conventions
 - Container: `max-w-7xl mx-auto px-6 md:px-12`
-- Section padding: `py-24` or `py-32`
+- Section padding: `py-20` or `py-32`
 - Page top padding (below fixed nav): `pt-40` on inner page `<div>`
 - Card style: `rounded-[2.5rem]` border-radius for large cards/panels
 - Primary CTA: `rounded-full bg-black text-white font-bold` (pill)

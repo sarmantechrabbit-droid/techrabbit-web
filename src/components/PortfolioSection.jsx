@@ -28,20 +28,20 @@ const projects = [
 
 export default function PortfolioSection() {
   return (
-    <section className="py-24 bg-white px-6 md:px-12">
+    <section className="py-20 bg-[var(--color-bg-page)] px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <Reveal className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 font-heading tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)] mb-6 font-heading tracking-tight">
             Explore work
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-[var(--color-text-muted)] text-lg max-w-2xl mx-auto mb-10">
             We build polished, production-ready apps that look great and scale
             fast.
           </p>
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black text-white font-bold text-sm hover:scale-[1.05] transition-transform duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-bold text-sm hover:scale-[1.05] transition-transform duration-300"
+            style={{ background: "var(--gradient-brand)" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-white mr-1 animate-pulse"></span>
             View all work
@@ -49,7 +49,6 @@ export default function PortfolioSection() {
           </Link>
         </Reveal>
 
-        {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {projects.map((project, i) => (
             <motion.div
@@ -60,18 +59,21 @@ export default function PortfolioSection() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group cursor-pointer"
             >
-              {/* Image Container */}
-              <div className="relative mb-6 rounded-[2.5rem] overflow-hidden bg-gray-100 shadow-2xl shadow-gray-200 aspect-[4/3] transition-transform duration-500 group-hover:scale-[1.02]">
+              <div
+                className="relative mb-6 rounded-[2.5rem] overflow-hidden aspect-[4/3] transition-transform duration-500 group-hover:scale-[1.02] shadow-2xl"
+                style={{
+                  backgroundColor: "var(--color-bg-card-light)",
+                  boxShadow: "0 25px 45px rgba(17, 17, 17, 0.08)",
+                }}
+              >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {/* Overlay Detail (optional) */}
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-[color:rgba(17,17,17,0.05)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
-              {/* Text Area */}
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm flex-shrink-0">
                   <img
@@ -81,10 +83,10 @@ export default function PortfolioSection() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 font-heading">
+                  <h3 className="text-lg font-bold text-[var(--color-text-primary)] font-heading">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-400 font-medium">
+                  <p className="text-sm text-[var(--color-text-soft)] font-medium">
                     {project.description}
                   </p>
                 </div>

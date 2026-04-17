@@ -1,103 +1,149 @@
-import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 
 const comparisonData = [
   {
     label: "Team structure",
-    techRabbit: "100% Inhouse, same office",
-    freelancer: "Remote freelancers",
+    techRabbit: "100% inhouse, same office",
+    freelancer: "1 person, part-time",
     offshore: "Distributed, no oversight",
+    inhouse: "Full salary + benefits",
   },
   {
     label: "Codebase continuity",
-    techRabbit: "Same team every sprint",
-    freelancer: "New dev every project",
-    offshore: "Rotation — context lost",
+    techRabbit: "Same team, every sprint",
+    freelancer: "Disappears after project",
+    offshore: "Rotation - context lost",
+    inhouse: "Internal - but slow to hire",
   },
   {
-    label: "Design included",
-    techRabbit: "Always — Figma Inhouse",
-    freelancer: "Separate vendor",
+    label: "Figma design",
+    techRabbit: "Always included",
+    freelancer: "Usually not",
     offshore: "Extra cost",
+    inhouse: "Separate hire needed",
   },
   {
     label: "AI features",
     techRabbit: "Built-in, every sprint",
-    freelancer: "Not offered",
+    freelancer: "Rarely offered",
     offshore: "Expensive add-on",
+    inhouse: "Depends on team skills",
   },
   {
-    label: "Transparency",
-    techRabbit: "Clockify reports monthly",
-    freelancer: "Black box billing",
-    offshore: "Monthly invoice only",
+    label: "QA",
+    techRabbit: "Full cycle included",
+    freelancer: "Self-tested",
+    offshore: "Basic only",
+    inhouse: "Separate QA hire",
   },
   {
-    label: "Cancel policy",
-    techRabbit: "30-day, anytime",
-    freelancer: "Long contracts",
-    offshore: "3-6 month minimum",
+    label: "Billing transparency",
+    techRabbit: "Clockify - every hour",
+    freelancer: "Invoice only",
+    offshore: "Black box",
+    inhouse: "Payroll - fixed",
+  },
+  {
+    label: "Flexibility",
+    techRabbit: "Cancel in 30 days",
+    freelancer: "Project by project",
+    offshore: "3-6 month lock-in",
+    inhouse: "Permanent hire",
+  },
+  {
+    label: "Time to start",
+    techRabbit: "within 5 days",
+    freelancer: "1-2 weeks",
+    offshore: "4-8 weeks",
+    inhouse: "3-6 months",
+  },
+  {
+    label: "Monthly cost (senior)",
+    techRabbit: "$3,200 (80 hrs)",
+    freelancer: "$4,000-8,000+",
+    offshore: "$3,000-6,000",
+    inhouse: "$12,000-20,000+",
+  },
+  {
+    label: "AI-powered dev tools",
+    techRabbit: "Yes - every sprint",
+    freelancer: "Varies",
+    offshore: "Rarely",
+    inhouse: "Varies by team",
   },
 ];
 
 export default function ComparisonSection() {
   return (
-    <section className="py-24 bg-(--color-bg-card)/50 px-6 md:px-12">
+    <section className="py-16 sm:py-20 bg-[var(--color-bg-card)] px-4 sm:px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <Reveal className="mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-(--color-brand-blue)/20 bg-(--color-brand-blue)/5 text-(--color-brand-blue) text-[10px] font-bold tracking-widest uppercase mb-6">
+        <Reveal className="lg:mb-16 max-sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-5">
             Why TechRabbit
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-(--color-text-primary) mb-6 font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1] mb-4">
             Why we stand out
           </h2>
-          <p className="text-(--color-text-body) text-lg max-w-2xl leading-relaxed">
+          <p className="text-[var(--color-text-body)] text-base max-w-xl leading-relaxed">
             Traditional offshore agencies give you developers. We give you a
             product team that ships.
           </p>
         </Reveal>
 
-        {/* Comparison Table / Grid */}
-        <Reveal>
-          <div className="overflow-x-auto">
-            <div className="min-w-[800px] bg-(--color-bg-page) border border-(--color-border-default) rounded-[2.5rem] shadow-sm overflow-hidden mb-12">
-              <div className="grid grid-cols-4 border-b border-(--color-border-light) bg-(--color-bg-card)/50">
-                <div className="p-8"></div>
-                <div className="p-8 text-center border-x border-(--color-border-light)">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-(--color-brand-green)">
+        <Reveal className="w-full">
+          <div className="overflow-x-auto scrollbar-hide w-full">
+            <div className="min-w-[700px] lg:min-w-[1000px] bg-[var(--color-bg-page)] border border-[var(--color-border-default)] rounded-[1.5rem] sm:rounded-[2.5rem] shadow-sm overflow-hidden mb-12">
+              {/* Header */}
+              <div className="grid grid-cols-5 border-b border-[var(--color-border-light)] bg-[color:var(--color-bg-card)]/50">
+                <div className="p-4 md:p-8"></div>
+
+                <div className="p-4 md:p-8 text-center border-x border-[var(--color-border-light)]">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-green)]">
                     Tech Rabbit
                   </span>
                 </div>
-                <div className="p-8 text-center">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-(--color-text-muted)">
+
+                <div className="p-4 md:p-8 text-center">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
                     Freelancer
                   </span>
                 </div>
-                <div className="p-8 text-center border-l border-(--color-border-light)">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-(--color-text-muted)">
+
+                <div className="p-4 md:p-8 text-center border-l border-[var(--color-border-light)]">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
                     Traditional Offshore
+                  </span>
+                </div>
+
+                <div className="p-4 md:p-8 text-center border-l border-[var(--color-border-light)]">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
+                    In-house Team
                   </span>
                 </div>
               </div>
 
+              {/* Rows */}
               {comparisonData.map((row, i) => (
                 <div
                   key={row.label}
-                  className={`grid grid-cols-4 items-center transition-colors hover:bg-(--color-bg-card)/30 ${
-                    i !== comparisonData.length - 1 ? "border-b border-(--color-border-light)" : ""
+                  className={`grid grid-cols-5 items-center transition-colors hover:bg-[color:var(--color-bg-card)]/30 ${
+                    i !== comparisonData.length - 1
+                      ? "border-b border-[var(--color-border-light)]"
+                      : ""
                   }`}
                 >
-                  <div className="p-8 text-sm font-bold text-(--color-text-primary) font-heading">
+                  <div className="p-4 md:p-8 text-sm font-bold text-[var(--color-text-primary)] font-heading">
                     {row.label}
                   </div>
-                  <div className="p-8 text-center border-x border-(--color-border-light) bg-(--color-brand-green)/2">
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-(--color-text-dark)">
+
+                  <div className="p-4 md:p-8 text-center border-x border-[var(--color-border-light)] bg-[color:var(--color-brand-green)]/5">
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-[var(--color-text-dark)]">
                       <svg
                         width="14"
                         height="10"
                         viewBox="0 0 14 10"
                         fill="none"
-                        className="text-(--color-brand-green) shrink-0"
+                        className="text-[var(--color-brand-green)] shrink-0"
                       >
                         <path
                           d="M1.5 5.5L5 9L12.5 1.5"
@@ -110,14 +156,22 @@ export default function ComparisonSection() {
                       {row.techRabbit}
                     </div>
                   </div>
-                  <div className="p-8 text-center">
-                    <span className="text-sm font-medium text-(--color-text-muted)">
+
+                  <div className="p-4 md:p-8 text-center">
+                    <span className="text-sm font-medium text-[var(--color-text-muted)]">
                       {row.freelancer}
                     </span>
                   </div>
-                  <div className="p-8 text-center border-l border-(--color-border-light)">
-                    <span className="text-sm font-medium text-(--color-text-muted)">
+
+                  <div className="p-4 md:p-8 text-center border-l border-[var(--color-border-light)]">
+                    <span className="text-sm font-medium text-[var(--color-text-muted)]">
                       {row.offshore}
+                    </span>
+                  </div>
+
+                  <div className="p-4 md:p-8 text-center border-l border-[var(--color-border-light)]">
+                    <span className="text-sm font-medium text-[var(--color-text-muted)]">
+                      {row.inhouse}
                     </span>
                   </div>
                 </div>
@@ -126,20 +180,28 @@ export default function ComparisonSection() {
           </div>
         </Reveal>
 
-        {/* Bottom Guarantee Card */}
+        {/* Bottom section unchanged */}
         <Reveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-center bg-(--color-bg-dark-surface) rounded-[2.5rem] p-8 md:p-12 text-white overflow-hidden relative group">
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-(--color-brand-blue)/10 to-transparent pointer-events-none" />
-            
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-center bg-[var(--color-bg-dark-surface)] rounded-[1.5rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-12 text-white overflow-hidden relative group">
+            <div
+              className="absolute top-0 right-0 w-1/3 h-full pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to left, rgba(42, 171, 215, 0.1), transparent)",
+              }}
+            />
+
             <div className="lg:col-span-8 relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-(--color-border-on-dark) bg-white/5 text-(--color-text-on-dark) text-[10px] font-bold tracking-widest uppercase mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-on-dark)] bg-white/5 text-[var(--color-text-on-dark)] text-[10px] font-black tracking-widest uppercase mb-5">
                 Our Guarantee
               </div>
-              <h3 className="text-3xl md:text-4xl font-bold font-heading mb-6 tracking-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-heading mb-4 tracking-tight">
                 100% In-house. <br className="hidden md:block" />
-                <span className="text-white/60">No freelancers. No exceptions.</span>
+                <span className="text-white/60">
+                  No freelancers. No exceptions.
+                </span>
               </h3>
-              <p className="text-(--color-text-muted) text-lg max-w-xl leading-relaxed">
+              <p className="text-[var(--color-text-muted)] text-lg max-w-xl leading-relaxed">
                 Every person on your project sits in the same room in Ahmedabad.
                 Same standup. Same sprint. Same accountability.
               </p>
@@ -155,7 +217,7 @@ export default function ComparisonSection() {
                   <div className="text-2xl md:text-3xl font-black font-heading mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-(--color-brand-green)">
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-green)]">
                     {stat.label}
                   </div>
                 </div>

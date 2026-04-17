@@ -1,210 +1,181 @@
-import { motion } from "framer-motion";
-import Reveal from "./Reveal";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const plans = [
-  {
-    title: "Sprints",
-    subtitle: "2-Weeks Sprints",
-    description:
-      "For founders or teams who want to move fast — strategy, design, and development executed in 14 days.",
-    price: "$4,500",
-    period: "/ Bi-Weekly",
-    pause: "Pause or cancel anytime",
-    cta: "Book A Call",
-    icon: "✨",
-    iconBg: "bg-linear-to-br from-rose-500 to-purple-600",
-    features: [
-      "AI developer team",
-      "Unlimited revisions",
-      "Product strategy & roadmap",
-      "Integrations & API's",
-      "Communication via Slack",
-      "Weekly progress updates",
-    ],
-    featured: false,
-  },
-  {
-    title: "MVP Development",
-    subtitle: "We deliver an MVP in 2 weeks",
-    description:
-      "In 2-weeks you'll have a full working product ready to launch to the world.",
-    price: "$9,500",
-    period: "/ One-time",
-    pause: "Pause or cancel anytime",
-    cta: "Get Started Today",
-    icon: "⚡",
-    iconBg: "bg-linear-to-br from-(--color-brand-blue) to-(--color-brand-green)",
-    features: [
-      "Functional MVP built with Lovable",
-      "Database + API integrations (Supabase, OpenAI, etc)",
-      "User authentication & onboarding flow",
-      "Product design components",
-      "Communication via Slack",
-      "Weekly progress updates",
-    ],
-    featured: true,
-  },
+const mvpFeatures = [
+  { title: "Figma UI/UX design", desc: "Every screen designed before a line of code is written" },
+  { title: "Full-stack development", desc: "React + Node.js + PostgreSQL — production-ready" },
+  { title: "AI features if needed", desc: "Calling agents, scoring, chatbots — built in" },
+  { title: "QA + testing", desc: "Full test cycle. No 'it works on my machine'" },
+  { title: "Deployment + go-live", desc: "We ship it. You own it — code, domain, IP" },
 ];
 
-export default function PricingSection() {
+const subFeatures = [
+  { title: "Same team every sprint", desc: "No rotation. No re-explaining. They know your codebase from day 1." },
+  { title: "Figma + Dev + QA + BA + PM", desc: "Every skill you need. No separate vendors. No handoffs." },
+  { title: "AI features in every sprint", desc: "Claude, GPT, custom logic — in every sprint, not a separate engagement." },
+  { title: "Clockify reports monthly", desc: "Every hour tracked and reported. You see exactly what was built." },
+  { title: "Unused hours rollover", desc: "Don't lose what you paid for. Hours carry to next month." },
+];
+
+const plans = [
+  { name: "Starter", price: "$1,800", hours: "40 hrs/mo" },
+  { name: "Growth", price: "$3,200", hours: "80 hrs/mo", active: true },
+  { name: "Scale", price: "$5,500", hours: "160 hrs/mo" },
+];
+
+function CheckIcon() {
   return (
-    <section id="pricing" className="py-24 bg-white px-6 md:px-12">
+    <div className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[var(--color-brand-green)]/10 flex items-center justify-center text-[var(--color-brand-green)]">
+      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+  );
+}
+
+const PricingSection = () => {
+  return (
+    <section id="pricing" className="lg:py-16 max-sm:py-10 bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
+
         {/* Header */}
-        <Reveal className="text-center mb-16">
-          <h2 className="text-[32px] md:text-[44px] font-bold text-(--color-text-primary) leading-tight font-heading max-w-3xl mx-auto">
-            Our Pricing.{" "}
-            <span className="text-(--color-text-muted)">
-              Your own fractionalized team, with flexible pricing. No contract
-              term.
-            </span>
+        <div className="lg:mb-14 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-5">
+            Pricing
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1] mb-3">
+            Where are you right now?
           </h2>
-        </Reveal>
+          <p className="text-[var(--color-text-body)] text-base max-w-lg leading-relaxed">
+            Two clear paths. Both with a visible price. No "let's hop on a call to discuss."
+          </p>
+        </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`rounded-[2.5rem] p-8 md:p-12 border transition-all duration-500 ${
-                plan.featured
-                  ? "bg-(--color-text-primary) border-transparent text-white"
-                  : "bg-(--color-bg-page) border-(--color-border-default) shadow-sm"
-              }`}
-            >
-              <div className="flex items-center gap-4 mb-8">
-                <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl shadow-lg ${plan.iconBg} text-white`}
-                >
-                  {plan.icon}
-                </div>
-                <div>
-                  <h3
-                    className={`text-xl font-bold font-heading ${plan.featured ? "text-white" : "text-(--color-text-primary)"}`}
-                  >
-                    {plan.title}
-                  </h3>
-                  <p className="text-(--color-text-body) text-sm font-medium">
-                    {plan.subtitle}
-                  </p>
-                </div>
-              </div>
+        {/* Cards — grid on desktop, horizontal slider on mobile */}
+        <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pt-5 pb-4 md:pt-0 md:pb-0 -mx-1 md:mx-0 px-1 md:px-0 scrollbar-hide w-full">
 
-              <p
-                className={`text-sm leading-relaxed mb-8 ${plan.featured ? "text-(--color-text-muted)" : "text-(--color-text-body)"}`}
-              >
-                {plan.description}
+          {/* LEFT CARD — MVP */}
+          <div className="snap-start shrink-0 w-[88vw] md:w-auto rounded-3xl border border-[var(--color-border-card)] bg-white p-5 sm:p-8 flex flex-col h-auto" style={{ boxShadow: "0 2px 20px rgba(0,0,0,0.05)" }}>
+            <div className="flex-1 flex flex-col">
+              <span className="inline-flex items-center w-fit text-[10px] px-3 py-1.5 rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-muted)] font-black uppercase tracking-widest">
+                I have an idea
+              </span>
+
+              <h3 className="mt-5 text-2xl font-black font-heading text-[var(--color-text-primary)] leading-tight tracking-tight">
+                Idea to live MVP in 30 days
+              </h3>
+
+              <p className="mt-3 text-sm text-[var(--color-text-body)] leading-relaxed">
+                We take it from concept to live — design, code, QA, and deployment. Fixed price. No surprises.
               </p>
 
-              <div className="mb-8">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-black text-(--color-price-accent) font-heading tracking-tight">
-                    {plan.price}
-                  </span>
-                  <span
-                    className={`text-sm font-bold ${plan.featured ? "text-(--color-text-lighter)" : "text-(--color-text-muted)"}`}
-                  >
-                    {plan.period}
-                  </span>
-                </div>
-                <p
-                  className={`text-xs mt-2 font-semibold ${plan.featured ? "text-(--color-text-body)" : "text-(--color-text-muted)"}`}
-                >
-                  {plan.pause}
+              {/* Features */}
+              <div className="mt-7">
+                <p className="text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-green)] mb-4">
+                  What you get
                 </p>
+                <div className="space-y-1">
+                  {mvpFeatures.map((item) => (
+                    <div key={item.title} className="flex gap-3 py-3 px-2 rounded-xl hover:bg-[var(--color-bg-card-light)] transition-colors duration-200">
+                      <CheckIcon />
+                      <div>
+                        <p className="text-sm font-bold text-[var(--color-text-primary)]">{item.title}</p>
+                        <p className="text-xs text-[var(--color-text-body)] leading-relaxed mt-0.5">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-auto">
+              {/* Price box */}
+              <div className="mt-7 border border-[var(--color-border-card)] rounded-2xl p-5 bg-[var(--color-bg-card-light)]">
+                <p className="text-[10px] font-black uppercase tracking-widest text-[var(--color-text-muted)]">Fixed price</p>
+                <h4 className="text-2xl font-black font-heading mt-1 text-[var(--color-text-primary)]">$8,000 – $15,000</h4>
+                <p className="text-xs text-[var(--color-text-body)] mt-1 leading-relaxed">Scope agreed upfront. No hourly billing.</p>
               </div>
 
-              <button
-                className={`w-full py-4 rounded-full text-sm font-bold transition-all duration-300 mb-10 ${
-                  plan.featured
-                    ? "bg-white text-black hover:bg-(--color-bg-card)"
-                    : "bg-white border border-(--color-border-subtle) text-(--color-text-primary) hover:bg-(--color-bg-card-light)"
-                }`}
-              >
-                {plan.cta}
-              </button>
+              <Link to="/contact" className="mt-5 w-full py-3.5 rounded-xl border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] font-bold text-sm hover:bg-[var(--color-bg-card-light)] transition-all duration-300 flex items-center justify-center">
+                Tell us your idea →
+              </Link>
+            </div>
+          </div>
 
-              <div className="space-y-4">
-                <p
-                  className={`text-sm font-bold ${plan.featured ? "text-white" : "text-(--color-text-primary)"}`}
-                >
-                  What's included:
+          {/* RIGHT CARD — Subscription */}
+          <div className="snap-start shrink-0 w-[88vw] md:w-auto relative rounded-3xl border-2 border-[var(--color-brand-green)] bg-white p-5 sm:p-8 flex flex-col h-auto" style={{ boxShadow: "0 2px 20px rgba(36,181,116,0.1)" }}>
+            <div className="flex-1 flex flex-col">
+              <div className="absolute -top-3.5 left-6">
+                <span className="text-[10px] px-3 py-1.5 rounded-full bg-[var(--color-brand-green)] text-white font-black uppercase tracking-widest">
+                  Most Popular
+                </span>
+              </div>
+
+              <span className="inline-flex items-center w-fit text-[10px] px-3 py-1.5 rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-muted)] font-black uppercase tracking-widest">
+                My product is live
+              </span>
+
+              <h3 className="mt-5 text-2xl font-black font-heading text-[var(--color-text-primary)] leading-tight tracking-tight">
+                Your product team, on subscription
+              </h3>
+
+              <p className="mt-3 text-sm text-[var(--color-text-body)] leading-relaxed">
+                Same team every month. Cancel with 30 days notice. No lock-in, no re-explaining your codebase.
+              </p>
+
+              {/* Features */}
+              <div className="mt-7">
+                <p className="text-[10px] font-black uppercase tracking-widest text-[var(--color-brand-green)] mb-4">
+                  What you get
                 </p>
-                {plan.features.map((feature) => (
-                  <div key={feature} className="flex items-start gap-3">
-                    <div
-                      className={`mt-1 shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${plan.featured ? "bg-white/10 text-white" : "bg-(--color-bg-card) text-(--color-text-primary)"}`}
-                    >
-                      <svg
-                        width="10"
-                        height="8"
-                        viewBox="0 0 10 8"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M1 4.5l3 3 5-6" />
-                      </svg>
+                <div className="space-y-1">
+                  {subFeatures.map((item) => (
+                    <div key={item.title} className="flex gap-3 py-3 px-2 rounded-xl hover:bg-[var(--color-bg-success-tint)] transition-colors duration-200">
+                      <CheckIcon />
+                      <div>
+                        <p className="text-sm font-bold text-[var(--color-text-primary)]">{item.title}</p>
+                        <p className="text-xs text-[var(--color-text-body)] leading-relaxed mt-0.5">{item.desc}</p>
+                      </div>
                     </div>
-                    <span
-                      className={`text-[13.5px] font-medium leading-tight ${plan.featured ? "text-(--color-text-muted)" : "text-(--color-text-body)"}`}
-                    >
-                      {feature}
-                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-auto">
+              {/* Plans */}
+              <div className="flex sm:grid sm:grid-cols-3 gap-3 mt-7 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-hide w-full">
+                {plans.map((plan) => (
+                  <div
+                    key={plan.name}
+                    className={`shrink-0 min-w-[120px] flex-1 p-4 rounded-2xl border transition-all duration-300 text-center flex flex-col items-center justify-center min-h-[110px] snap-start ${
+                      plan.active
+                        ? "border-[var(--color-brand-green)] bg-[var(--color-bg-success-tint)]"
+                        : "border-[var(--color-border-card)] bg-white"
+                    }`}
+                  >
+                    <p className={`text-[10px] uppercase font-black tracking-widest ${plan.active ? "text-[var(--color-brand-green)]" : "text-[var(--color-text-muted)]"}`}>
+                      {plan.name}
+                    </p>
+                    <p className="text-xl font-black font-heading text-[var(--color-text-primary)] mt-1.5">{plan.price}</p>
+                    <p className="text-[10px] font-bold text-[var(--color-text-muted)] mt-1">{plan.hours}</p>
                   </div>
                 ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
 
-        {/* Bottom CTA */}
-        <Reveal>
-          <div className="max-w-xl mx-auto bg-(--color-bg-card-light)/50 border border-(--color-border-default) rounded-4xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
-                <img
-                  src="https://ui-avatars.com/api/?name=Alex+Rivera&background=000&color=fff"
-                  alt="Founder"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h4 className="text-(--color-text-primary) font-bold text-base font-heading">
-                  Book a call
-                </h4>
-                <p className="text-(--color-text-muted) text-sm">
-                  Book a 15-minute free call with our team
-                </p>
-              </div>
+              <Link to="/pricing" className="mt-5 w-full py-3.5 rounded-xl text-white font-bold text-sm bg-[var(--color-brand-green)] hover:opacity-90 transition-all duration-300 flex items-center justify-center">
+                See full pricing →
+              </Link>
+
+              <p className="text-[11px] text-center text-[var(--color-text-muted)] mt-3">
+                Cancel anytime · 30-day notice · NDA on day 1
+              </p>
             </div>
-            <button className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#111] text-white font-bold text-sm hover:bg-black transition-all shadow-lg shadow-(--color-text-dark)/10">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
-              Book a Call
-            </button>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default PricingSection;

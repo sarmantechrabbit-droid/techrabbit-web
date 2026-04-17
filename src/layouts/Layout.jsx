@@ -20,7 +20,7 @@ export default function Layout({ children }) {
   }, [pathname, hash])
 
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden selection:bg-indigo-50 selection:text-indigo-900">
+    <div className="min-h-screen flex flex-col overflow-x-hidden bg-[var(--color-bg-page)] text-[var(--color-text-primary)]">
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />

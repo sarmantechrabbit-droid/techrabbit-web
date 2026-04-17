@@ -1,36 +1,41 @@
 import Hero from "../components/Hero";
 import PricingSection from "../components/PricingSection";
+import TimezoneOverlap from "../components/TimezoneOverlap";
 import ComparisonSection from "../components/ComparisonSection";
 import ProcessSection from "../components/ProcessSection";
-import PortfolioSection from "../components/PortfolioSection";
-import Testimonials from "../components/Testimonials";
 import FAQSection from "../components/FAQSection";
-import CTASection from "../components/CTASection";
 import PortfolioMarquee from "../components/Portfoliomarquee";
+import CaseStudies from "../components/CaseStudies";
+import Testimonials from "../components/Testimonials";
+import PromisesSection from "../components/PromisesSection";
+import AboutCTA from "../components/about/AboutCTA";
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-[var(--color-bg-page)] overflow-x-hidden">
       <Hero />
       <PortfolioMarquee />
 
       {/* Pricing - Second Section */}
       <PricingSection />
-
+      {/* Timezone Overlap */}
+      <TimezoneOverlap />
       {/* Why we stand out - Third Section */}
       <ComparisonSection />
-
-      {/* Process - Fourth Section */}
       <ProcessSection />
-
-      {/* Explore Work - Fifth Section */}
-      <PortfolioSection />
+      {/* Process - Fourth Section */}
+      <CaseStudies />
 
       {/* Testimonials */}
       <Testimonials />
 
+      {/* Promises - Fifth Section */}
+      <PromisesSection />
+
       {/* FAQ */}
+
       <FAQSection />
+      <AboutCTA />
       {/* <CTASection />   */}
     </div>
   );
