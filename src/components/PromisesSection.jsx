@@ -19,7 +19,7 @@ const promises = [
     title: "Transparent Pricing",
     tagline: "Zero surprises.",
     details:
-      "Clockify reports every month. You see every hour billed — no black boxes, no inflated invoices. Full visibility, always.",
+      "Clockify reports every month. You see every hour billed.",
     proof: "Every hour tracked",
     stat: { value: "100%", label: "Billing visibility" },
     accent: "--color-brand-blue",
@@ -29,7 +29,7 @@ const promises = [
     title: "Cancel Anytime",
     tagline: "No lock-in. Ever.",
     details:
-      "30-day notice. No penalties. No awkward conversations. Leave whenever you want — we earn your stay every single month.",
+      "30-day notice. No lock-in. No penalties. Ever.",
     proof: "30-day notice only",
     stat: { value: "0", label: "Exit penalties" },
     accent: "--color-brand-green",
@@ -39,7 +39,7 @@ const promises = [
     title: "NDA on Day 1",
     tagline: "Your IP. Always.",
     details:
-      "Signed before line 1 of code. Your ideas, your product, your code — fully protected from the very first conversation.",
+      "Your IP, your code. Always. Signed before line 1.",
     proof: "Signed before kickoff",
     stat: { value: "Day 1", label: "NDA signed" },
     accent: "--color-brand-blue",
@@ -49,17 +49,17 @@ const promises = [
     title: "Your Timezone",
     tagline: "We overlap with you.",
     details:
-      "Daily overlap hours with US · UK · CA · AU. No waiting 24 hours for a reply. We work when you work.",
+      "Overlap hours with US · UK · CA · AU daily.",
     proof: "US · UK · CA · AU",
     stat: { value: "4+", label: "Timezone overlaps" },
     accent: "--color-brand-green",
   },
   {
     icon: MessageCircle,
-    title: "4-Hour Response",
+    title: "4-hour response",
     tagline: "Always reachable.",
     details:
-      "Every message answered within 4 business hours. No ghosting. No delays. You're never left wondering what's happening.",
+      "Every message answered within 4 business hours.",
     proof: "Guaranteed response",
     stat: { value: "4h", label: "Max response time" },
     accent: "--color-brand-blue",
@@ -69,7 +69,7 @@ const promises = [
     title: "Same Team Always",
     tagline: "No rotation. Ever.",
     details:
-      "The developer who starts your project finishes it. Full context, zero handoff loss, total accountability.",
+      "No rotation. The dev who starts finishes.",
     proof: "No team rotation",
     stat: { value: "0", label: "Team rotations" },
     accent: "--color-brand-green",

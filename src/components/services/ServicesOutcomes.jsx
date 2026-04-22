@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../Reveal";
-import { ChevronDown, Zap, Code2, Rocket, Sparkles, ArrowRight } from "lucide-react";
+import { ChevronDown, Zap, Code2, Rocket, Sparkles } from "lucide-react";
 
 const groups = [
   {
@@ -11,19 +11,19 @@ const groups = [
     items: [
       {
         t: "SaaS platform",
-        d: "Multi-tenant, subscription billing, user auth — production-ready in 30 days.",
+        d: "Multi-tenant, subscription billing, user auth, admin panel — production-ready in 30 days",
       },
       {
-        t: "Web application",
-        d: "React frontend, Node.js backend, PostgreSQL — built for your specific use case.",
+        t: "Web application + landing page",
+        d: "React frontend, Node.js backend, PostgreSQL — not a template, built for your use case",
       },
       {
         t: "Mobile app (iOS + Android)",
-        d: "React Native (Expo) — one codebase, both platforms, live in under 45 days.",
+        d: "React Native (Expo) — one codebase, both platforms, live in under 45 days",
       },
       {
-        t: "Internal dashboard",
-        d: "For ops, finance, or HR — if your team needs it, we build it efficiently.",
+        t: "Internal tool or dashboard",
+        d: "For ops, finance, logistics, HR — if your team needs it, we build it",
       },
     ],
   },
@@ -33,20 +33,20 @@ const groups = [
     accent: "--color-brand-green",
     items: [
       {
-        t: "AI Calling agent",
-        d: "Outbound + inbound. Handles objections and qualifies leads automatically.",
+        t: "AI calling agent",
+        d: "Outbound + inbound. Handles objections, qualifies leads, books appointments — no human operator",
       },
       {
         t: "Interview simulator",
-        d: "Face detection, dynamic questions, and response scoring evaluative logic.",
+        d: "Face detection, dynamic questions, response scoring. Not keyword matching — actual evaluation logic",
       },
       {
         t: "Resume / document scoring",
-        d: "Match against JDs and rank candidates before any human sees them.",
+        d: "Match against job descriptions, extract structured data, rank candidates before any human sees them",
       },
       {
-        t: "Custom knowledge base",
-        d: "Trained on your data. Answers accurately and escalates intelligently.",
+        t: "Custom chatbot with knowledge base",
+        d: "Trained on your data. Answers accurately, escalates intelligently. Not a generic GPT wrapper",
       },
     ],
   },
@@ -56,20 +56,20 @@ const groups = [
     accent: "--color-brand-blue",
     items: [
       {
-        t: "Feature development",
-        d: "We read your existing code, understand it, and build on it without rebuilds.",
+        t: "Feature development on live codebase",
+        d: "We read your existing code, understand it, build on it. No 'we need to rewrite this first'",
       },
       {
         t: "UI/UX redesign",
-        d: "Figma first. Redesigned from user flows, not just aesthetic preference.",
+        d: "Figma first. We redesign from user flows, not aesthetic preference. Then implement it",
       },
       {
-        t: "Performance fix",
-        d: "Slow queries and bottlenecks fixed with measurement, not guesswork.",
+        t: "Performance optimization",
+        d: "Slow queries, render bottlenecks, infra issues — fixed with measurement, not guesswork",
       },
       {
         t: "Tech debt cleanup",
-        d: "Identify and fix issues without breaking what is already working.",
+        d: "Identify, prioritize, fix — without breaking what's working",
       },
     ],
   },
@@ -88,62 +88,84 @@ export default function ServicesOutcomes() {
   };
 
   return (
-    <section className="py-12 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
+    <section className="relative overflow-hidden bg-[var(--color-bg-page)] px-4 py-16 sm:px-6 md:px-8 lg:px-12">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           opacity: 0.5,
         }}
       />
 
       {/* Gradient glows */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none">
+      <div className="absolute right-[-20%] top-0 h-[18rem] w-[18rem] pointer-events-none sm:right-[-10%] sm:h-[24rem] sm:w-[24rem] lg:right-0 lg:h-[37.5rem] lg:w-[37.5rem]">
         <div
           className="absolute inset-0 rounded-full blur-[150px]"
           style={{
-            background: "radial-gradient(circle, rgba(42,171,215,0.08) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(42,171,215,0.08) 0%, transparent 70%)",
           }}
         />
       </div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none">
+      <div className="absolute bottom-0 left-[-20%] h-[16rem] w-[16rem] pointer-events-none sm:left-[-10%] sm:h-[22rem] sm:w-[22rem] lg:left-0 lg:h-[31.25rem] lg:w-[31.25rem]">
         <div
           className="absolute inset-0 rounded-full blur-[150px]"
           style={{
-            background: "radial-gradient(circle, rgba(36,181,116,0.08) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(36,181,116,0.08) 0%, transparent 70%)",
           }}
         />
       </div>
 
       {/* Fade overlays */}
-      <div className="absolute top-0 inset-x-0 h-20 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, var(--color-bg-page), transparent)" }} />
-      <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none"
-        style={{ background: "linear-gradient(to top, var(--color-bg-page), transparent)" }} />
+      <div
+        className="absolute top-0 inset-x-0 h-20 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, var(--color-bg-page), transparent)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 inset-x-0 h-20 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, var(--color-bg-page), transparent)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <Reveal className="mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-green)] text-[10px] font-black tracking-widest uppercase mb-6">
+        <Reveal className="mb-10 sm:mb-12">
+          <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.28em] text-[var(--color-brand-green)] sm:mb-6 sm:px-4 sm:text-[10px]">
             <Zap className="w-3.5 h-3.5" />
-            Our specialties
+          What we actually build
+
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.2] mb-4">
-            Outcomes, not service names.
+          <h2 className="mb-4 text-4xl font-bold font-heading leading-[1.15] tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
+            Outcomes, not 
+
+            <br className="sm:hidden" />
+            service names.
             <br />
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-brand)" }}>
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "var(--gradient-brand)" }}
+            >
               Here's what you get.
             </span>
           </h2>
-          <p className="text-[var(--color-text-body)] text-sm max-w-2xl leading-relaxed font-medium">
-            We focus on results, not labels.
+          <p className="max-w-2xl text-sm font-medium leading-relaxed text-[var(--color-text-body)]">
+          Most agencies list technologies. We list what you actually get — so you know what you're paying for before the first call.
+
+
           </p>
         </Reveal>
 
         {/* Tab Navigation */}
-        <div className="flex flex-col sm:flex-row gap-3 mb-12 overflow-x-auto pb-2">
+        <div className="mb-10 flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:mb-12">
           {groups.map((group, idx) => {
             const Icon = group.icon;
             const isActive = expandedGroup === idx;
@@ -152,7 +174,7 @@ export default function ServicesOutcomes() {
               <motion.button
                 key={group.title}
                 onClick={() => setExpandedGroup(idx)}
-                className="relative rounded-full px-6 py-3 border transition-all duration-300 flex items-center gap-2 shrink-0 whitespace-nowrap"
+                className="relative flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border px-4 py-3 transition-all duration-300 sm:px-6"
                 style={{
                   background: isActive
                     ? `color-mix(in srgb, var(${group.accent}) 10%, white)`
@@ -168,13 +190,17 @@ export default function ServicesOutcomes() {
                 <Icon
                   className="w-4 h-4 transition-colors duration-300"
                   style={{
-                    color: isActive ? `var(${group.accent})` : "var(--color-text-muted)",
+                    color: isActive
+                      ? `var(${group.accent})`
+                      : "var(--color-text-muted)",
                   }}
                 />
                 <span
-                  className="text-sm font-black uppercase tracking-widest transition-colors duration-300"
+                  className="text-xs font-black uppercase tracking-[0.22em] transition-colors duration-300 sm:text-sm sm:tracking-widest"
                   style={{
-                    color: isActive ? `var(${group.accent})` : "var(--color-text-muted)",
+                    color: isActive
+                      ? `var(${group.accent})`
+                      : "var(--color-text-muted)",
                   }}
                 >
                   {group.title.split(" ")[0]}
@@ -185,7 +211,7 @@ export default function ServicesOutcomes() {
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {groups.map((group, gIdx) => {
             const Icon = group.icon;
             const isActive = expandedGroup === gIdx;
@@ -200,14 +226,14 @@ export default function ServicesOutcomes() {
                     transition={{ duration: 0.3 }}
                     className="lg:col-span-3"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                       {group.items.map((item, iIdx) => (
                         <motion.div
                           key={item.t}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: iIdx * 0.08 }}
-                          className="relative rounded-2xl border overflow-hidden transition-all duration-300 cursor-pointer group"
+                          className="group relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-300"
                           style={{
                             background: "white",
                             borderColor: "var(--color-border-card)",
@@ -222,11 +248,11 @@ export default function ServicesOutcomes() {
                           />
 
                           {/* Content */}
-                          <div className="p-6 h-full flex flex-col">
+                          <div className="flex h-full flex-col p-5 sm:p-6">
                             {/* Icon + Title */}
-                            <div className="flex items-start justify-between mb-4">
+                            <div className="mb-4 flex items-start justify-between">
                               <div
-                                className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
+                                className="flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300"
                                 style={{
                                   background: `color-mix(in srgb, var(${group.accent}) 12%, transparent)`,
                                 }}
@@ -238,7 +264,9 @@ export default function ServicesOutcomes() {
                               </div>
                               <motion.div
                                 animate={{
-                                  rotate: expandedItems[`${gIdx}-${iIdx}`] ? 180 : 0,
+                                  rotate: expandedItems[`${gIdx}-${iIdx}`]
+                                    ? 180
+                                    : 0,
                                 }}
                                 transition={{ duration: 0.3 }}
                               >
@@ -249,7 +277,7 @@ export default function ServicesOutcomes() {
                               </motion.div>
                             </div>
 
-                            <h4 className="text-base font-bold font-heading text-[var(--color-text-primary)] tracking-tight mb-2">
+                            <h4 className="mb-2 text-base font-bold font-heading tracking-tight text-[var(--color-text-primary)]">
                               {item.t}
                             </h4>
 
@@ -261,7 +289,7 @@ export default function ServicesOutcomes() {
                                   animate={{ opacity: 1, height: "auto" }}
                                   exit={{ opacity: 0, height: 0 }}
                                   transition={{ duration: 0.3 }}
-                                  className="text-sm text-[var(--color-text-body)] leading-relaxed"
+                                  className="text-sm leading-relaxed text-[var(--color-text-body)]"
                                 >
                                   {item.d}
                                 </motion.p>
@@ -270,7 +298,7 @@ export default function ServicesOutcomes() {
                                   initial={{ opacity: 0 }}
                                   animate={{ opacity: 1 }}
                                   exit={{ opacity: 0 }}
-                                  className="text-sm text-[var(--color-text-body)] leading-relaxed line-clamp-2"
+                                  className="line-clamp-2 text-sm leading-relaxed text-[var(--color-text-body)]"
                                 >
                                   {item.d}
                                 </motion.p>
@@ -278,7 +306,7 @@ export default function ServicesOutcomes() {
                             </AnimatePresence>
 
                             {/* Hover indicator */}
-                            <div className="mt-auto pt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="mt-auto flex items-center gap-2 pt-4 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100">
                               <div
                                 className="w-1.5 h-1.5 rounded-full"
                                 style={{ background: `var(${group.accent})` }}
@@ -287,7 +315,9 @@ export default function ServicesOutcomes() {
                                 className="text-[10px] font-black uppercase tracking-widest"
                                 style={{ color: `var(${group.accent})` }}
                               >
-                                {expandedItems[`${gIdx}-${iIdx}`] ? "Show less" : "Learn more"}
+                                {expandedItems[`${gIdx}-${iIdx}`]
+                                  ? "Show less"
+                                  : "Learn more"}
                               </span>
                             </div>
                           </div>
@@ -303,7 +333,7 @@ export default function ServicesOutcomes() {
 
         {/* Fallback Grid - Show all when no tab selected */}
         {expandedGroup === null && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {groups.map((group, gIdx) => (
               <Reveal key={group.title} delay={gIdx * 0.1}>
                 <motion.div
@@ -311,7 +341,7 @@ export default function ServicesOutcomes() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: gIdx * 0.1 }}
                   viewport={{ once: true }}
-                  className="relative rounded-3xl border overflow-hidden p-8 transition-all duration-300 h-full"
+                  className="relative h-full overflow-hidden rounded-3xl border p-6 transition-all duration-300 sm:p-8"
                   style={{
                     background: "white",
                     borderColor: "var(--color-border-card)",
@@ -325,16 +355,21 @@ export default function ServicesOutcomes() {
                   />
 
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-8 pb-6 border-b border-[var(--color-border-light)]">
+                  <div className="mb-6 flex items-center justify-between border-b border-[var(--color-border-light)] pb-5 sm:mb-8 sm:pb-6">
                     <div className="flex items-center gap-3">
                       {group.icon && (
                         <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center"
+                          className="flex h-10 w-10 items-center justify-center rounded-xl"
                           style={{
                             background: `color-mix(in srgb, var(${group.accent}) 12%, transparent)`,
                           }}
                         >
-                          {group.icon && <group.icon className="w-5 h-5" style={{ color: `var(${group.accent})` }} />}
+                          {group.icon && (
+                            <group.icon
+                              className="w-5 h-5"
+                              style={{ color: `var(${group.accent})` }}
+                            />
+                          )}
                         </div>
                       )}
                       <h3 className="text-lg font-black font-heading text-[var(--color-text-primary)] tracking-tight">
@@ -353,7 +388,7 @@ export default function ServicesOutcomes() {
                   </div>
 
                   {/* Items */}
-                  <div className="space-y-6">
+                  <div className="space-y-5 sm:space-y-6">
                     {group.items.map((item) => (
                       <div key={item.t} className="flex gap-3">
                         <div

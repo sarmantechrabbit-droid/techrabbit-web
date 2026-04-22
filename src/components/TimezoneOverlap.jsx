@@ -82,7 +82,9 @@ export default function TimezoneOverlap() {
         </Reveal>
 
         {/* Timezone Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible -mx-1 md:mx-0 px-1 md:px-0 w-full scrollbar-hide mb-20"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           {timezones.map((tz, idx) => (
             <motion.div
               key={tz.region}
@@ -90,7 +92,7 @@ export default function TimezoneOverlap() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="group relative snap-start shrink-0 w-[84vw] sm:w-[70vw] md:w-auto"
             >
               <div
                 className="relative rounded-3xl border overflow-hidden p-8 transition-all duration-300 h-full"
@@ -176,7 +178,9 @@ export default function TimezoneOverlap() {
             </div>
 
             {/* Commitment Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex gap-8 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible -mx-1 md:mx-0 px-1 md:px-0 w-full scrollbar-hide"
+              style={{ WebkitOverflowScrolling: "touch" }}
+            >
               {commitments.map((item, idx) => {
                 const Icon = item.icon;
                 return (
@@ -186,7 +190,7 @@ export default function TimezoneOverlap() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex gap-4"
+                    className="flex gap-4 snap-start shrink-0 w-[84vw] sm:w-[70vw] md:w-auto"
                   >
                     {/* Icon */}
                     <div

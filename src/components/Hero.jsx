@@ -25,7 +25,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative z-0 overflow-hidden bg-[var(--color-bg-page)] pt-28 md:pt-36">
+    <section className="relative z-0 overflow-hidden bg-[var(--color-bg-page)] pt-28 md:pt-36 pb-12 md:pb-20">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src={heroBackground}
@@ -43,192 +43,275 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
-        <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full 
-             border border-[#b7d7f0] 
-             bg-gradient-to-r from-[#eaf6fb] to-[#f5f7f9] 
-             text-[#1f2937] text-sm font-medium shadow-sm mb-6"
-          >
-            <span className="flex items-center gap-2">
-              Trusted by founders in 6 countries
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentIndex}
-                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                  transition={{ duration: 0.3 }}
-                  className="inline-flex items-center text-base leading-none px-1.5 py-0.5 rounded-md"
+      <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-6 md:px-12 w-full">
+        {/* Main Grid - Content Left, Video Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start ">
+          {/* Left Column - Content */}
+          <div className="flex flex-col justify-between">
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full 
+                 border border-[#b7d7f0] 
+                 bg-gradient-to-r from-[#eaf6fb] to-[#f5f7f9] 
+                 text-[#1f2937] text-sm font-medium shadow-sm mb-6"
+              >
+                <span className="flex items-center gap-2">
+                  Trusted by founders in 6 countries
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentIndex}
+                      initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                      animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                      exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
+                      transition={{ duration: 0.3 }}
+                      className="inline-flex items-center text-base leading-none px-1.5 py-0.5 rounded-md"
+                    >
+                      <img
+                        src={countries[currentIndex].flag}
+                        alt={countries[currentIndex].code}
+                        className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm"
+                      />
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-3xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight font-black font-heading text-[var(--color-text-primary)] mb-6"
+              >
+                We build your product.
+                <br />
+                <span className="text-[var(--color-text-muted)] font-medium">
+                  Then we grow it with you.
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-[var(--color-text-body)] text-sm sm:text-base md:text-lg max-w-lg mb-8 sm:mb-10 leading-relaxed"
+              >
+                From idea to live MVP in 30 days — or an ongoing product team on
+                subscription. Figma · Full-Stack · QA · AI · BA — all included.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-12"
+              >
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-white font-black text-sm hover:scale-[1.03] transition-all duration-300"
+                  style={{
+                    background: "var(--gradient-brand)",
+                    boxShadow: "0 20px 40px var(--color-brand-glow)",
+                  }}
                 >
-                  <img
-                    src={countries[currentIndex].flag}
-                    alt={countries[currentIndex].code}
-                    className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm"
-                  />
-                </motion.span>
-              </AnimatePresence>
-            </span>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight font-black font-heading text-[var(--color-text-primary)] mb-6"
-          >
-            We build your product.
-            <br />
-            <span className="text-[var(--color-text-muted)] font-medium">
-              Then we grow it with you.
-            </span>
-          </motion.h1>
+                  Launch your MVP
+                  <span className="text-lg">→</span>
+                </Link>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[var(--color-text-body)] text-sm sm:text-base md:text-lg max-w-lg mb-8 sm:mb-10 leading-relaxed"
-          >
-            From idea to live MVP in 30 days - or an ongoing product team on
-            subscription. Figma, Full-Stack, QA, AI, and BA all included.
-          </motion.p>
+                <Link
+                  to="/#pricing"
+                  className="px-7 py-3.5 rounded-full border border-[var(--color-border-subtle)] bg-white/80 backdrop-blur-sm text-[var(--color-text-primary)] font-bold text-sm hover:bg-[var(--color-bg-card-light)] transition-all duration-300 text-center"
+                >
+                  See subscription plans
+                </Link>
+              </motion.div>
 
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="grid grid-cols-4 gap-2 sm:gap-6 mb-5"
+              >
+                {[
+                  { value: "6+", label: "Years" },
+                  { value: "30+", label: "Products" },
+                  { value: "6", label: "Countries" },
+                  { value: "100%", label: "Inhouse" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <div className="text-xl sm:text-3xl text-center font-black text-[var(--color-text-primary)] font-heading">
+                      {s.value}
+                    </div>
+                    <div className="text-[var(--color-text-muted)] text-center text-[8px] sm:text-[10px] font-bold uppercase tracking-widest mt-1 whitespace-nowrap">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Right Column - Video Frame */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 border-b border-[var(--color-border-default)] pb-10 sm:pb-14"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="hidden lg:flex lg:justify-end"
           >
-            <Link
-              to="/contact"
-              className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-white font-black text-sm hover:scale-[1.03] transition-all duration-300"
-              style={{
-                background: "var(--gradient-brand)",
-                boxShadow: "0 20px 40px var(--color-brand-glow)",
-              }}
-            >
-              Launch your MVP
-              <span className="text-lg">→</span>
-            </Link>
-
-            <Link
-              to="/#pricing"
-              className="px-7 py-3.5 rounded-full border border-[var(--color-border-subtle)] bg-white/80 backdrop-blur-sm text-[var(--color-text-primary)] font-bold text-sm hover:bg-[var(--color-bg-card-light)] transition-all duration-300 text-center"
-            >
-              See subscription plans
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 sm:mt-10 grid grid-cols-4 gap-2 sm:gap-6 pb-10 sm:pb-12 border-b border-[var(--color-border-default)]"
-          >
-            {[
-              { value: "6+", label: "Years" },
-              { value: "30+", label: "Products" },
-              { value: "6", label: "Countries" },
-              { value: "100%", label: "Inhouse" },
-            ].map((s) => (
-              <div key={s.label}>
-                <div className="text-xl sm:text-3xl text-center font-black text-[var(--color-text-primary)] font-heading">
-                  {s.value}
-                </div>
-                <div className="text-[var(--color-text-muted)] text-center text-[8px] sm:text-[10px] font-bold uppercase tracking-widest mt-1 whitespace-nowrap">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Clutch & GoodFirms Badges - At Bottom */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10 flex  items-start sm:items-center gap-4"
-          >
-            <p className="text-[10px] font-black uppercase tracking-widest text-[var(--color-text-faint)]">
-              Trusted by:
-            </p>
-
-            {/* Clutch Badge */}
+            {/* Video Frame */}
             <div
-              className="relative rounded-lg border overflow-hidden p-2.5 flex items-center gap-2 transition-all duration-300 hover:shadow-md"
+              className="relative rounded-3xl bg-white border border-[var(--color-border-default)] overflow-hidden group cursor-pointer shadow-2xl"
               style={{
-                background: "white",
-                borderColor: "var(--color-border-card)",
-                boxShadow: "0 1px 6px rgba(0,0,0,0.03)",
+                width: "571px",
+                height: "400px",
+                boxShadow: "0 20px 60px rgba(42, 171, 215, 0.15)",
               }}
             >
-              <div
-                className="absolute top-0 inset-x-0 h-0.5"
-                style={{ background: "var(--color-brand-blue)" }}
-              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-blue)]/5 to-[var(--color-brand-green)]/5 pointer-events-none" />
 
-              <img
-                src={clutchLogo}
-                alt="Clutch"
-                className="h-5 object-contain"
-              />
-
-              <div className="flex flex-col gap-0.5">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(1)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-[7px] font-black uppercase tracking-widest text-[var(--color-text-faint)]">
-                  4.6
+              {/* Video frame content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                <motion.div
+                  className="w-20 h-20 rounded-full text-white flex items-center justify-center mb-4 shadow-xl group-hover:scale-110 transition-transform"
+                  style={{ background: "var(--gradient-brand)" }}
+                  whileHover={{ scale: 1.15 }}
+                >
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </motion.div>
+                <h3 className="text-[var(--color-text-primary)] font-black text-xl mb-2 font-heading">
+                  See how we work
+                </h3>
+                <p className="text-[var(--color-text-muted)] text-sm">
+                  Watch our process from idea to live product
                 </p>
               </div>
             </div>
 
-            {/* GoodFirms Badge */}
-            <div
-              className="relative rounded-lg border overflow-hidden p-2.5 flex items-center gap-2 transition-all duration-300 hover:shadow-md"
-              style={{
-                background: "white",
-                borderColor: "var(--color-border-card)",
-                boxShadow: "0 1px 6px rgba(0,0,0,0.03)",
-              }}
+            {/* Trusted By Badges - Outside Below Video */}
+            {/* <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-6 flex items-center justify-satrt gap-6"
             >
+              <p className="text-[10px] font-black uppercase tracking-widest text-[var(--color-text-faint)]">
+                Trusted by:
+              </p>
+
               <div
-                className="absolute top-0 inset-x-0 h-0.5"
-                style={{ background: "var(--color-brand-green)" }}
-              />
+                className="relative rounded-lg border overflow-hidden p-2.5 flex items-center gap-2 transition-all duration-300 hover:shadow-md"
+                style={{
+                  background: "white",
+                  borderColor: "var(--color-border-card)",
+                  boxShadow: "0 1px 6px rgba(0,0,0,0.03)",
+                }}
+              >
+                <div
+                  className="absolute top-0 inset-x-0 h-0.5"
+                  style={{ background: "var(--color-brand-blue)" }}
+                />
 
-              <img
-                src={goodfirmsLogo}
-                alt="GoodFirms"
-                className="h-5 object-contain"
-              />
+                <img
+                  src={clutchLogo}
+                  alt="Clutch"
+                  className="h-5 object-contain"
+                />
 
-              <div className="flex flex-col gap-0.5">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(1)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex items-center gap-0.5">
+                    <Star className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
+                  </div>
+                  <p className="text-[7px] font-black uppercase tracking-widest text-[var(--color-text-faint)]">
+                    4.6
+                  </p>
                 </div>
-                <p className="text-[7px] font-black uppercase tracking-widest text-[var(--color-text-faint)]">
-                  4.3
-                </p>
               </div>
-            </div>
+
+              <div
+                className="relative rounded-lg border overflow-hidden p-2.5 flex items-center gap-2 transition-all duration-300 hover:shadow-md"
+                style={{
+                  background: "white",
+                  borderColor: "var(--color-border-card)",
+                  boxShadow: "0 1px 6px rgba(0,0,0,0.03)",
+                }}
+              >
+                <div
+                  className="absolute top-0 inset-x-0 h-0.5"
+                  style={{ background: "var(--color-brand-green)" }}
+                />
+
+                <img
+                  src={goodfirmsLogo}
+                  alt="GoodFirms"
+                  className="h-5 object-contain"
+                />
+
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex items-center gap-0.5">
+                    <Star className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
+                  </div>
+                  <p className="text-[7px] font-black uppercase tracking-widest text-[var(--color-text-faint)]">
+                    4.3
+                  </p>
+                </div>
+              </div>
+            </motion.div> */}
           </motion.div>
         </div>
-        
+
+        {/* Mobile Video Frame - Below Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="lg:hidden mt-6"
+        >
+          <div
+            className="relative w-full aspect-video rounded-3xl bg-white border border-[var(--color-border-default)] overflow-hidden group cursor-pointer shadow-2xl"
+            style={{
+              boxShadow: "0 20px 60px rgba(42, 171, 215, 0.15)",
+            }}
+          >
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-blue)]/5 to-[var(--color-brand-green)]/5 pointer-events-none" />
+
+            {/* Video frame content */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 sm:p-8">
+              <motion.div
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full text-white flex items-center justify-center mb-4 shadow-xl group-hover:scale-110 transition-transform"
+                style={{ background: "var(--gradient-brand)" }}
+                whileHover={{ scale: 1.15 }}
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </motion.div>
+              <h3 className="text-[var(--color-text-primary)] font-black text-lg md:text-xl mb-2 font-heading">
+                See how we work
+              </h3>
+              <p className="text-[var(--color-text-muted)] text-sm">
+                Watch our process from idea to live product
+              </p>
+            </div>
+          </div>
+
+         
+        </motion.div>
       </div>
     </section>
   );

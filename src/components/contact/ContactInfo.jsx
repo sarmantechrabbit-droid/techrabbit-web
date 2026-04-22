@@ -16,10 +16,10 @@ const processSteps = [
 ]
 
 const benefits = [
-  { text: 'Cancel anytime', icon: Lock },
-  { text: 'NDA day 1', icon: Shield },
-  { text: '30-day notice', icon: Calendar },
-  { text: 'ISO certified', icon: Award }
+  { text: 'Cancel anytime' },
+  { text: 'NDA day 1' },
+  { text: '30-day notice' },
+  { text: 'ISO certified' }
 ]
 
 const containerVariants = {
@@ -124,11 +124,11 @@ export default function ContactInfo() {
 
         {/* Process Steps */}
         <motion.div variants={itemVariants}>
-          <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-6 flex items-center gap-2">
+          <h3 className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] mb-6 md:mb-8 flex items-center gap-2">
             <span className="w-1 h-6 rounded-full" style={{ background: 'var(--gradient-brand)' }}></span>
             What happens next?
           </h3>
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {processSteps.map((step, idx) => {
               const Icon = step.icon
               return (
@@ -137,14 +137,14 @@ export default function ContactInfo() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="flex gap-4 group"
+                  className="flex gap-3 md:gap-4 group"
                 >
                   <motion.div
-                    className="flex-shrink-0 w-12 h-12 rounded-full text-white flex items-center justify-center font-bold text-sm relative"
+                    className="flex-shrink-0 w-10 md:w-12 h-10 md:h-12 rounded-full text-white flex items-center justify-center font-bold text-xs md:text-sm relative"
                     style={{ background: 'var(--gradient-brand)' }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 md:w-5 h-4 md:h-5" />
                     <motion.div
                       className="absolute inset-0 rounded-full"
                       style={{ border: '2px solid var(--color-brand-blue)' }}
@@ -152,8 +152,8 @@ export default function ContactInfo() {
                       transition={{ duration: 2, repeat: Infinity }}
                     />
                   </motion.div>
-                  <div className="flex-1 pt-2">
-                    <p className="text-[var(--color-text-body)] font-medium group-hover:text-[var(--color-brand-blue)] transition-colors">{step.title}</p>
+                  <div className="flex-1 pt-1 md:pt-2">
+                    <p className="text-[var(--color-text-body)] text-sm md:text-base font-medium group-hover:text-[var(--color-brand-blue)] transition-colors">{step.title}</p>
                   </div>
                 </motion.div>
               )
@@ -161,11 +161,11 @@ export default function ContactInfo() {
           </div>
         </motion.div>
 
-        {/* Benefits Grid */}
-        <motion.div variants={itemVariants}>
-          <div className="grid grid-cols-2 gap-3">
+        {/* Benefits Grid - Card Style */}
+     
+         {/* <motion.div variants={itemVariants}>
+          <div className="grid grid-cols-4 gap-4">
             {benefits.map((benefit, idx) => {
-              const Icon = benefit.icon
               return (
                 <motion.div
                   key={idx}
@@ -173,20 +173,31 @@ export default function ContactInfo() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border-light)] bg-white hover:shadow-md transition-all"
+                  className="relative overflow-hidden rounded-2xl bg-white border border-[var(--color-border-light)] hover:shadow-md transition-all"
                 >
-                  <motion.div
-                    className="w-5 h-5 rounded-lg bg-gradient-to-br from-[var(--color-brand-blue)] to-[var(--color-brand-green)] flex items-center justify-center text-white flex-shrink-0"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
-                    <Icon className="w-3 h-3" />
-                  </motion.div>
-                  <span className="text-sm font-semibold text-[var(--color-text-primary)]">{benefit.text}</span>
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1"
+                    style={{
+                      background: idx === 0 ? 'var(--color-brand-blue)' : 
+                                 idx === 1 ? 'var(--color-brand-green)' :
+                                 idx === 2 ? 'var(--color-brand-blue)' :
+                                 'var(--color-brand-green)'
+                    }}
+                  />
+                  
+                  <div className="p-6 text-center">
+                    <p className="text-xl font-black text-[var(--color-text-primary)] mb-2">
+                      {benefit.text.split(' ')[0]}
+                    </p>
+                    <p className="text-xs text-[var(--color-text-muted)] font-bold uppercase tracking-widest">
+                      {benefit.text.split(' ').slice(1).join(' ')}
+                    </p>
+                  </div>
                 </motion.div>
               )
             })}
           </div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </Reveal>
   )

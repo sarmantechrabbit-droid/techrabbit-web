@@ -9,6 +9,7 @@ import CaseStudies from "../components/CaseStudies";
 import Testimonials from "../components/Testimonials";
 import PromisesSection from "../components/PromisesSection";
 import AboutCTA from "../components/about/AboutCTA";
+import ServicesOutcomes from "../components/services/ServicesOutcomes";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <PricingSection />
       {/* Timezone Overlap */}
       <TimezoneOverlap />
+            <ServicesOutcomes />
+      
       {/* Why we stand out - Third Section */}
       <ComparisonSection />
       <ProcessSection />
@@ -35,7 +38,7 @@ export default function Home() {
       {/* FAQ */}
 
       <FAQSection />
-      <AboutCTA />
+      {/* <AboutCTA / > */}
       {/* <CTASection />   */}
     </div>
   );

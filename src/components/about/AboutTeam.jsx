@@ -7,34 +7,40 @@ const team = [
   {
     name: "Kunal Gangvani",
     role: "Founder & PM",
-    details: "Leading strategy since 2019. Product visionary with 6+ years experience.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
+    details:
+      "Leading strategy since 2019. Product visionary with 6+ years experience.",
+    image:
+      "#",
     accent: "--color-brand-blue",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
   },
   {
     name: "UI/UX Designer",
     role: "Figma Lead",
-    details: "Design systems & prototypes. Creating beautiful user experiences.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=600&fit=crop",
+    details:
+      "Design systems & prototypes. Creating beautiful user experiences.",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=600&fit=crop",
     accent: "--color-brand-green",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Dhrumit",
     role: "Full-Stack Developer",
     details: "React, Node.js, PostgreSQL. Building scalable applications.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
     accent: "--color-brand-blue",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Dharmik Odedara",
     role: "Backend Dev",
     details: "APIs, Integrations & Architecture. System design expert.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
     accent: "--color-brand-green",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Sarman Parmar",
@@ -42,23 +48,25 @@ const team = [
     details: "Performance & Animations. Crafting smooth user interactions.",
     image: "#",
     accent: "--color-brand-blue",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Pramod Kale",
     role: "QA Engineer",
     details: "Systems & Ops Excellence. Ensuring quality at every step.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
     accent: "--color-brand-green",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Chirag",
     role: "Business Analyst",
     details: "Requirements & Sprint planning. Bridging business and tech.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
     accent: "--color-brand-blue",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Client Success",
@@ -66,7 +74,41 @@ const team = [
     details: "Communication & Growth. Your dedicated point of contact.",
     image: "#",
     accent: "--color-brand-green",
-    socials: { linkedin: "#", github: "#", email: "#" },
+    socials: { linkedin: "#", email: "#" },
+  },
+   {
+    name: "Sarman Parmar",
+    role: "Frontend Dev",
+    details: "Performance & Animations. Crafting smooth user interactions.",
+    image: "#",
+    accent: "--color-brand-blue",
+    socials: { linkedin: "#", email: "#" },
+  },
+  {
+    name: "Pramod Kale",
+    role: "QA Engineer",
+    details: "Systems & Ops Excellence. Ensuring quality at every step.",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
+    accent: "--color-brand-green",
+    socials: { linkedin: "#", email: "#" },
+  },
+  {
+    name: "Chirag",
+    role: "Business Analyst",
+    details: "Requirements & Sprint planning. Bridging business and tech.",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
+    accent: "--color-brand-blue",
+    socials: { linkedin: "#", email: "#" },
+  },
+  {
+    name: "Client Success",
+    role: "Sales & Onboarding",
+    details: "Communication & Growth. Your dedicated point of contact.",
+    image: "#",
+    accent: "--color-brand-green",
+    socials: { linkedin: "#", email: "#" },
   },
 ];
 
@@ -74,43 +116,56 @@ export default function AboutTeam() {
   const [expandedIdx, setExpandedIdx] = useState(null);
 
   return (
-    <section className="pt-20 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
+    <section className="pt-16 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           opacity: 0.5,
         }}
       />
-      <div className="absolute top-0 inset-x-0 h-28 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, var(--color-bg-page), transparent)" }} />
-      <div className="absolute bottom-0 inset-x-0 h-28 pointer-events-none"
-        style={{ background: "linear-gradient(to top, var(--color-bg-page), transparent)" }} />
+      <div
+        className="absolute top-0 inset-x-0 h-28 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, var(--color-bg-page), transparent)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 inset-x-0 h-28 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, var(--color-bg-page), transparent)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <Reveal className="text-center mb-24">
+        <Reveal className="text-center lg:mb-24 max-sm:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-6">
             Meet Our Team
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.2] mb-5">
-           Everyone who works 
+            Everyone who works
             <br />
-            <span className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "var(--gradient-brand)" }}>
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "var(--gradient-brand)" }}
+            >
               on your product
             </span>
           </h2>
           <p className="text-[var(--color-text-body)] text-base max-w-2xl mx-auto leading-relaxed font-medium">
-100% inhouse. One office. Every person in the same room in Ahmedabad.
+          100% inhouse. One office. Every person in the same room in Ahmedabad.
 
           </p>
         </Reveal>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        <div className="flex overflow-x-auto pb-8 gap-6 mb-6 scrollbar-hide snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0">
           {team.map((member, idx) => (
             <motion.div
               key={member.name + idx}
@@ -118,18 +173,20 @@ export default function AboutTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08, duration: 0.5 }}
               viewport={{ once: true }}
-              className="group relative h-full"
+              className="group relative h-full min-w-[280px] w-[80vw] sm:w-[50vw] md:w-auto md:min-w-0 snap-center"
             >
               {/* Card Container */}
               <motion.div
                 className="relative rounded-3xl overflow-hidden h-full flex flex-col border transition-all duration-300"
                 style={{
-                  borderColor: expandedIdx === idx
-                    ? `var(${member.accent})`
-                    : "var(--color-border-card)",
-                  boxShadow: expandedIdx === idx
-                    ? `0 20px 60px -12px color-mix(in srgb, var(${member.accent}) 30%, transparent)`
-                    : "0 2px 12px rgba(0,0,0,0.04)",
+                  borderColor:
+                    expandedIdx === idx
+                      ? `var(${member.accent})`
+                      : "var(--color-border-card)",
+                  boxShadow:
+                    expandedIdx === idx
+                      ? `0 20px 60px -12px color-mix(in srgb, var(${member.accent}) 30%, transparent)`
+                      : "0 2px 12px rgba(0,0,0,0.04)",
                 }}
               >
                 {/* Image Container */}
@@ -138,7 +195,7 @@ export default function AboutTeam() {
                   <motion.img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500"
+                    className="w-full h-full object-contain transition-transform duration-500"
                     animate={{
                       scale: expandedIdx === idx ? 1.05 : 1,
                     }}
@@ -148,9 +205,10 @@ export default function AboutTeam() {
                   <div
                     className="absolute inset-0 transition-all duration-300"
                     style={{
-                      background: expandedIdx === idx
-                        ? `linear-gradient(135deg, color-mix(in srgb, var(${member.accent}) 40%, transparent) 0%, color-mix(in srgb, var(${member.accent}) 20%, transparent) 100%)`
-                        : `linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%)`,
+                      background:
+                        expandedIdx === idx
+                          ? `linear-gradient(135deg, color-mix(in srgb, var(${member.accent}) 40%, transparent) 0%, color-mix(in srgb, var(${member.accent}) 20%, transparent) 100%)`
+                          : `linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%)`,
                     }}
                   />
 
@@ -223,7 +281,7 @@ export default function AboutTeam() {
                           >
                             <Share2 className="w-4 h-4" />
                           </a>
-                          <a
+                          {/* <a
                             href={member.socials.github}
                             className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 border"
                             style={{
@@ -234,7 +292,7 @@ export default function AboutTeam() {
                             title="GitHub"
                           >
                             <Code2 className="w-4 h-4" />
-                          </a>
+                          </a> */}
                           <a
                             href={member.socials.email}
                             className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 border"
@@ -263,12 +321,15 @@ export default function AboutTeam() {
 
                   {/* Expand Button */}
                   <motion.button
-                    onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+                    onClick={() =>
+                      setExpandedIdx(expandedIdx === idx ? null : idx)
+                    }
                     className="mt-4 w-full py-2.5 rounded-xl border transition-all duration-300 flex items-center justify-center gap-2 font-semibold text-sm"
                     style={{
-                      background: expandedIdx === idx
-                        ? `color-mix(in srgb, var(${member.accent}) 10%, transparent)`
-                        : "transparent",
+                      background:
+                        expandedIdx === idx
+                          ? `color-mix(in srgb, var(${member.accent}) 10%, transparent)`
+                          : "transparent",
                       borderColor: `var(${member.accent})`,
                       color: `var(${member.accent})`,
                     }}
@@ -309,8 +370,11 @@ export default function AboutTeam() {
                 <h3 className="text-2xl md:text-3xl font-bold font-heading text-[var(--color-text-primary)] mb-3 tracking-tight">
                   100% In-house.
                   <br />
-                  <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-brand)" }}>
-                    Zero compromises.
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: "var(--gradient-brand)" }}
+                  >
+                    Zero compromises. No exceptions.
                   </span>
                 </h3>
                 <p className="text-[var(--color-text-body)] text-base leading-relaxed font-medium">
@@ -336,7 +400,10 @@ export default function AboutTeam() {
                     className="text-center"
                   >
                     {/* <div className="text-3xl mb-2">{stat.icon}</div> */}
-                    <div className="text-4xl font-bold font-heading bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-brand)" }}>
+                    <div
+                      className="text-4xl font-bold font-heading bg-clip-text text-transparent"
+                      style={{ backgroundImage: "var(--gradient-brand)" }}
+                    >
                       {stat.value}
                     </div>
                     <div className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-text-faint)] mt-2">

@@ -266,3 +266,7 @@ h6,
 }
 
 
+html, body {
+  overflow-x: hidden;
+  touch-action: pan-y;
+}

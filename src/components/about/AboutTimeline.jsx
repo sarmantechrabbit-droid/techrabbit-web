@@ -14,9 +14,9 @@ import {
 const timeline = [
   {
     year: "2019",
-    title: "Tech Rabbit Founded",
+    title: "Tech Rabbit founded",
     tagline: "The Beginning",
-    desc: "Started in Ahmedabad with one goal — build a product agency that actually works. First 3 clients in month one.",
+    desc: "Started in Ahmedabad with one goal — build a product agency that actually works.",
     highlights: [
       "Founded with 2 co-founders",
       "First office in Ahmedabad",
@@ -28,9 +28,9 @@ const timeline = [
   },
   {
     year: "2020",
-    title: "First International Clients",
+    title: "First international clients",
     tagline: "Going Global",
-    desc: "First US and UK clients onboarded. Remote-first delivery model proven across time zones.",
+    desc: "First US and UK clients onboarded. Remote-first delivery model proven.",
     highlights: [
       "Expanded to US market",
       "UK clients onboarded",
@@ -44,7 +44,7 @@ const timeline = [
     year: "2021",
     title: "ISO Certification",
     tagline: "Quality Standard",
-    desc: "Achieved ISO certification (MMS/EGAC accredited). Quality process standardized across every sprint.",
+    desc: "Achieved ISO certification (MMS/EGAC accredited). Quality process standardized.",
     highlights: [
       "ISO 9001 Certified",
       "Process standardization",
@@ -58,7 +58,7 @@ const timeline = [
     year: "2022",
     title: "Canada & Australia",
     tagline: "Scale Up",
-    desc: "Expanded to Canadian and Australian markets. Full team of 6 in-house developers.",
+    desc: "Expanded to Canadian and Australian markets. Full team of 6.",
     highlights: [
       "4 countries served",
       "Team of 6 developers",
@@ -70,9 +70,9 @@ const timeline = [
   },
   {
     year: "2023",
-    title: "AI Capabilities Added",
+    title: "AI capabilities added",
     tagline: "AI Era",
-    desc: "Integrated Claude, GPT-4o, and custom agents into every sprint. 20+ products shipped.",
+    desc: "Integrated Claude, GPT-4o, custom agents into every sprint. 20+ products shipped.",
     highlights: [
       "Claude integration",
       "GPT-4o implementation",
@@ -84,9 +84,9 @@ const timeline = [
   },
   {
     year: "2025",
-    title: "Subscription Model",
+    title: "Subscription model",
     tagline: "Today",
-    desc: "Launched Dev-as-a-Service subscription. Full team of 8. 30+ products. 6 countries.",
+    desc: "Launched Dev-as-a-Service subscription. Full team of 8. New website.",
     highlights: [
       "Dev-as-a-Service launched",
       "Team of 8 in-house",
@@ -102,7 +102,7 @@ export default function AboutTimeline() {
   const [expanded, setExpanded] = useState(0);
 
   return (
-    <section className="py-20 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
+    <section className="py-16 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -135,13 +135,13 @@ export default function AboutTimeline() {
             Our Journey
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.2] mb-4">
-            6 years of
-            <br />
+            6 years of{" "}
+            {/* <br /> */}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "var(--gradient-brand)" }}
             >
-              building & shipping.
+              building 
             </span>
           </h2>
           <p className="text-[var(--color-text-body)] text-base max-w-xl mx-auto leading-relaxed font-medium">

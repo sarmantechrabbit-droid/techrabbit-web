@@ -1,27 +1,49 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { User, Mail, Building2, Target, MessageSquare, Send, CheckCircle2 } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Send, CheckCircle2, ChevronDown } from 'lucide-react'
 
 const fields = [
-  { name: 'name', label: 'Your name', type: 'text', placeholder: 'John Doe', icon: User },
-  { name: 'email', label: 'Email address', type: 'email', placeholder: 'john@example.com', icon: Mail },
-  { name: 'company', label: 'Company / website', type: 'text', placeholder: 'Your company', icon: Building2 },
+  { name: 'name', label: 'Your name', type: 'text', placeholder: 'John Doe' },
+  { name: 'email', label: 'Email address', type: 'email', placeholder: 'john@example.com' },
+  { name: 'company', label: 'Company / website', type: 'text', placeholder: 'Your company' },
 ]
 
-const serviceOptions = [
-  'Web Development',
-  'Mobile App',
-  'UI/UX Design',
-  'Consulting',
-  'Other'
+const lookingForOptions = [
+  { value: 'idea', label: 'I have an idea (Build)' },
+  { value: 'live', label: 'My product is live (Grow)' }
 ]
+
+const planOptions = {
+  idea: [
+    { value: 'starter', label: 'Starter' },
+    { value: 'growth', label: 'Growth' },
+    { value: 'scale', label: 'Scale' }
+  ],
+  live: [
+    { value: 'starter-mvp', label: 'Starter MVP' },
+    { value: 'growth-mvp', label: 'Growth MVP' }
+  ]
+}
 
 export default function ContactForm({ onSubmit }) {
-  const [form, setForm] = useState({ name: '', email: '', company: '', service: '', message: '' })
+  const [form, setForm] = useState({ 
+    name: '', 
+    email: '', 
+    company: '', 
+    lookingFor: '',
+    plan: '',
+    message: '' 
+  })
   const [focused, setFocused] = useState(null)
+  const [openDropdown, setOpenDropdown] = useState(null)
 
   const handleChange = (e) => {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    if (name === 'lookingFor') {
+      setForm(f => ({ ...f, [name]: value, plan: '' }))
+    } else {
+      setForm(f => ({ ...f, [name]: value }))
+    }
   }
 
   const handleSubmit = (e) => {
@@ -29,10 +51,17 @@ export default function ContactForm({ onSubmit }) {
     onSubmit(form)
   }
 
+  const currentPlans = form.lookingFor ? planOptions[form.lookingFor] : []
+
+  const handleClickOutside = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setOpenDropdown(null)
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {fields.map((f, idx) => {
-        const IconComponent = f.icon
         return (
           <motion.div
             key={f.name}
@@ -40,13 +69,7 @@ export default function ContactForm({ onSubmit }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
           >
-            <label className="block text-sm font-semibold text-[var(--color-text-primary)] mb-2.5 flex items-center gap-2">
-              <motion.div
-                className="w-5 h-5 rounded-lg bg-gradient-to-br from-[var(--color-brand-blue)] to-[var(--color-brand-green)] flex items-center justify-center text-white"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-              >
-                <IconComponent className="w-3 h-3" />
-              </motion.div>
+            <label className="block text-sm font-semibold text-[var(--color-text-primary)] mb-2.5">
               {f.label}
             </label>
             <motion.div
@@ -82,62 +105,174 @@ export default function ContactForm({ onSubmit }) {
         )
       })}
 
+      {/* What are you looking for? */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
+        className="relative"
       >
-        <label className="block text-sm font-semibold text-[var(--color-text-primary)] mb-2.5 flex items-center gap-2">
-          <motion.div
-            className="w-5 h-5 rounded-lg bg-gradient-to-br from-[var(--color-brand-blue)] to-[var(--color-brand-green)] flex items-center justify-center text-white"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-          >
-            <Target className="w-3 h-3" />
-          </motion.div>
+        <label className="block text-sm font-semibold text-[var(--color-text-primary)] mb-2.5">
           What are you looking for?
         </label>
-        <motion.div
+        <motion.button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation()
+            setOpenDropdown(openDropdown === 'lookingFor' ? null : 'lookingFor')
+          }}
           animate={{
-            boxShadow: focused === 'service' 
+            boxShadow: openDropdown === 'lookingFor' 
               ? '0 0 20px rgba(42, 171, 215, 0.2)' 
               : '0 2px 8px rgba(0, 0, 0, 0.04)'
           }}
+          className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[var(--color-border-light)] text-[var(--color-text-primary)] focus:border-[var(--color-brand-blue)] focus:outline-none transition-all duration-300 text-left flex items-center justify-between hover:border-[var(--color-brand-blue)]/50"
         >
-          <select
-            required
-            name="service"
-            value={form.service}
-            onChange={handleChange}
-            onFocus={() => setFocused('service')}
-            onBlur={() => setFocused(null)}
-            className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[var(--color-border-light)] text-[var(--color-text-primary)] focus:border-[var(--color-brand-blue)] focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232aabd7' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 1rem center',
-              paddingRight: '2.5rem'
-            }}
+          <span className={form.lookingFor ? 'text-[var(--color-text-primary)]' : 'text-[var(--color-text-muted)]'}>
+            {form.lookingFor ? lookingForOptions.find(o => o.value === form.lookingFor)?.label : 'Select an option'}
+          </span>
+          <motion.div
+            animate={{ rotate: openDropdown === 'lookingFor' ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
           >
-            <option value="">Select an option</option>
-            {serviceOptions.map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
-          </select>
-        </motion.div>
+            <ChevronDown className="w-5 h-5 text-[var(--color-brand-blue)]" />
+          </motion.div>
+        </motion.button>
+
+        {/* Dropdown Menu */}
+        <AnimatePresence>
+          {openDropdown === 'lookingFor' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-[var(--color-border-light)] rounded-xl shadow-xl z-50 overflow-hidden"
+            >
+              {lookingForOptions.map((opt, idx) => (
+                <motion.button
+                  key={opt.value}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleChange({ target: { name: 'lookingFor', value: opt.value } })
+                    setOpenDropdown(null)
+                  }}
+                  whileHover={{ backgroundColor: 'rgba(42, 171, 215, 0.08)' }}
+                  className={`w-full px-4 py-3.5 text-left transition-all duration-200 flex items-center justify-between group ${
+                    form.lookingFor === opt.value ? 'bg-[var(--color-bg-brand-tint)] border-l-4 border-l-[var(--color-brand-blue)]' : 'border-l-4 border-l-transparent'
+                  } ${idx !== lookingForOptions.length - 1 ? 'border-b border-b-[var(--color-border-light)]' : ''}`}
+                >
+                  <span className={`font-medium ${
+                    form.lookingFor === opt.value ? 'text-[var(--color-brand-blue)] font-black' : 'text-[var(--color-text-primary)]'
+                  }`}>
+                    {opt.label}
+                  </span>
+                  {form.lookingFor === opt.value && (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-[var(--color-brand-blue)]" />
+                    </motion.div>
+                  )}
+                </motion.button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
 
+      {/* Conditional Plan Selection */}
+      <AnimatePresence>
+        {form.lookingFor && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: 'auto' }}
+            exit={{ opacity: 0, y: -20, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative"
+          >
+            <label className="block text-sm font-semibold text-[var(--color-text-primary)] mb-2.5">
+              Select plan
+            </label>
+            <motion.button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                setOpenDropdown(openDropdown === 'plan' ? null : 'plan')
+              }}
+              animate={{
+                boxShadow: openDropdown === 'plan' 
+                  ? '0 0 20px rgba(42, 171, 215, 0.2)' 
+                  : '0 2px 8px rgba(0, 0, 0, 0.04)'
+              }}
+              className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[var(--color-border-light)] text-[var(--color-text-primary)] focus:border-[var(--color-brand-blue)] focus:outline-none transition-all duration-300 text-left flex items-center justify-between hover:border-[var(--color-brand-blue)]/50"
+            >
+              <span className={form.plan ? 'text-[var(--color-text-primary)]' : 'text-[var(--color-text-muted)]'}>
+                {form.plan ? currentPlans.find(p => p.value === form.plan)?.label : 'Select a plan'}
+              </span>
+              <motion.div
+                animate={{ rotate: openDropdown === 'plan' ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ChevronDown className="w-5 h-5 text-[var(--color-brand-blue)]" />
+              </motion.div>
+            </motion.button>
+
+            {/* Dropdown Menu */}
+            <AnimatePresence>
+              {openDropdown === 'plan' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-[var(--color-border-light)] rounded-xl shadow-xl z-50 overflow-hidden"
+                >
+                  {currentPlans.map((plan, idx) => (
+                    <motion.button
+                      key={plan.value}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleChange({ target: { name: 'plan', value: plan.value } })
+                        setOpenDropdown(null)
+                      }}
+                      whileHover={{ backgroundColor: 'rgba(42, 171, 215, 0.08)' }}
+                      className={`w-full px-4 py-3.5 text-left transition-all duration-200 flex items-center justify-between group ${
+                        form.plan === plan.value ? 'bg-[var(--color-bg-brand-tint)] border-l-4 border-l-[var(--color-brand-blue)]' : 'border-l-4 border-l-transparent'
+                      } ${idx !== currentPlans.length - 1 ? 'border-b border-b-[var(--color-border-light)]' : ''}`}
+                    >
+                      <span className={`font-medium ${
+                        form.plan === plan.value ? 'text-[var(--color-brand-blue)] font-black' : 'text-[var(--color-text-primary)]'
+                      }`}>
+                        {plan.label}
+                      </span>
+                      {form.plan === plan.value && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                        >
+                          <CheckCircle2 className="w-5 h-5 text-[var(--color-brand-blue)]" />
+                        </motion.div>
+                      )}
+                    </motion.button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Message */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
       >
-        <label className="block text-sm font-semibold text-[var(--color-text-primary)] mb-2.5 flex items-center gap-2">
-          <motion.div
-            className="w-5 h-5 rounded-lg bg-gradient-to-br from-[var(--color-brand-blue)] to-[var(--color-brand-green)] flex items-center justify-center text-white"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-          >
-            <MessageSquare className="w-3 h-3" />
-          </motion.div>
+        <label className="block text-sm font-semibold text-[var(--color-text-primary)] mb-2.5">
           Tell us about your project
         </label>
         <motion.div
@@ -161,6 +296,7 @@ export default function ContactForm({ onSubmit }) {
         </motion.div>
       </motion.div>
 
+      {/* Submit Button */}
       <motion.button
         whileHover={{ scale: 1.02, y: -2 }}
         whileTap={{ scale: 0.98 }}

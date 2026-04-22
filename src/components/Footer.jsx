@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Mail, ArrowUpRight, Star } from "lucide-react";
 import { FaGithub, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import logo from "../assets/images/tr.webp";
 import clutchLogo from "../assets/logo/clutch_141eb1c3d4.svg.png";
 import goodfirmsLogo from "../assets/logo/goodfirms_d2c269105e.svg.png";
@@ -14,19 +15,16 @@ const navLinks = [
   { label: "Contact us", to: "/contact" },
 ];
 
-const services = [
-  "MVP Development",
-  "AI Engine Build",
-  "Scale Subscription",
-  "Design Sprints",
-  "QA & Testing",
+const reviews = [
+  { label: "Clutch", href: "https://clutch.co/profile/tech-rabbit" },
+  { label: "GoodFirms", href: "https://www.goodfirms.co/company/tech-rabbit" },
 ];
 
 const socials = [
-  { Icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-  { Icon: FaXTwitter, href: "#", label: "Twitter" },
-  { Icon: FaInstagram, href: "#", label: "Instagram" },
-  { Icon: FaGithub, href: "#", label: "GitHub" },
+  { Icon: FaLinkedinIn, href: "https://in.linkedin.com/company/techrabbitindia", label: "LinkedIn" },
+  // { Icon: FaXTwitter, href: "#", label: "Twitter" },
+  { Icon: FaInstagram, href: "https://www.instagram.com/techrabbitindia/", label: "Instagram" },
+  // { Icon: FaGithub, href: "#", label: "GitHub" },
 ];
 
 export default function Footer() {
@@ -55,7 +53,7 @@ export default function Footer() {
         />
 
         {/* TOP SECTION — Logo + Ratings + Socials */}
-        <div className="px-4 sm:px-6 md:px-10 pt-10 sm:pt-12 pb-6 sm:pb-8">
+        <div className="px-4 sm:px-6 md:px-10 pt-4 pb-4 sm:pb-4">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             {/* Logo + tagline */}
             <div className="flex items-center gap-3">
@@ -69,12 +67,85 @@ export default function Footer() {
                 >
                   Tech Rabbit
                 </span>
-                <span className="text-white/40 text-xs font-medium">
+                <span className="text-white/40 text-sm font-medium">
                   Building world-class products.
                 </span>
               </div>
             </div>
+ {/* Trust Badges */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+          >
+           
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <div
+                className="relative rounded-lg border overflow-hidden p-3 flex items-center gap-3 transition-all duration-300 hover:shadow-md w-full sm:w-auto"
+                style={{
+                  background: "#fff",
+                  borderColor: "rgba(42,171,215,0.3)",
+                  backdropFilter: "blur(10px)",
+                }}
+              >
+                <div
+                  className="absolute top-0 inset-x-0 h-0.5"
+                  style={{ background: "var(--color-brand-blue)" }}
+                />
 
+                <img
+                  src={clutchLogo}
+                  alt="Clutch"
+                  className="h-5 object-contain"
+                />
+
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-[10px] font-black text-black">4.6</p>
+                </div>
+              </div>
+
+              <div
+                className="relative rounded-lg border overflow-hidden p-3 flex items-center gap-3 transition-all duration-300 hover:shadow-md w-full sm:w-auto"
+                style={{
+                  background: "#fff",
+                  borderColor: "rgba(36,181,116,0.3)",
+                  backdropFilter: "blur(10px)",
+                }}
+              >
+                <div
+                  className="absolute top-0 inset-x-0 h-0.5"
+                  style={{ background: "var(--color-brand-green)" }}
+                />
+
+                <img
+                  src={goodfirmsLogo}
+                  alt="GoodFirms"
+                  className="h-5 object-contain"
+                />
+
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-[10px] font-black text-black">4.3</p>
+                </div>
+              </div>
+            </div>
+          </motion.div> */}
             {/* Socials */}
             <div className="flex items-center gap-2">
               {socials.map(({ Icon, href, label }) => (
@@ -93,12 +164,9 @@ export default function Footer() {
               ))}
             </div>
           </div>
+
+        
         </div>
-
-        {/* Divider */}
-        <div className="mx-4 sm:mx-6 md:mx-10 h-px" style={{ background: "rgba(255,255,255,0.07)" }} />
-
-       
 
         {/* Divider */}
         <div className="mx-4 sm:mx-6 md:mx-10 h-px" style={{ background: "rgba(255,255,255,0.07)" }} />
@@ -106,9 +174,6 @@ export default function Footer() {
         {/* MIDDLE — Newsletter + Links */}
         <div className="px-4 sm:px-6 md:px-10 py-8 sm:py-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
- 
-          
-
             {/* Link columns */}
             <div className="lg:col-span-12 grid grid-cols-2 sm:grid-cols-3 gap-8">
               {/* Company */}
@@ -134,27 +199,74 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Services */}
+              {/* Reviews */}
               <div>
                 <h5 className="text-white/50 text-[9px] font-black uppercase tracking-widest mb-4">
-                  Services
+                  Reviews
                 </h5>
-                <ul className="space-y-2.5">
-                  {services.map((s) => (
-                    <li key={s}>
-                      <Link
-                        to="/services"
-                        className="text-white/50 hover:text-white text-xs font-medium transition-colors duration-200 flex items-center gap-2 group"
-                      >
-                        <span
-                          className="w-1 h-1 rounded-full transition-all duration-300 group-hover:w-2"
-                          style={{ background: "var(--color-brand-blue)" }}
-                        />
-                        {s}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <div className="space-y-3 max-w-[200px]">
+                  {/* Clutch Badge */}
+                  <a
+                    href="https://clutch.co/profile/tech-rabbit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div
+                      className="relative rounded-lg border overflow-hidden p-2.5 flex items-center gap-2.5 transition-all duration-300 hover:shadow-md"
+                      style={{
+                        background: "#fff",
+                        borderColor: "rgba(42,171,215,0.3)",
+                      }}
+                    >
+                      <img
+                        src={clutchLogo}
+                        alt="Clutch"
+                        className="h-4 object-contain"
+                      />
+                      <div className="flex items-center gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-2 h-2 fill-yellow-400 text-yellow-400"
+                          />
+                        ))}
+                      </div>
+                      <span className="text-[9px] font-black text-black">4.6</span>
+                    </div>
+                  </a>
+
+                  {/* GoodFirms Badge */}
+                  <a
+                    href="https://www.goodfirms.co/company/tech-rabbit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div
+                      className="relative rounded-lg border overflow-hidden p-2.5 flex items-center gap-2.5 transition-all duration-300 hover:shadow-md"
+                      style={{
+                        background: "#fff",
+                        borderColor: "rgba(36,181,116,0.3)",
+                      }}
+                    >
+                      <img
+                        src={goodfirmsLogo}
+                        alt="GoodFirms"
+                        className="h-4 object-contain"
+                      />
+                      <div className="flex items-center gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-2 h-2 fill-yellow-400 text-yellow-400"
+                          />
+                        ))}
+                      </div>
+                      <span className="text-[9px] font-black text-black">4.3</span>
+                    </div>
+                  </a>
+                </div>
               </div>
 
               {/* Contact block */}
@@ -193,7 +305,7 @@ export default function Footer() {
         {/* BOTTOM BAR */}
         <div className="px-4 sm:px-6 md:px-10 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/25 text-[11px]">
-            © 2025 Tech Rabbit Studio. All rights reserved.
+            © 2026 Tech Rabbit. All rights reserved.
           </p>
 
           <div className="flex items-center gap-3 sm:gap-4 text-white/25 text-[11px] flex-wrap justify-center">

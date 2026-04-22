@@ -64,7 +64,7 @@ export default function Navbar() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="font-bold text-(--color-text-primary) text-base tracking-tight font-[Outfit]">
+            <span className="font-black text-[var(--color-text-primary)] text-base tracking-tight font-heading hidden sm:inline">
               Tech Rabbit
             </span>
           </Link>
@@ -91,8 +91,8 @@ export default function Navbar() {
                   }
                   className={`px-3 lg:px-5 py-2 rounded-full text-[13.5px] font-semibold transition-all duration-200 whitespace-nowrap ${
                     pathname === to
-                      ? "text-(--color-text-primary)"
-                      : "text-(--color-text-body) hover:text-(--color-text-primary)"
+                      ? "text-[var(--color-text-primary)]"
+                      : "text-[var(--color-text-body)] hover:text-[var(--color-text-primary)]"
                   }`}
                 >
                   {label}
@@ -102,7 +102,7 @@ export default function Navbar() {
 
             <Link
               to="/contact"
-              className="px-4 lg:px-5 py-2.5 rounded-full bg-black text-white text-[13.5px] font-bold hover:bg-(--color-text-dark) transition-colors shadow-sm shrink-0 whitespace-nowrap"
+              className="px-4 lg:px-5 py-2.5 rounded-full bg-black text-white text-[13.5px] font-bold hover:bg-[var(--color-text-dark)] transition-colors shadow-sm shrink-0 whitespace-nowrap"
             >
               Book a Call
             </Link>
@@ -114,23 +114,23 @@ export default function Navbar() {
           {/* Hamburger Button — Mobile */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative w-10 h-10 rounded-xl flex items-center justify-center border border-(--color-border-subtle) bg-white/80 backdrop-blur-sm"
+            className="md:hidden relative w-10 h-10 rounded-xl flex items-center justify-center border border-[var(--color-border-subtle)] bg-white/80 backdrop-blur-sm"
             aria-label="Toggle menu"
           >
             <div className="flex flex-col items-center justify-center gap-[5px]">
               <motion.span
                 animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-                className="block w-5 h-[2px] bg-(--color-text-primary) rounded-full origin-center"
+                className="block w-5 h-[2px] bg-[var(--color-text-primary)] rounded-full origin-center"
                 transition={{ duration: 0.25 }}
               />
               <motion.span
                 animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-                className="block w-5 h-[2px] bg-(--color-text-primary) rounded-full"
+                className="block w-5 h-[2px] bg-[var(--color-text-primary)] rounded-full"
                 transition={{ duration: 0.15 }}
               />
               <motion.span
                 animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-                className="block w-5 h-[2px] bg-(--color-text-primary) rounded-full origin-center"
+                className="block w-5 h-[2px] bg-[var(--color-text-primary)] rounded-full origin-center"
                 transition={{ duration: 0.25 }}
               />
             </div>
@@ -161,18 +161,18 @@ export default function Navbar() {
               className="fixed top-0 right-0 bottom-0 z-[70] w-[280px] bg-white shadow-2xl md:hidden flex flex-col"
             >
               {/* Sidebar Header */}
-              <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-(--color-border-light)">
+              <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[var(--color-border-light)]">
                 <Link to="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
-                  <div className="w-7 h-7 flex items-center justify-center overflow-hidden">
+                  <div className="w-7 h-7 flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-[var(--color-brand-blue)] to-[var(--color-brand-green)] p-1">
                     <img src={logo} alt="Tech Rabbit Logo" className="w-full h-full object-contain" />
                   </div>
-                  <span className="font-bold text-(--color-text-primary) text-sm tracking-tight font-[Outfit]">
+                  <span className="font-black text-[var(--color-text-primary)] text-sm tracking-tight font-heading">
                     Tech Rabbit
                   </span>
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-(--color-bg-card) transition-colors"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[var(--color-bg-card)] transition-colors"
                   aria-label="Close menu"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -200,8 +200,8 @@ export default function Navbar() {
                         }}
                         className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-[15px] font-semibold transition-all duration-200 ${
                           pathname === to
-                            ? "text-(--color-text-primary) bg-(--color-bg-card)"
-                            : "text-(--color-text-body) hover:text-(--color-text-primary) hover:bg-(--color-bg-card-light)"
+                            ? "text-[var(--color-text-primary)] bg-[var(--color-bg-card)]"
+                            : "text-[var(--color-text-body)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-card-light)]"
                         }`}
                       >
                         {label}
@@ -212,7 +212,7 @@ export default function Navbar() {
               </div>
 
               {/* Sidebar Footer CTA */}
-              <div className="px-4 pb-6 pt-2 border-t border-(--color-border-light)">
+              <div className="px-4 pb-6 pt-2 border-t border-[var(--color-border-light)]">
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -221,7 +221,7 @@ export default function Navbar() {
                   <Link
                     to="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center w-full px-5 py-3.5 rounded-xl bg-black text-white text-[15px] font-bold hover:bg-(--color-text-dark) transition-colors"
+                    className="flex items-center justify-center w-full px-5 py-3.5 rounded-xl bg-black text-white text-[15px] font-bold hover:bg-[var(--color-text-dark)] transition-colors"
                   >
                     Book a Call →
                   </Link>

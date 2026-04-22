@@ -54,8 +54,8 @@ const projects = [
 
 function ProjectCard({ project }) {
   return (
-    <div className="group relative shrink-0 w-[85vw] sm:w-[600px] lg:w-[880px] mx-2 sm:mx-4 transition-all duration-500 hover:-translate-y-2">
-      <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[507px] rounded-[20px] sm:rounded-[28px] overflow-hidden">
+    <div className="group relative shrink-0 w-[85vw] sm:w-[600px] lg:w-[880px] mx-2 sm:mx-4 transition-all duration-500">
+      <div className="relative w-full h-[220px] sm:h-[340px] lg:h-[480px] rounded-[20px] sm:rounded-[28px] overflow-hidden">
         <div className="flex-shrink-0 flex items-center px-4 h-10 bg-[var(--color-bg-footer)] border-b border-[var(--color-border-on-dark)]">
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
@@ -95,7 +95,7 @@ function PortfolioMarquee() {
   const doubled = [...projects, ...projects];
 
   return (
-    <section className="bg-[var(--color-bg-page)] overflow-hidden pt-20">
+    <section className="bg-[var(--color-bg-page)] overflow-hidden ">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }

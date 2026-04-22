@@ -124,8 +124,8 @@ export default function Testimonials() {
             Client Testimonials
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1]">
-            Happy clients,
-            <span className="text-[var(--color-text-muted)]"> real stories.</span>
+           What our 
+            <span className="text-[var(--color-text-muted)]"> clients say.</span>
           </h2>
         </Reveal>
 

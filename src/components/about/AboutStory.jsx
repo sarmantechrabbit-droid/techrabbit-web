@@ -7,7 +7,7 @@ export default function AboutStory() {
   const [isHoveredVideo, setIsHoveredVideo] = useState(false);
 
   return (
-    <section className="relative pt-16 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden">
+    <section className="relative px-6 pt-4 md:px-12 bg-[var(--color-bg-page)] overflow-hidden">
       {/* Animated background grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -62,7 +62,7 @@ export default function AboutStory() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 sm:gap-6 items-center">
           {/* Left Content */}
           <Reveal>
             <motion.div
@@ -75,7 +75,7 @@ export default function AboutStory() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-8"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-4"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 From the Founder
@@ -83,7 +83,7 @@ export default function AboutStory() {
 
               {/* Heading */}
               <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.2] mb-6">
-                Why I built
+                Why I built{" "}
               
                 <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-brand)" }}>
                   Tech Rabbit
@@ -207,7 +207,7 @@ export default function AboutStory() {
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-bg-card)] via-white to-[var(--color-bg-page)]" />
 
               {/* Animated background elements */}
-              <motion.div
+              {/* <motion.div
                 className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none"
                 animate={{
                   x: [0, 30, 0],
@@ -217,7 +217,7 @@ export default function AboutStory() {
                 style={{
                   background: "radial-gradient(circle, rgba(42,171,215,0.15) 0%, transparent 70%)",
                 }}
-              />
+              /> */}
 
               {/* Content */}
               <div className="relative inset-0 flex flex-col items-center justify-center h-full p-8 text-center">

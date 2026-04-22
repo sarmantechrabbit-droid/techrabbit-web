@@ -5,58 +5,75 @@ import { Clock, TrendingUp, RotateCcw, Users, ArrowRight } from "lucide-react";
 const features = [
   {
     icon: Clock,
-    title: "What counts as hours?",
-    desc: "Design, development, QA, and PM coordination — all focused on your roadmap.",
+    title: "What counts as hours",
+    desc: "Design, development, QA, BA calls, and PM coordination — all tracked via Clockify. Full report every month.",
     accent: "var(--color-brand-blue)",
   },
   {
     icon: TrendingUp,
-    title: "Efficient by Design",
-    desc: "Senior lead takes the complex tasks, while support builds the rest — maximizing value.",
+    title: "Who works on your product",
+    desc: "Tech Rabbit assigns the right mix of Figma, dev, QA, and BA based on what your sprint needs. You don't manage resourcing.",
     accent: "var(--color-brand-green)",
   },
   {
     icon: RotateCcw,
-    title: "Unused Hours",
-    desc: "Roll over to next month. Total transparency via Clockify reporting.",
+    title: "Unused hours",
+    desc: "Rollover to next month — no waste. We alert you when 80% of your hours are used so you're never caught off guard.",
     accent: "var(--color-brand-blue)",
   },
   {
     icon: Users,
-    title: "Boutique Scale",
-    desc: "We limit our subscription to 5 active partners to ensure quality and speed.",
+    title: "Going over your hours",
+    desc: "We pause and check with you first. Extra hours billed at $55/hr — or upgrade your plan anytime.",
     accent: "var(--color-brand-green)",
   },
 ];
 
 export default function PricingHowHoursWork() {
   return (
-    <section className="relative py-12 md:py-16 bg-[var(--color-bg-page)] overflow-hidden">
-      {/* Subtle background */}
+    <section className="relative overflow-hidden bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-8 md:py-16 lg:px-12">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-72 h-72 rounded-full opacity-5 blur-3xl" style={{ background: "radial-gradient(circle, var(--color-brand-blue), transparent)" }} />
-        <div className="absolute bottom-20 left-10 w-64 h-64 rounded-full opacity-5 blur-3xl" style={{ background: "radial-gradient(circle, var(--color-brand-green), transparent)" }} />
+        <div
+          className="absolute right-[-20%] top-20 h-72 w-72 rounded-full blur-3xl sm:right-[-10%] md:right-10"
+          style={{
+            background:
+              "radial-gradient(circle, var(--color-brand-blue), transparent)",
+            opacity: 0.05,
+          }}
+        />
+        <div
+          className="absolute bottom-20 left-[-20%] h-64 w-64 rounded-full blur-3xl sm:left-[-10%] md:left-10"
+          style={{
+            background:
+              "radial-gradient(circle, var(--color-brand-green), transparent)",
+            opacity: 0.05,
+          }}
+        />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 md:px-10 relative z-10">
-        {/* HEADER */}
+      <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal>
-          <div className="text-center mb-12 space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-tight leading-[1.2]">
-              How our
-              <br />
-              <span style={{ background: "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                hours work
+          <div className="mb-12 space-y-3">
+            <h2 className="max-w-[10ch] text-3xl font-bold font-heading leading-[1.15] tracking-tight sm:max-w-[12ch] md:text-4xl">
+              How hours{" "}
+              <span
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                work
               </span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base font-medium">
+            <p className="max-w-2xl text-sm font-medium text-gray-600 md:text-base">
               Simple, transparent, and fair. Every hour tracked and reported.
             </p>
           </div>
         </Reveal>
 
-        {/* FEATURES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {features.map((feature, idx) => {
             const Icon = feature.icon;
             return (
@@ -66,35 +83,27 @@ export default function PricingHowHoursWork() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="group relative rounded-xl p-7 transition-all duration-300 hover:shadow-md"
-                style={{
-                  background: "white",
-                  border: "1px solid var(--color-border-card)",
-                }}
+                className="group relative rounded-xl border border-[var(--color-border-card)] bg-white p-6 transition-all duration-300 hover:shadow-md sm:p-7"
               >
-                {/* Top accent line */}
                 <div
-                  className="absolute top-0 left-0 right-0 h-1 rounded-t-xl transition-all duration-300"
+                  className="absolute left-0 right-0 top-0 h-1 rounded-t-xl transition-all duration-300"
                   style={{ background: feature.accent }}
                 />
 
-                {/* Icon */}
                 <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
+                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg transition-all duration-300 group-hover:scale-110"
                   style={{
                     background: `color-mix(in srgb, ${feature.accent} 10%, transparent)`,
                   }}
                 >
-                  <Icon className="w-6 h-6" style={{ color: feature.accent }} />
+                  <Icon className="h-6 w-6" style={{ color: feature.accent }} />
                 </div>
 
-                {/* Title */}
-                <h3 className="text-lg font-bold font-heading text-gray-900 mb-2 tracking-tight">
+                <h3 className="mb-2 text-lg font-bold font-heading tracking-tight text-gray-900">
                   {feature.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                <p className="text-sm font-medium leading-relaxed text-gray-600">
                   {feature.desc}
                 </p>
               </motion.div>
@@ -102,55 +111,65 @@ export default function PricingHowHoursWork() {
           })}
         </div>
 
-        {/* BOTTOM SECTION - MVP */}
         <Reveal delay={0.3}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl p-6 md:p-8 text-center"
+            className="relative rounded-2xl border p-6 sm:p-8 md:p-10"
             style={{
-              background: "linear-gradient(135deg, rgba(42,171,215,0.06), rgba(36,181,116,0.06))",
-              border: "1px solid rgba(42,171,215,0.15)",
+              background:
+                "linear-gradient(135deg, rgba(42,171,215,0.06), rgba(36,181,116,0.06))",
+              borderColor: "rgba(42,171,215,0.15)",
             }}
           >
-            {/* Top accent */}
             <div
-              className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
+              className="absolute left-0 right-0 top-0 h-1 rounded-t-2xl"
               style={{
-                background: "linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-green))",
+                background:
+                  "linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-green))",
               }}
             />
 
             <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-bold font-heading mb-3">
+              <h3 className="mb-3 text-2xl font-bold font-heading md:text-3xl">
                 Need a 0-to-1 MVP instead?
               </h3>
-              <p className="text-gray-600 text-sm md:text-base font-medium mb-6 max-w-2xl mx-auto">
-                Fixed scope. Fixed price → 30-day delivery. Design + Dev + QA + Deployment for a single predictable cost.
+              <p className="mb-6 max-w-2xl text-sm font-medium text-gray-600 md:text-base">
+                Fixed scope · Fixed price · ~30 day delivery. Design + Dev + QA
+                + Deploy — all in..
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1">
+                  <p className="mb-1 text-[10px] font-black uppercase tracking-widest text-gray-500">
                     Typically starting at
                   </p>
-                  <p className="text-3xl font-black font-heading" style={{ background: "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                    $9,500
+                  <p
+                    className="text-3xl font-black font-heading"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    $8k–$15k
                   </p>
                 </div>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-7 py-3 rounded-lg text-xs font-black uppercase tracking-widest text-white transition-all hover:shadow-lg flex items-center justify-center gap-2 group/btn"
+                  className="group/btn flex w-full items-center justify-center gap-2 rounded-lg px-7 py-3 text-xs font-black uppercase tracking-widest text-white transition-all hover:shadow-lg sm:w-auto"
                   style={{
-                    background: "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+                    background:
+                      "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
                   }}
                 >
-                  Start build
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+                  Tell us your idea
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
                 </motion.button>
               </div>
             </div>

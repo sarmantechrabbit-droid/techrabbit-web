@@ -7,10 +7,10 @@ import WorkCTA from "../components/work/WorkCTA";
 
 export default function Work() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[var(--color-bg-page)]">
       <WorkHero />
       <WorkPortfolio />
-      <WorkStats />
+      {/* <WorkStats /> */}
       {/* <WorkTestimonials /> */}
       {/* <WorkFAQ /> */}
       <WorkCTA />

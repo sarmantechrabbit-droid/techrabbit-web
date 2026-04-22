@@ -5,54 +5,55 @@ import Reveal from "../Reveal";
 const steps = [
   {
     title: "Book a call",
-    desc: "Pick a time that works for you. No pressure.",
+    desc: "Pick a time that works for you — 15 or 30 minutes.",
   },
   {
     title: "Quick discovery",
-    desc: "We understand your product and tech stack.",
+    desc: "We understand your project, goals, and timeline.",
   },
   {
-    title: "Quote in 24 hrs",
-    desc: "Receive a transparent setup & sprint quote.",
+    title: "Quote in 48 hrs",
+    desc: "Receive a clear scope + fixed price — no surprises.",
   },
-  { title: "Kickoff in 5 days", desc: "Our team starts building immediately." },
+  { title: "Start in 5 days", desc: "Team onboards, NDA signed, sprint planning begins." },
 ];
 
 const benefits = [
-  "No commitment required",
-  "Fixed price estimates in 24 hrs",
-  "100% In-house team access",
-  "Direct CTO consultation",
+  "No commitment needed",
+  "Fixed price quote in 48 hours",
+  "NDA signed before we start",
+  "Same team from day 1 to launch",
 ];
 
 export default function PricingCTA() {
   return (
-    <section className="relative pb-8 bg-[var(--color-bg-page)] overflow-hidden">
-      {/* Animated background */}
+    <section className="relative overflow-hidden bg-[var(--color-bg-page)] px-4 pb-8 sm:px-6 md:px-8 lg:px-12">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 blur-3xl"
+          className="absolute right-[-20%] top-0 h-96 w-96 rounded-full blur-3xl sm:right-[-10%] md:right-0"
           style={{
             background:
               "radial-gradient(circle, var(--color-brand-blue), transparent)",
+            opacity: 0.1,
           }}
         />
         <div
-          className="absolute bottom-0 left-0 w-96 h-96 rounded-full opacity-10 blur-3xl"
+          className="absolute bottom-0 left-[-20%] h-96 w-96 rounded-full blur-3xl sm:left-[-10%] md:left-0"
           style={{
             background:
               "radial-gradient(circle, var(--color-brand-green), transparent)",
+            opacity: 0.1,
           }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden"
+          className="relative overflow-hidden rounded-3xl"
           style={{
             background:
               "linear-gradient(135deg, rgba(42,171,215,0.12), rgba(36,181,116,0.12))",
@@ -60,29 +61,28 @@ export default function PricingCTA() {
             backdropFilter: "blur(10px)",
           }}
         >
-          {/* Top gradient accent */}
           <div
-            className="absolute top-0 left-0 right-0 h-1.5"
+            className="absolute left-0 right-0 top-0 h-1.5"
             style={{
               background:
                 "linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-green))",
             }}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-10 md:p-12 items-center">
-            {/* LEFT: Content */}
+          <div className="grid grid-cols-1 items-start gap-10 p-6 sm:p-8 md:p-10 lg:grid-cols-2 lg:gap-12 lg:p-12">
             <Reveal>
               <div>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/50 backdrop-blur-md border border-white/60 text-[10px] font-black tracking-widest uppercase mb-6">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/50 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest backdrop-blur-md">
                   <Zap
-                    className="w-3.5 h-3.5"
+                    className="h-3.5 w-3.5"
                     style={{ color: "var(--color-brand-green)" }}
                   />
-                  Ready to Start?
+                 Get started today
+
                 </div>
 
-                <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight leading-[1.2] mb-6">
-                  Book your free
+                <h2 className="mb-6 max-w-[12ch] text-4xl font-bold font-heading leading-[1.15] tracking-tight md:text-5xl">
+                Book your free
                   <br />
                   <span
                     style={{
@@ -92,17 +92,18 @@ export default function PricingCTA() {
                       WebkitTextFillColor: "transparent",
                     }}
                   >
-                    15-min call
+                   15-min quick call
+
                   </span>
                 </h2>
 
-                <p className="text-gray-600 text-base font-medium mb-8 max-w-lg">
-                  No commitment. No pressure. Just a quick conversation about
-                  your product and how we can help.
+                <p className="mb-8 max-w-lg text-sm font-medium text-gray-600 md:text-base">
+                  No pitch decks. No long intros. Just a quick chat — we'll understand your project and tell you exactly how we can help. Quote in 48 hours.
+
+
                 </p>
 
-                {/* Benefits List */}
-                <div className="space-y-3 mb-10">
+                <div className="mb-10 space-y-3">
                   {benefits.map((benefit, idx) => (
                     <motion.div
                       key={benefit}
@@ -113,13 +114,13 @@ export default function PricingCTA() {
                       className="flex items-center gap-3"
                     >
                       <div
-                        className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                        className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
                         style={{
                           background:
                             "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
                         }}
                       >
-                        <Check className="w-3 h-3 text-white" />
+                        <Check className="h-3 w-3 text-white" />
                       </div>
                       <span className="text-sm font-semibold text-gray-900">
                         {benefit}
@@ -128,30 +129,28 @@ export default function PricingCTA() {
                   ))}
                 </div>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-4 sm:flex-row">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-xs font-black uppercase tracking-widest text-white transition-all hover:shadow-lg group/btn"
+                    className="group/btn flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-xs font-black uppercase tracking-widest text-white transition-all hover:shadow-lg sm:w-auto sm:px-8"
                     style={{
                       background:
                         "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
                     }}
                   >
-                    <Calendar className="w-4 h-4" />
+                    <Calendar className="h-4 w-4" />
                     Book a Call
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </motion.button>
 
-                  <button className="px-8 py-3.5 rounded-xl text-xs font-black uppercase tracking-widest text-gray-900 border-2 border-gray-300 transition-all hover:border-gray-900 hover:bg-gray-50">
-                    hello@techrabbit.io{" "}
+                  <button className="w-full rounded-xl border-2 border-gray-300 px-6 py-3.5 text-xs font-black uppercase tracking-widest text-gray-900 transition-all hover:border-gray-900 hover:bg-gray-50 sm:w-auto sm:px-8">
+                    hello@techrabbit.io
                   </button>
                 </div>
               </div>
             </Reveal>
 
-            {/* RIGHT: Steps Timeline */}
             <Reveal delay={0.2}>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -170,14 +169,12 @@ export default function PricingCTA() {
                       viewport={{ once: true }}
                       className="relative flex gap-5"
                     >
-                      {/* Connecting line */}
                       {idx !== steps.length - 1 && (
-                        <div className="absolute left-[15px] top-12 w-0.5 h-12 bg-gradient-to-b from-gray-300 to-transparent" />
+                        <div className="absolute left-[15px] top-12 h-12 w-0.5 bg-gradient-to-b from-gray-300 to-transparent" />
                       )}
 
-                      {/* Step number circle */}
                       <div
-                        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-black text-sm text-white"
+                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-sm font-black text-white"
                         style={{
                           background:
                             idx % 2 === 0
@@ -188,12 +185,11 @@ export default function PricingCTA() {
                         {idx + 1}
                       </div>
 
-                      {/* Content */}
                       <div className="pt-1">
-                        <h4 className="text-base font-bold font-heading text-gray-900 mb-1">
+                        <h4 className="mb-1 text-base font-bold font-heading text-gray-900">
                           {step.title}
                         </h4>
-                        <p className="text-sm text-gray-600 font-medium">
+                        <p className="text-sm font-medium text-gray-600">
                           {step.desc}
                         </p>
                       </div>
@@ -201,15 +197,14 @@ export default function PricingCTA() {
                   ))}
                 </div>
 
-                {/* Bottom stat */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="mt-12 pt-8 border-t border-gray-300"
+                  className="mt-12 border-t border-gray-300 pt-8"
                 >
-                  <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">
+                  <p className="mb-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
                     Average time to first sprint
                   </p>
                   <p

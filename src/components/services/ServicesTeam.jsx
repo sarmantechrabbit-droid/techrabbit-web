@@ -3,89 +3,117 @@ import Reveal from "../Reveal";
 import { CheckCircle2, XCircle, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const traditionalItems = [
+  "Designer makes Figma → sends to dev → dev interprets it differently",
+  "QA is a separate team that joins at the end — bugs found after launch",
+  "Project manager relays messages between client and developers",
+  "Freelancer disappears after delivery — no one knows the codebase",
+  "You re-explain the product to every new person they assign",
+  "AI features? 'We'll bring in a specialist' — separate cost, separate timeline"
+];
+
+const techRabbitItems = [
+  "Designer and developer sit in the same room — Figma matches the final product",
+  "QA is in every sprint, not the end — bugs caught before they reach you",
+  "You talk directly to the team — no middleman, no message telephone",
+  "Same developers from sprint 1 to sprint 50 — they know your codebase",
+  "One onboarding. They remember everything after that",
+  "AI features are part of every sprint — same team, same timeline, no extra cost"
+];
+
+const stats = [
+  { label: "Team", value: "8" },
+  { label: "Certified", value: "ISO" },
+  { label: "Freelancers", value: "0" },
+];
+
 export default function ServicesTeam() {
   return (
-    <section className="px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative py-12">
-      {/* Dot grid */}
+    <section className="relative overflow-hidden bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-8 lg:px-12">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           opacity: 0.5,
         }}
       />
 
-      {/* Gradient glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none">
+      <div className="absolute right-[-20%] top-0 h-[16rem] w-[16rem] pointer-events-none sm:right-[-10%] sm:h-[22rem] sm:w-[22rem] lg:right-0 lg:h-[31.25rem] lg:w-[31.25rem]">
         <div
           className="absolute inset-0 rounded-full blur-[120px]"
           style={{
-            background: "radial-gradient(circle, rgba(42,171,215,0.08) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(42,171,215,0.08) 0%, transparent 70%)",
           }}
         />
       </div>
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none">
+      <div className="absolute bottom-0 left-[-20%] h-[14rem] w-[14rem] pointer-events-none sm:left-[-10%] sm:h-[18rem] sm:w-[18rem] lg:left-0 lg:h-[25rem] lg:w-[25rem]">
         <div
           className="absolute inset-0 rounded-full blur-[120px]"
           style={{
-            background: "radial-gradient(circle, rgba(36,181,116,0.08) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(36,181,116,0.08) 0%, transparent 70%)",
           }}
         />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header */}
-        <Reveal className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-green)] text-[10px] font-black tracking-widest uppercase mb-4">
-            <Zap className="w-3.5 h-3.5" />
-            One team
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <Reveal className="mb-8">
+          <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.28em] text-[var(--color-brand-green)] sm:px-4 sm:text-[10px]">
+            <Zap className="h-3.5 w-3.5" />
+            How we work
+
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.2] mb-3">
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-brand)" }}>
-              Zero handoffs.
+          <h2 className="mb-3 text-3xl font-bold font-heading leading-[1.1] tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "var(--gradient-brand)" }}
+            >
+              One team. Every skill. Zero handoffs.
+
             </span>
           </h2>
-          <p className="text-[var(--color-text-body)] text-sm max-w-xl mx-auto font-medium">
-            One team. One sprint. All skills in one room.
+          <p className="max-w-xl text-sm font-medium leading-relaxed text-[var(--color-text-body)]">
+           Figma designer, developer, QA engineer, BA, and PM — same office, same sprint, same Slack channel.
           </p>
         </Reveal>
 
-        {/* Comparison - 2 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* Traditional */}
+        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           <Reveal delay={0.1}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl border overflow-hidden p-6"
+              className="relative overflow-hidden rounded-2xl border p-5 sm:p-6"
               style={{
                 background: "white",
                 borderColor: "var(--color-border-card)",
                 boxShadow: "0 1px 4px rgba(0,0,0,0.03)",
               }}
             >
-              <div className="absolute top-0 inset-x-0 h-1" style={{ background: "#ef4444" }} />
+              <div
+                className="absolute inset-x-0 top-0 h-1"
+                style={{ background: "#ef4444" }}
+              />
 
-              <div className="flex items-center gap-2 mb-4">
-                <XCircle className="w-5 h-5 text-red-400" />
+              <div className="mb-4 flex items-center gap-2">
+                <XCircle className="h-5 w-5 text-red-400" />
                 <h3 className="text-base font-bold font-heading text-[var(--color-text-primary)]">
-                  Traditional
+                  How other agencies work
+
                 </h3>
               </div>
 
               <ul className="space-y-2.5">
-                {[
-                  "Multiple vendors & freelancers",
-                  "Project manager as middleman",
-                  "QA at the end, bugs after launch",
-                  "Different people each project",
-                  "AI features = extra cost",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex gap-2 text-xs text-[var(--color-text-body)]">
-                    <span className="text-red-400 mt-0.5">✕</span>
+                {traditionalItems.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-2 text-xs leading-relaxed text-[var(--color-text-body)] sm:text-sm"
+                  >
+                    <span className="mt-0.5 text-red-400">x</span>
                     {item}
                   </li>
                 ))}
@@ -93,39 +121,39 @@ export default function ServicesTeam() {
             </motion.div>
           </Reveal>
 
-          {/* Tech Rabbit */}
           <Reveal delay={0.2}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl border overflow-hidden p-6"
+              className="relative overflow-hidden rounded-2xl border p-5 sm:p-6"
               style={{
                 background: "white",
                 borderColor: "var(--color-border-card)",
                 boxShadow: "0 1px 4px rgba(0,0,0,0.03)",
               }}
             >
-              <div className="absolute top-0 inset-x-0 h-1" style={{ background: "var(--color-brand-green)" }} />
+              <div
+                className="absolute inset-x-0 top-0 h-1"
+                style={{ background: "var(--color-brand-green)" }}
+              />
 
-              <div className="flex items-center gap-2 mb-4">
-                <CheckCircle2 className="w-5 h-5 text-green-500" />
+              <div className="mb-4 flex items-center gap-2">
+                <CheckCircle2 className="h-5 w-5 text-green-500" />
                 <h3 className="text-base font-bold font-heading text-[var(--color-text-primary)]">
-                  Tech Rabbit
+                 How Tech Rabbit works
+
                 </h3>
               </div>
 
               <ul className="space-y-2.5">
-                {[
-                  "One unified in-house team",
-                  "Direct access to developers",
-                  "QA in every sprint",
-                  "Same team from day 1",
-                  "AI built into every sprint",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex gap-2 text-xs text-[var(--color-text-body)]">
-                    <span className="text-green-500 mt-0.5">✓</span>
+                {techRabbitItems.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-2 text-xs leading-relaxed text-[var(--color-text-body)] sm:text-sm"
+                  >
+                    <span className="mt-0.5 text-green-500">+</span>
                     {item}
                   </li>
                 ))}
@@ -134,69 +162,18 @@ export default function ServicesTeam() {
           </Reveal>
         </div>
 
-        {/* Team Roles - Horizontal */}
-        {/* <Reveal delay={0.3}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="relative rounded-2xl border overflow-hidden p-6"
-            style={{
-              background: "white",
-              borderColor: "var(--color-border-card)",
-              boxShadow: "0 1px 4px rgba(0,0,0,0.03)",
-            }}
-          >
-            <div className="absolute top-0 inset-x-0 h-1" style={{ background: "var(--gradient-brand)" }} />
-
-            <h3 className="text-base font-black font-heading text-[var(--color-text-primary)] mb-4">
-              Your complete team
-            </h3>
-
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-              {[
-                { role: "Designer", icon: "🎨" },
-                { role: "Frontend", icon: "⚛️" },
-                { role: "Backend", icon: "🔧" },
-                { role: "QA", icon: "✓" },
-                { role: "BA/PM", icon: "📊" },
-              ].map((member, idx) => (
-                <motion.div
-                  key={member.role}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  className="text-center p-3 rounded-lg transition-all duration-300 hover:bg-[var(--color-bg-card)]"
-                >
-                  <div className="text-2xl mb-1">{member.icon}</div>
-                  <p className="text-xs font-bold text-[var(--color-text-primary)]">
-                    {member.role}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </Reveal> */}
-
-        {/* Stats + CTA */}
         <Reveal delay={0.4}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4"
+            className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-3"
           >
-            {[
-              { label: "Team", value: "8" },
-              { label: "Certified", value: "ISO" },
-              { label: "Freelancers", value: "0" },
-            ].map((stat, idx) => (
+            {stats.map((stat, idx) => (
               <div
                 key={stat.label}
-                className="relative rounded-xl border overflow-hidden p-4 text-center"
+                className="relative overflow-hidden rounded-xl border p-4 text-center"
                 style={{
                   background: "white",
                   borderColor: "var(--color-border-card)",
@@ -204,9 +181,12 @@ export default function ServicesTeam() {
                 }}
               >
                 <div
-                  className="absolute top-0 inset-x-0 h-0.5"
+                  className="absolute inset-x-0 top-0 h-0.5"
                   style={{
-                    background: idx % 2 === 0 ? "var(--color-brand-blue)" : "var(--color-brand-green)",
+                    background:
+                      idx % 2 === 0
+                        ? "var(--color-brand-blue)"
+                        : "var(--color-brand-green)",
                   }}
                 />
                 <p className="text-2xl font-black font-heading text-[var(--color-text-primary)]">
@@ -220,25 +200,24 @@ export default function ServicesTeam() {
           </motion.div>
         </Reveal>
 
-        {/* CTA Button */}
         <Reveal delay={0.5}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-center mt-6"
+            className="mt-6 text-center"
           >
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-black text-sm hover:scale-[1.03] transition-all duration-300"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-black text-white transition-all duration-300 hover:scale-[1.03] sm:w-auto"
               style={{
                 background: "var(--gradient-brand)",
                 boxShadow: "0 20px 40px var(--color-brand-glow)",
               }}
             >
               Start your project
-              <span>→</span>
+              <span>{">"}</span>
             </Link>
           </motion.div>
         </Reveal>

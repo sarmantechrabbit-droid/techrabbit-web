@@ -79,14 +79,15 @@ export default function ComparisonSection() {
       <div className="max-w-7xl mx-auto">
         <Reveal className="lg:mb-16 max-sm:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-5">
-            Why TechRabbit
+           Why Tech Rabbit
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1] mb-4">
-            Why we stand out
+           Why we stand out
+
           </h2>
           <p className="text-[var(--color-text-body)] text-base max-w-xl leading-relaxed">
-            Traditional offshore agencies give you developers. We give you a
-            product team that ships.
+            Traditional offshore agencies give you developers. We give you a product team that ships.
+
           </p>
         </Reveal>
 
@@ -97,10 +98,18 @@ export default function ComparisonSection() {
               <div className="grid grid-cols-5 border-b border-[var(--color-border-light)] bg-[color:var(--color-bg-card)]/50">
                 <div className="p-4 md:p-8"></div>
 
-                <div className="p-4 md:p-8 text-center border-x border-[var(--color-border-light)]">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-green)]">
-                    Tech Rabbit
-                  </span>
+                <div className="p-4 md:p-8 text-center border-x border-[var(--color-border-light)] bg-white rounded-t-lg">
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-[var(--color-brand-green)]"></div>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-primary)]">
+                        TECH RABBIT
+                      </span>
+                    </div>
+                    <span className="text-[8px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
+                      BEST CHOICE
+                    </span>
+                  </div>
                 </div>
 
                 <div className="p-4 md:p-8 text-center">
@@ -202,8 +211,7 @@ export default function ComparisonSection() {
                 </span>
               </h3>
               <p className="text-[var(--color-text-muted)] text-lg max-w-xl leading-relaxed">
-                Every person on your project sits in the same room in Ahmedabad.
-                Same standup. Same sprint. Same accountability.
+               Every person on your project sits in the same office in Ahmedabad. Same standup. Same sprint. Same accountability. You're not buying hours — you're buying a team that cares.
               </p>
             </div>
 
