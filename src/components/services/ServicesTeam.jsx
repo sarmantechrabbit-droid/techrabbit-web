@@ -9,7 +9,7 @@ const traditionalItems = [
   "Project manager relays messages between client and developers",
   "Freelancer disappears after delivery — no one knows the codebase",
   "You re-explain the product to every new person they assign",
-  "AI features? 'We'll bring in a specialist' — separate cost, separate timeline"
+  "AI features? 'We'll bring in a specialist' — separate cost, separate timeline",
 ];
 
 const techRabbitItems = [
@@ -18,18 +18,18 @@ const techRabbitItems = [
   "You talk directly to the team — no middleman, no message telephone",
   "Same developers from sprint 1 to sprint 50 — they know your codebase",
   "One onboarding. They remember everything after that",
-  "AI features are part of every sprint — same team, same timeline, no extra cost"
+  "AI features are part of every sprint — same team, same timeline, no extra cost",
 ];
 
 const stats = [
-  { label: "Team", value: "8" },
+  { label: "Team Member", value: "12" },
   { label: "Certified", value: "ISO" },
   { label: "Freelancers", value: "0" },
 ];
 
 export default function ServicesTeam() {
   return (
-    <section className="relative overflow-hidden bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-8 lg:px-12">
+    <section className="relative overflow-hidden bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-8 lg:px-12 pb-10">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -60,11 +60,10 @@ export default function ServicesTeam() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl">
-        <Reveal className="mb-8">
+        <Reveal className="mb-8 mt-8">
           <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.28em] text-[var(--color-brand-green)] sm:px-4 sm:text-[10px]">
             <Zap className="h-3.5 w-3.5" />
             How we work
-
           </div>
           <h2 className="mb-3 text-3xl font-bold font-heading leading-[1.1] tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
             <span
@@ -72,11 +71,11 @@ export default function ServicesTeam() {
               style={{ backgroundImage: "var(--gradient-brand)" }}
             >
               One team. Every skill. Zero handoffs.
-
             </span>
           </h2>
           <p className="max-w-xl text-sm font-medium leading-relaxed text-[var(--color-text-body)]">
-           Figma designer, developer, QA engineer, BA, and PM — same office, same sprint, same Slack channel.
+            Figma designer, developer, QA engineer, BA, and PM — same office,
+            same sprint, same Slack channel.
           </p>
         </Reveal>
 
@@ -103,7 +102,6 @@ export default function ServicesTeam() {
                 <XCircle className="h-5 w-5 text-red-400" />
                 <h3 className="text-base font-bold font-heading text-[var(--color-text-primary)]">
                   How other agencies work
-
                 </h3>
               </div>
 
@@ -142,8 +140,7 @@ export default function ServicesTeam() {
               <div className="mb-4 flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-green-500" />
                 <h3 className="text-base font-bold font-heading text-[var(--color-text-primary)]">
-                 How Tech Rabbit works
-
+                  How Tech Rabbit works
                 </h3>
               </div>
 
@@ -208,8 +205,10 @@ export default function ServicesTeam() {
             viewport={{ once: true }}
             className="mt-6 text-center"
           >
-            <Link
-              to="/contact"
+            <a
+              href="https://calendly.com/techrabbit/meeting"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-black text-white transition-all duration-300 hover:scale-[1.03] sm:w-auto"
               style={{
                 background: "var(--gradient-brand)",
@@ -218,7 +217,7 @@ export default function ServicesTeam() {
             >
               Start your project
               <span>{">"}</span>
-            </Link>
+            </a>
           </motion.div>
         </Reveal>
       </div>

@@ -103,14 +103,14 @@ const growPlans = [
     period: "- $5,500 / month",
     desc: "Ongoing product team. The more hours, the more you ship.",
     features: [
-      "Figma + Dev + QA + BA + PM",
+      "BA · UX | UI · Dev · QA · DevOps",
       "AI features every sprint",
       "Clockify transparency",
       "Hours rollover monthly",
       "Cancel with 30 days notice",
     ],
     accent: "var(--color-brand-blue)",
-    cta: "Get started",
+    cta: "See Plans",
     featured: false,
   },
 ];
@@ -125,7 +125,7 @@ export default function PricingHero() {
   };
 
   return (
-    <section className="relative bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-8 lg:px-12 pt-32 max-sm:pt-22">
+    <section className="relative bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-8 lg:px-12 pt-40 max-sm:pt-22">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute right-[-20%] top-10 h-72 w-72 rounded-full blur-3xl sm:right-[-10%] md:right-20"
@@ -174,12 +174,12 @@ export default function PricingHero() {
             </div>
 
             <p className="max-w-2xl text-sm font-medium leading-relaxed text-gray-600 md:text-base">
-              Figma · Full-Stack · QA · BA · AI — everything included. No hidden
-              fees. Cancel anytime.
+              BA · UX | UI · Dev · QA · DevOps · PM — everything included. No
+              hidden fees. Cancel anytime.
             </p>
 
             {/* Tabs and Toggle Container */}
-            <div className="pt-4 flex flex-col md:flex-row md:items-center md:gap-6 justify-between">
+            <div className="pt-4 flex flex-col items-center gap-6 sm:flex-row sm:justify-between md:gap-6">
               {/* Top Tabs - Build/Grow */}
               <div className="inline-flex gap-2 rounded-full border border-white/60 bg-white/50 p-2 shadow-lg backdrop-blur-md w-fit">
                 {["build", "grow"].map((tab) => (
@@ -192,7 +192,8 @@ export default function PricingHero() {
                         activeTab === tab
                           ? "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))"
                           : "transparent",
-                      color: activeTab === tab ? "white" : "var(--color-text-muted)",
+                      color:
+                        activeTab === tab ? "white" : "var(--color-text-muted)",
                     }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -204,7 +205,7 @@ export default function PricingHero() {
 
               {/* Pricing Toggle - Only show for Build tab */}
               {activeTab === "grow" && (
-                <div className="inline-flex flex-wrap gap-2 rounded-full border border-white/60 bg-white/50 p-2 shadow-lg backdrop-blur-md relative w-fit">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/50 p-1.5 shadow-lg backdrop-blur-md relative w-fit shrink-0">
                   {["monthly", "quarterly"].map((period) => (
                     <div key={period} className="relative">
                       <motion.button
@@ -229,9 +230,10 @@ export default function PricingHero() {
                         <motion.div
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          className="absolute -top-3 -right-3 rounded-full px-2.5 py-1 text-[9px] font-black text-white shadow-lg whitespace-nowrap"
+                          className="absolute -top-2.5 -right-2 rounded-full px-2 py-0.5 text-[7px] font-black text-white shadow-lg whitespace-nowrap"
                           style={{
-                            background: "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+                            background:
+                              "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
                           }}
                         >
                           Save 10%
@@ -268,7 +270,9 @@ export default function PricingHero() {
           >
             {buildPlans.map((plan, idx) => {
               const price =
-                billing === "monthly" ? plan.price : Math.round(plan.price * 0.9);
+                billing === "monthly"
+                  ? plan.price
+                  : Math.round(plan.price * 0.9);
               const accentColor =
                 idx === 0
                   ? "var(--color-brand-blue)"
@@ -295,10 +299,9 @@ export default function PricingHero() {
                         : "shadow-sm hover:shadow-lg"
                     }`}
                     style={{
-                      background:
-                        plan.featured
-                          ? "linear-gradient(135deg, rgba(42,171,215,0.08), rgba(36,181,116,0.08))"
-                          : "white",
+                      background: plan.featured
+                        ? "linear-gradient(135deg, rgba(42,171,215,0.08), rgba(36,181,116,0.08))"
+                        : "white",
                       border: `1px solid ${
                         plan.featured
                           ? "rgba(42,171,215,0.2)"
@@ -317,10 +320,9 @@ export default function PricingHero() {
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10"
+                        className="absolute left-1/2 top-1 -translate-x-1/2 -translate-y-1/2 z-10"
                       >
                         <div className="relative">
-                         
                           <div
                             className="rounded-full px-3 py-1 text-xs font-black uppercase tracking-widest text-white shadow-lg relative z-10"
                             style={{
@@ -372,7 +374,10 @@ export default function PricingHero() {
                       </div>
 
                       {plan.featured ? (
-                        <button
+                        <a
+                          href="https://calendly.com/techrabbit/meeting"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="group/btn flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-xs font-black text-white transition-all hover:shadow-lg"
                           style={{
                             background:
@@ -381,15 +386,21 @@ export default function PricingHero() {
                         >
                           {plan.cta}
                           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
-                        </button>
+                        </a>
                       ) : (
-                        <button
+                        <a
+                          href="https://calendly.com/techrabbit/meeting"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="group/btn flex w-full items-center justify-center gap-2 rounded-xl border-2 px-6 py-3 text-xs font-black transition-all hover:shadow-lg"
-                          style={{ borderColor: accentColor, color: accentColor }}
+                          style={{
+                            borderColor: accentColor,
+                            color: accentColor,
+                          }}
                         >
                           {plan.cta}
                           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
-                        </button>
+                        </a>
                       )}
                     </div>
 
@@ -471,10 +482,9 @@ export default function PricingHero() {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10"
+                      className="absolute left-1/2 top-1 -translate-x-1/2 -translate-y-1/2 z-10"
                     >
                       <div className="relative">
-                       
                         <div
                           className="rounded-full px-3 py-1 text-xs font-black uppercase tracking-widest text-white shadow-lg relative z-10"
                           style={{
@@ -503,16 +513,31 @@ export default function PricingHero() {
                       {plan.desc}
                     </p>
 
-                    <Link
-                      to="/contact"
-                      className="group/btn flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-xs font-black text-white transition-all hover:shadow-lg mb-6"
-                      style={{
-                        background: plan.accent,
-                      }}
-                    >
-                      {plan.cta}
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
-                    </Link>
+                    {plan.name.includes("Launch") ? (
+                      <a
+                        href="https://calendly.com/techrabbit/meeting"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-xs font-black text-white transition-all hover:shadow-lg mb-6"
+                        style={{
+                          background: plan.accent,
+                        }}
+                      >
+                        {plan.cta}
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => handleTabChange("grow")}
+                        className="group/btn flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-xs font-black text-white transition-all hover:shadow-lg mb-6"
+                        style={{
+                          background: plan.accent,
+                        }}
+                      >
+                        {plan.cta}
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+                      </button>
+                    )}
                   </div>
 
                   <div className="mx-5 h-px bg-gray-200 sm:mx-6 md:mx-7" />
@@ -545,40 +570,45 @@ export default function PricingHero() {
           </motion.div>
         )}
 
-        <Reveal delay={0.3}>
-          <div
-            className="rounded-2xl border p-6 sm:p-8 md:p-10"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(42,171,215,0.08), rgba(36,181,116,0.08))",
-              borderColor: "rgba(42,171,215,0.2)",
-            }}
-          >
+        {activeTab === "grow" && (
+          <Reveal delay={0.3}>
             <div
-              className="mb-3 h-1 w-12"
+              className="rounded-2xl border p-6 sm:p-8 md:p-10"
               style={{
                 background:
-                  "linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-green))",
-              }}
-            />
-            <h3 className="mb-2 text-xl font-black font-heading">
-              Need more than 160 hrs/month?
-            </h3>
-            <p className="mb-4 text-sm font-medium text-gray-600">
-              Custom team · Flexible structure · Dedicated account manager
-            </p>
-            <button
-              className="group/cta inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-2.5 text-xs font-black text-white transition-all hover:shadow-lg sm:w-auto"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+                  "linear-gradient(135deg, rgba(42,171,215,0.08), rgba(36,181,116,0.08))",
+                borderColor: "rgba(42,171,215,0.2)",
               }}
             >
-              Schedule Call
-              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5" />
-            </button>
-          </div>
-        </Reveal>
+              <div
+                className="mb-3 h-1 w-12"
+                style={{
+                  background:
+                    "linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-green))",
+                }}
+              />
+              <h3 className="mb-2 text-xl font-black font-heading">
+                Need more than 160 hrs/month?
+              </h3>
+              <p className="mb-4 text-sm font-medium text-gray-600">
+                Custom team · Flexible structure · Dedicated account manager
+              </p>
+              <a
+                href="https://calendly.com/techrabbit/meeting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/cta inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-2.5 text-xs font-black text-white transition-all hover:shadow-lg sm:w-auto"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+                }}
+              >
+                Schedule Call
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5" />
+              </a>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );

@@ -13,6 +13,8 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import CookiePolicy from "./pages/CookiePolicy";
+import CookieConsent from "./components/CookieConsent";
+import FloatingCTA from "./components/UI/FloatingCTA";
 
 const pageVariants = {
   initial: { opacity: 0, scale: 0.99 },
@@ -36,13 +38,13 @@ function AnimatedRoutes() {
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
+          {/* <Route path="/services" element={<Services />} /> */}
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/work" element={<Work />} />
           <Route path="/case-study/:slug" element={<CaseStudyDetail />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
+          {/* <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} /> */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
@@ -58,6 +60,8 @@ export default function App() {
       <Layout>
         <AnimatedRoutes />
       </Layout>
+      <CookieConsent />
+      <FloatingCTA />
     </BrowserRouter>
   );
 }

@@ -1,18 +1,58 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { CheckCircle, ArrowRight } from 'lucide-react'
-import Reveal from '../components/Reveal'
-import ContactHero from '../components/contact/ContactHero'
-import { ContactForm, ContactInfo, SuccessMessage } from '../components/contact'
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
+import { CheckCircle, ArrowRight } from "lucide-react";
+import Reveal from "../components/Reveal";
+import ContactHero from "../components/contact/ContactHero";
+import {
+  ContactForm,
+  ContactInfo,
+  SuccessMessage,
+} from "../components/contact";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (formData) => {
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
-  }
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (formData) => {
+    setIsSubmitting(true);
+
+    // EmailJS Credentials - REPLACE THESE WITH YOUR OWN
+    const SERVICE_ID = "service_jrfn0xo"; // e.g., 'service_gmail'
+    const TEMPLATE_ID = "template_vmsbwzb";
+    const PUBLIC_KEY = "e_YiGyM_DpUDbq_Tj";
+
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company,
+          website: formData.website,
+          country: formData.country,
+          looking_for: formData.lookingFor,
+          plan: formData.plan,
+          message: formData.message,
+        },
+        PUBLIC_KEY,
+      );
+
+      if (result.text === "OK") {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 8000);
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert(
+        "Failed to send message. Please try again later or contact us directly.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="relative min-h-screen bg-[var(--color-bg-page)] overflow-hidden">
@@ -67,7 +107,10 @@ export default function Contact() {
                   {submitted ? (
                     <SuccessMessage onReset={() => setSubmitted(false)} />
                   ) : (
-                    <ContactForm onSubmit={handleSubmit} />
+                    <ContactForm
+                      onSubmit={handleSubmit}
+                      isLoading={isSubmitting}
+                    />
                   )}
 
                   {/* Trust Badges */}
@@ -76,7 +119,7 @@ export default function Contact() {
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.6 }}
-                      className="mt-8 pt-8 border-t border-[var(--color-border-light)] flex items-center justify-center gap-6 text-xs text-[var(--color-text-muted)]"
+                      className="mt-8 pt-8 border-t border-[var(--color-border-light)] flex flex-wrap items-center justify-center gap-2 text-xs text-[var(--color-text-muted)]"
                     >
                       <span className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[var(--color-brand-green)]"></span>
@@ -86,6 +129,16 @@ export default function Contact() {
                       <span className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[var(--color-brand-green)]"></span>
                         No spam
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-[var(--color-border-light)]"></span>
+                      <span className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[var(--color-brand-green)]"></span>
+                        100% Confidential
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-[var(--color-border-light)]"></span>
+                      <span className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[var(--color-brand-green)]"></span>
+                        We sign NDA
                       </span>
                     </motion.div>
                   )}
@@ -102,21 +155,28 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mb-16"
             >
-              <div className="rounded-3xl border border-[var(--color-border-card)] bg-gradient-to-br from-white to-gray-50 p-8 md:p-12 text-center"
-                style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.06)" }}>
+              <div
+                className="rounded-3xl border border-[var(--color-border-card)] bg-gradient-to-br from-white to-gray-50 p-8 md:p-12 text-center"
+                style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.06)" }}
+              >
                 <h3 className="text-3xl md:text-4xl font-black text-[var(--color-text-primary)] mb-4 font-heading">
                   Not sure where to start?
                 </h3>
                 <p className="text-[var(--color-text-body)] text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-                  Schedule a free 30-minute call with our team. We'll discuss your vision, answer your questions, and outline the best path forward.
+                  Schedule a free 30-minute call with our team. We'll discuss
+                  your vision, answer your questions, and outline the best path
+                  forward.
                 </p>
-                <motion.button
+                <motion.a
+                  href="https://calendly.com/techrabbit/meeting"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-black text-base uppercase tracking-widest transition-all duration-300 hover:shadow-xl"
                   style={{
-                    background: 'var(--gradient-brand)',
-                    boxShadow: '0 12px 40px var(--color-brand-glow)',
+                    background: "var(--gradient-brand)",
+                    boxShadow: "0 12px 40px var(--color-brand-glow)",
                   }}
                 >
                   Schedule a call
@@ -126,69 +186,12 @@ export default function Contact() {
                   >
                     →
                   </motion.span>
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           </Reveal>
-
-          {/* FAQ Section */}
-          {/* <Reveal delay={0.4}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="text-center mb-12">
-                <h3 className="text-3xl md:text-4xl font-black text-[var(--color-text-primary)] mb-4 font-heading">
-                  Frequently Asked Questions
-                </h3>
-                <p className="text-[var(--color-text-body)] text-lg max-w-2xl mx-auto">
-                  Have questions? We've got answers.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  {
-                    q: "How long does it take to build an MVP?",
-                    a: "Most MVPs launch in 30 days. We work in focused sprints to get your product live quickly without compromising quality."
-                  },
-                  {
-                    q: "What's included in the subscription?",
-                    a: "Full-stack development, design, QA, AI features, and a dedicated team. Everything you need to scale your product."
-                  },
-                  {
-                    q: "Do I own the code and IP?",
-                    a: "100% yes. You own all code, domain, IP, and everything else. We're building your product, not ours."
-                  },
-                  {
-                    q: "Can I cancel anytime?",
-                    a: "Yes. With 30 days notice on subscriptions. No long-term contracts, no lock-in. We want to work with you because you want us to."
-                  },
-                ].map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="p-6 rounded-2xl border border-[var(--color-border-light)] bg-white hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-3 mb-3">
-                      <CheckCircle className="w-5 h-5 text-[var(--color-brand-green)] flex-shrink-0 mt-0.5" />
-                      <h4 className="text-lg font-bold text-[var(--color-text-primary)]">
-                        {item.q}
-                      </h4>
-                    </div>
-                    <p className="text-[var(--color-text-body)] text-sm leading-relaxed ml-8">
-                      {item.a}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </Reveal> */}
         </div>
       </div>
     </div>
-  )
+  );
 }

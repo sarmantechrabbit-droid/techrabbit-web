@@ -186,14 +186,16 @@ export default function ServicesPricing() {
                   </div>
 
                   {/* CTA */}
-                  <Link
-                    to="/contact"
+                  <a
+                    href="https://calendly.com/techrabbit/meeting"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-6 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white"
                     style={{ background: `var(${tier.accent})` }}
                   >
                     {tier.cta}
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </a>
                 </div>
               </motion.div>
             </div>

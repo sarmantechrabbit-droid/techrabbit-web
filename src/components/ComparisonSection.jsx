@@ -79,40 +79,43 @@ export default function ComparisonSection() {
       <div className="max-w-7xl mx-auto">
         <Reveal className="lg:mb-16 max-sm:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-5">
-           Why Tech Rabbit
+            Why Tech Rabbit
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1] mb-4">
-           Why we stand out
-
+            Why we stand out
           </h2>
           <p className="text-[var(--color-text-body)] text-base max-w-xl leading-relaxed">
-            Traditional offshore agencies give you developers. We give you a product team that ships.
-
+            Traditional offshore agencies give you developers. We give you a
+            product team that ships.
           </p>
         </Reveal>
 
         <Reveal className="w-full">
-          <div className="overflow-x-auto scrollbar-hide w-full">
-            <div className="min-w-[700px] lg:min-w-[1000px] bg-[var(--color-bg-page)] border border-[var(--color-border-default)] rounded-[1.5rem] sm:rounded-[2.5rem] shadow-sm overflow-hidden mb-12">
+          <div className="overflow-x-auto w-full bg-[var(--color-bg-page)]  border border-[var(--color-border-default)] rounded-[1.5rem] sm:rounded-[2.5rem] shadow-sm mb-12  scrollbar-hide">
+            <div className="min-w-[700px] lg:min-w-[1000px]">
               {/* Header */}
               <div className="grid grid-cols-5 border-b border-[var(--color-border-light)] bg-[color:var(--color-bg-card)]/50">
-                <div className="p-4 md:p-8"></div>
+                <div className="sticky left-0 z-20 p-4 md:p-8 bg-white border-r border-[var(--color-border-light)]/50 shadow-[4px_0_12px_rgba(0,0,0,0.02)]"></div>
 
                 <div className="p-4 md:p-8 text-center border-x border-[var(--color-border-light)] bg-white rounded-t-lg">
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-[var(--color-brand-green)]"></div>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-primary)]">
-                        TECH RABBIT
+                  <div className="h-full flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="flex items-center justify-center text-center gap-2">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[var(--color-brand-green)]"></div>
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-primary)]">
+                            TECH RABBIT
+                          </span>
+                        </div>
+                      </div>
+                      <span className="text-[8px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
+                        BEST CHOICE
                       </span>
                     </div>
-                    <span className="text-[8px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
-                      BEST CHOICE
-                    </span>
                   </div>
                 </div>
 
-                <div className="p-4 md:p-8 text-center">
+                <div className="p-4 md:p-8 flex items-center justify-center text-center">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
                     Freelancer
                   </span>
@@ -124,7 +127,7 @@ export default function ComparisonSection() {
                   </span>
                 </div>
 
-                <div className="p-4 md:p-8 text-center border-l border-[var(--color-border-light)]">
+                <div className="p-4 md:p-8 border-l border-[var(--color-border-light)] flex items-center justify-center text-center h-full">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
                     In-house Team
                   </span>
@@ -135,17 +138,16 @@ export default function ComparisonSection() {
               {comparisonData.map((row, i) => (
                 <div
                   key={row.label}
-                  className={`grid grid-cols-5 items-center transition-colors hover:bg-[color:var(--color-bg-card)]/30 ${
-                    i !== comparisonData.length - 1
+                  className={`grid grid-cols-5 items-center transition-colors hover:bg-[color:var(--color-bg-card)]/30 ${i !== comparisonData.length - 1
                       ? "border-b border-[var(--color-border-light)]"
                       : ""
-                  }`}
+                    }`}
                 >
-                  <div className="p-4 md:p-8 text-sm font-bold text-[var(--color-text-primary)] font-heading">
+                  <div className="sticky left-0 z-20 py-8 max-sm:py-12 px-4 text-sm font-bold text-[var(--color-text-primary)] font-heading bg-white border-r border-[var(--color-border-light)]/50 shadow-[4px_0_12px_rgba(0,0,0,0.02)]">
                     {row.label}
                   </div>
 
-                  <div className="p-4 md:p-8 text-center border-x border-[var(--color-border-light)] bg-[color:var(--color-brand-green)]/5">
+                  <div className="py-8 px-4 md:p-8 text-center border-x border-[var(--color-border-light)] bg-[color:var(--color-brand-green)]/5">
                     <div className="flex items-center justify-center gap-2 text-sm font-semibold text-[var(--color-text-dark)]">
                       <svg
                         width="14"
@@ -211,7 +213,9 @@ export default function ComparisonSection() {
                 </span>
               </h3>
               <p className="text-[var(--color-text-muted)] text-lg max-w-xl leading-relaxed">
-               Every person on your project sits in the same office in Ahmedabad. Same standup. Same sprint. Same accountability. You're not buying hours — you're buying a team that cares.
+                Every person on your project sits in the same office in
+                Ahmedabad. Same standup. Same sprint. Same accountability.
+                You're not buying hours — you're buying a team that cares.
               </p>
             </div>
 

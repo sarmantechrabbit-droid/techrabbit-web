@@ -54,7 +54,7 @@ export default function PricingHowHoursWork() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal>
           <div className="mb-12 space-y-3">
-            <h2 className="max-w-[10ch] text-3xl font-bold font-heading leading-[1.15] tracking-tight sm:max-w-[12ch] md:text-4xl">
+            <h2 className="max-w-[12ch] text-3xl font-bold font-heading leading-[1.15] tracking-tight sm:max-w-[12ch] md:text-4xl">
               How hours{" "}
               <span
                 style={{
@@ -159,7 +159,10 @@ export default function PricingHowHoursWork() {
                   </p>
                 </div>
 
-                <motion.button
+                <motion.a
+                  href="https://calendly.com/techrabbit/meeting"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="group/btn flex w-full items-center justify-center gap-2 rounded-lg px-7 py-3 text-xs font-black uppercase tracking-widest text-white transition-all hover:shadow-lg sm:w-auto"
@@ -170,7 +173,7 @@ export default function PricingHowHoursWork() {
                 >
                   Tell us your idea
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
-                </motion.button>
+                </motion.a>
               </div>
             </div>
           </motion.div>

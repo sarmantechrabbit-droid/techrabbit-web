@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
+
 import { Link } from "react-router-dom";
 import { Code, Star } from "lucide-react";
 import heroBackground from "../assets/images/background.png";
@@ -16,6 +18,7 @@ export default function Hero() {
     { code: "AUS", flag: "https://flagcdn.com/au.svg" },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,7 +28,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative z-0 overflow-hidden bg-[var(--color-bg-page)] pt-28 md:pt-36 pb-12 md:pb-20">
+    <section className="relative z-0 overflow-hidden bg-[var(--color-bg-page)] pt-40 md:pt-40 pb-12 md:pb-20 max-sm:pt-25">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src={heroBackground}
@@ -83,12 +86,11 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-3xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight font-black font-heading text-[var(--color-text-primary)] mb-6"
+                className="text-3xl sm:text-5xl md:text-5xl leading-[1.1] tracking-tight font-black font-heading text-[var(--color-text-primary)] mb-6"
               >
-                We build your product.
-                <br />
-                <span className="text-[var(--color-text-muted)] font-medium">
-                  Then we grow it with you.
+                <span className="block">We build custom software,</span>
+                <span className="block text-[var(--color-text-muted)] font-medium">
+                  MVPs and SaaS platforms
                 </span>
               </motion.h1>
 
@@ -99,7 +101,8 @@ export default function Hero() {
                 className="text-[var(--color-text-body)] text-sm sm:text-base md:text-lg max-w-lg mb-8 sm:mb-10 leading-relaxed"
               >
                 From idea to live MVP in 30 days — or an ongoing product team on
-                subscription. Figma · Full-Stack · QA · AI · BA — all included.
+                subscription. BA · UX | UI · Dev · QA · DevOps · PM — all
+                included.
               </motion.p>
 
               <motion.div
@@ -108,8 +111,10 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-12"
               >
-                <Link
-                  to="/contact"
+                <a
+                  href="https://calendly.com/techrabbit/meeting"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-white font-black text-sm hover:scale-[1.03] transition-all duration-300"
                   style={{
                     background: "var(--gradient-brand)",
@@ -118,10 +123,10 @@ export default function Hero() {
                 >
                   Launch your MVP
                   <span className="text-lg">→</span>
-                </Link>
+                </a>
 
                 <Link
-                  to="/#pricing"
+                  to="/pricing"
                   className="px-7 py-3.5 rounded-full border border-[var(--color-border-subtle)] bg-white/80 backdrop-blur-sm text-[var(--color-text-primary)] font-bold text-sm hover:bg-[var(--color-bg-card-light)] transition-all duration-300 text-center"
                 >
                   See subscription plans
@@ -136,7 +141,7 @@ export default function Hero() {
               >
                 {[
                   { value: "6+", label: "Years" },
-                  { value: "30+", label: "Products" },
+                  { value: "50+", label: "Products" },
                   { value: "6", label: "Countries" },
                   { value: "100%", label: "Inhouse" },
                 ].map((s) => (
@@ -163,6 +168,7 @@ export default function Hero() {
             {/* Video Frame */}
             <div
               className="relative rounded-3xl bg-white border border-[var(--color-border-default)] overflow-hidden group cursor-pointer shadow-2xl"
+              onClick={() => setIsPopupOpen(true)}
               style={{
                 width: "571px",
                 height: "400px",
@@ -278,6 +284,7 @@ export default function Hero() {
         >
           <div
             className="relative w-full aspect-video rounded-3xl bg-white border border-[var(--color-border-default)] overflow-hidden group cursor-pointer shadow-2xl"
+            onClick={() => setIsPopupOpen(true)}
             style={{
               boxShadow: "0 20px 60px rgba(42, 171, 215, 0.15)",
             }}
@@ -309,10 +316,57 @@ export default function Hero() {
               </p>
             </div>
           </div>
-
-         
         </motion.div>
       </div>
+
+      {/* Coming Soon Modal - Portal to Body */}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {isPopupOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+                onClick={() => setIsPopupOpen(false)}
+              >
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                  className="relative w-full max-w-md bg-white rounded-3xl p-8 text-center shadow-2xl border border-white/20"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white"
+                    style={{ background: "var(--gradient-brand)" }}
+                  >
+                    <Code size={32} />
+                  </div>
+                  <h2 className="text-3xl font-black text-[var(--color-text-primary)] mb-2 font-heading">
+                    Coming Soon
+                  </h2>
+                  <p className="text-[var(--color-text-body)] mb-8 leading-relaxed">
+                    We're currently perfecting our video presentation. Check
+                    back soon for a deep dive into our process!
+                  </p>
+                  <button
+                    onClick={() => setIsPopupOpen(false)}
+                    className="w-full py-4 rounded-full text-white font-black text-sm hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                    style={{
+                      background: "var(--gradient-brand)",
+                      boxShadow: "0 10px 30px var(--color-brand-glow)",
+                    }}
+                  >
+                    Got it
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
     </section>
   );
 }

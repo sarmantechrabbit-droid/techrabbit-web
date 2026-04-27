@@ -239,7 +239,9 @@ export default function
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="/contact"
+                  href="https://calendly.com/techrabbit/meeting"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black text-base text-white transition-all duration-300 hover:scale-105"
                   style={{
                     background: "var(--gradient-brand)",

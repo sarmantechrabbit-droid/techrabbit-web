@@ -3,40 +3,51 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
 import { ArrowUpRight, Zap, TrendingUp, Rocket } from "lucide-react";
-import shipora from "../assets/Dashboard/Shipora.png";
+import parentician from "../assets/Dashboard/Parentician.png";
 import lexa from "../assets/Dashboard/lexa.png";
 import oppvia from "../assets/Dashboard/oppvia.png";
 
 const cases = [
   {
-    tag: "Logistics SaaS",
-    title: "Shipora",
-    slug: "shipora",
+    tag: "Parenting Platform",
+    title: "Parentician",
+    slug: "parentician",
     description:
-      "Multi-country shipping management system handling end-to-end logistics from China to UK/EU routes.",
-    stats: [
-      { label: "Countries", value: "4" },
-      { label: "Roles", value: "3" },
-      { label: "Launch", value: "30d" },
+      "Parentician is a modern parenting-focused digital platform designed to provide guidance, resources, and support for parents. The platform aims to simplify the parenting journey by offering structured information, health-related insights, and user-friendly tools.",
+    // stats: [
+    //   { label: "Total Referrals", value: "51+" },
+    //   { label: "Total Earnings", value: "₹19K+" },
+    //   { label: "Tools Usage", value: "47+" },
+    // ],
+    chips: [
+      "Modern UI/UX",
+      "Responsive Design",
+      "Search & Filtering",
+      "Optimized Performance",
     ],
-    chips: ["Routing Engine", "Tracking API", "Cloud-native"],
-    image: shipora,
+    image: parentician,
     accent: "from-green-500 to-emerald-500",
     accentVar: "var(--color-brand-blue)",
     icon: Zap,
   },
+
   {
     tag: "AI Hiring Platform",
     title: "Oppvia",
     slug: "oppvia",
     description:
-      "Revolutionizing recruitment with AI interview simulators and automated calling agents.",
-    stats: [
-      { label: "AI Modules", value: "5+" },
-      { label: "Tiers", value: "3" },
-      { label: "Status", value: "Live" },
+      "Oppvia is an AI-powered recruitment platform designed to streamline hiring through intelligent automation. It features an advanced AI Interview system that simulates real interview environments using voice interaction, natural language processing, and emotion detection.",
+    // stats: [
+    //   { label: "AI Modules", value: "5+" },
+    //   { label: "Tiers", value: "3" },
+    //   { label: "Status", value: "Live" },
+    // ],
+    chips: [
+      "AI Interview System",
+      "Voice Interaction",
+      "Emotion Detection",
+      "Smart Job Matching",
     ],
-    chips: ["AI Simulator", "Biometric Eval", "Booking Agent"],
     image: oppvia,
     accent: "from-blue-500 to-cyan-500",
     accentVar: "var(--color-brand-green)",
@@ -47,13 +58,18 @@ const cases = [
     title: "Lexa",
     slug: "lexa",
     description:
-      "High-performance trading engine connecting TradingView alerts to IBKR via Python FastAPI.",
-    stats: [
-      { label: "Production", value: "Live" },
-      { label: "Backends", value: "2" },
-      { label: "Signals", value: "Real-time" },
+      "Lexa Technologies is a production-grade algorithmic trading platform that seamlessly connects TradingView signals with Interactive Brokers (IBKR) for automated trade execution. The system enables real-time monitoring, advanced risk management, and scalable multi-client operations.",
+    // stats: [
+    //   { label: "Production", value: "Live" },
+    //   { label: "Backends", value: "2" },
+    //   { label: "Signals", value: "Real-time" },
+    // ],
+    chips: [
+      "TradingView Integration",
+      "Real-time Signals",
+      "Risk Management",
+      "P&L Tracking",
     ],
-    chips: ["FastAPI", "API Bridge", "Execution Engine"],
     image: lexa,
     accent: "from-green-500 to-emerald-500",
     accentVar: "var(--color-brand-blue)",
@@ -76,9 +92,7 @@ function ProjectCard({ project, index }) {
         onMouseLeave={() => setHovered(false)}
         className="relative flex flex-col rounded-3xl border bg-white overflow-hidden cursor-pointer group h-full"
         style={{
-          borderColor: hovered
-            ? project.accentVar
-            : "var(--color-border-card)",
+          borderColor: hovered ? project.accentVar : "var(--color-border-card)",
           boxShadow: hovered
             ? `0 24px 60px -12px color-mix(in srgb, ${project.accentVar} 25%, transparent)`
             : "0 2px 20px rgba(0,0,0,0.04)",
@@ -165,7 +179,11 @@ function ProjectCard({ project, index }) {
           <div>
             <motion.h3
               className="text-2xl font-black font-heading text-[var(--color-text-primary)] tracking-tight mb-2"
-              animate={{ color: hovered ? project.accentVar : "var(--color-text-primary)" }}
+              animate={{
+                color: hovered
+                  ? project.accentVar
+                  : "var(--color-text-primary)",
+              }}
               transition={{ duration: 0.3 }}
             >
               {project.title}
@@ -177,7 +195,7 @@ function ProjectCard({ project, index }) {
 
           {/* Stats Grid */}
           <div className="grid grid-cols-3 gap-3">
-            {project.stats.map((s) => (
+            {project.stats?.map((s) => (
               <motion.div
                 key={s.label}
                 className="p-3 rounded-xl border transition-all duration-300"
@@ -271,19 +289,21 @@ export default function CaseStudies() {
       <div
         className="absolute top-0 inset-x-0 h-32 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, var(--color-bg-page), transparent)",
+          background:
+            "linear-gradient(to bottom, var(--color-bg-page), transparent)",
         }}
       />
       <div
         className="absolute bottom-0 inset-x-0 h-32 pointer-events-none"
         style={{
-          background: "linear-gradient(to top, var(--color-bg-page), transparent)",
+          background:
+            "linear-gradient(to top, var(--color-bg-page), transparent)",
         }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <Reveal className="mb-16 md:mb-20">
+        <Reveal className="mb-10 md:mb-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             {/* Left */}
             <div className="flex-1">
@@ -297,7 +317,6 @@ export default function CaseStudies() {
               </motion.div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.1] mb-4">
                 Products we've
-                
               </h2>
               <p className="text-[var(--color-text-body)] text-lg leading-relaxed max-w-xl">
                 Real products. Real clients. Real results — from MVP to scale.
@@ -341,7 +360,7 @@ export default function CaseStudies() {
         </div>
 
         {/* Mobile Slider */}
-        <div className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 scrollbar-hide mb-12">
+        <div className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory py-4 -mx-4 px-4 scrollbar-hide mb-8">
           {cases.map((project, idx) => (
             <div key={project.title} className="snap-start shrink-0 w-[90vw]">
               <ProjectCard project={project} index={idx} />
@@ -364,7 +383,7 @@ export default function CaseStudies() {
               {/* Stats */}
               <div className="w-full lg:w-auto grid grid-cols-2 md:grid-cols-4 lg:flex lg:items-center gap-6 md:gap-8 lg:gap-12">
                 {[
-                  { value: "30+", label: "Products shipped" },
+                  { value: "50+", label: "Products shipped" },
                   { value: "6", label: "Countries" },
                   { value: "100%", label: "IP ownership" },
                   { value: "30d", label: "Avg. MVP launch" },
@@ -377,7 +396,7 @@ export default function CaseStudies() {
                     className="text-center lg:text-left"
                   >
                     <div
-                      className="text-2xl md:text-3xl font-black font-heading bg-clip-text text-transparent leading-none mb-2"
+                      className="text-2xl md:text-3xl text-center font-black font-heading bg-clip-text text-transparent leading-none mb-2"
                       style={{ backgroundImage: "var(--gradient-brand)" }}
                     >
                       {s.value}

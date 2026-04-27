@@ -17,7 +17,7 @@ const HeroSec = ({ heroObj }) => {
   const { tagline, title, desc, video } = heroObj;
 
   return (
-    <section className="relative z-0 px-4 sm:px-6 lg:px-8 py-12 sm:pt-16 lg:pt-20 overflow-hidden pt-20 lg:pt-36">
+    <section className="relative z-0 px-4 sm:px-6 lg:px-8 py-12 overflow-hidden pt-40 md:pt-40  max-sm:pt-25">
       {/* Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
@@ -37,45 +37,43 @@ const HeroSec = ({ heroObj }) => {
       {/* Container */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.75fr_1.25fr] gap-10 md:gap-12 lg:gap-6 items-center">
         {/* LEFT CONTENT */}
-            <div className="flex flex-col space-y-5 sm:space-y-6 md:space-y-8 text-left">
-               <Reveal>
-                          <div>
-                            <Reveal>
-                              <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.28em] text-[var(--color-brand-blue)] sm:mb-8 sm:px-4 sm:text-[10px]"
-                              >
-                                <Sparkles className="h-3.5 w-3.5 shrink-0" />
-                                <span className="truncate">
-                                  About US
-                                </span>
-                              </motion.div>
-                            </Reveal>
-              
-                            <motion.div
-                              initial={{ opacity: 0, x: -30 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.7 }}
-                            >
-                              <h1 className="mb-4 max-w-[16ch] text-3xl font-bold font-heading leading-[1.05] tracking-tight text-[var(--color-text-primary)] sm:text-4xl md:max-w-[18ch] md:text-5xl xl:text-6xl">
-                                Built to solve the problems{" "}
-                                <span
-                                  className="bg-clip-text text-transparent"
-                                  style={{ backgroundImage: "var(--gradient-brand)" }}
-                                >
-                                founders face
-                                </span>
-                              </h1>
-              
-                              <p className="mb-6 max-w-xl text-sm font-medium leading-relaxed text-[var(--color-text-body)] sm:text-base">
-                               Tech Rabbit started in 2019 with one goal — build a product agency that actually works. Same team, full transparency, real accountability.
+        <div className="flex flex-col space-y-5 sm:space-y-6 md:space-y-8 text-left">
+          <Reveal>
+            <div>
+              <Reveal>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.28em] text-[var(--color-brand-blue)] sm:mb-8 sm:px-4 sm:text-[10px]"
+                >
+                  <Sparkles className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">About US</span>
+                </motion.div>
+              </Reveal>
 
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+              >
+                <h1 className="mb-4 max-w-[16ch] text-3xl font-bold font-heading leading-[1.05] tracking-tight text-[var(--color-text-primary)] sm:text-4xl md:max-w-[18ch] md:text-5xl xl:text-6xl">
+                  Built to solve the problems{" "}
+                  <span
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: "var(--gradient-brand)" }}
+                  >
+                    founders face
+                  </span>
+                </h1>
 
-                              </p>
-              
-                              {/* <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+                <p className="max-w-xl text-sm font-medium leading-relaxed text-[var(--color-text-body)] sm:text-base">
+                  Tech Rabbit started in 2019 with one goal — build a product
+                  agency that actually works. Same team, full transparency, real
+                  accountability.
+                </p>
+
+                {/* <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                                 <Link
                                   to="/contact"
                                   className="group flex min-h-14 w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-center text-sm font-black text-white transition-all duration-300 hover:scale-[1.03] sm:w-auto sm:px-8"
@@ -98,11 +96,10 @@ const HeroSec = ({ heroObj }) => {
                                   <ArrowRight className="h-4 w-4" />
                                 </Link>
                               </div> */}
-                            </motion.div>
-                          </div>
-                        </Reveal>
-              
-          
+              </motion.div>
+            </div>
+          </Reveal>
+
           {/* Heading */}
           {/* <motion.h1
             variants={fadeUp}
@@ -151,11 +148,10 @@ const HeroSec = ({ heroObj }) => {
             {[
               { value: "2019", label: "Founded" },
               { value: "6+", label: "Years" },
-              { value: "30+", label: "Products" },
-              { value: "5", label: "Countries" },
+              { value: "50+", label: "Products" },
+              { value: "6", label: "Countries" },
             ].map((stat, index) => (
               <div key={index} className="flex items-center gap-4 sm:gap-6">
-                
                 <div className="flex flex-col">
                   <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#120A0B]">
                     {stat.value}

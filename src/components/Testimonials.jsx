@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
-import { Play, Volume2 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Play, Volume2, Code } from "lucide-react";
+
 import Reveal from "./Reveal";
 
 const videoTestimonials = [
@@ -37,7 +39,7 @@ const videoTestimonials = [
   },
 ];
 
-function VideoCard({ item, index }) {
+function VideoCard({ item, index, onClick }) {
   const videoRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -62,6 +64,7 @@ function VideoCard({ item, index }) {
       <motion.div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={onClick}
         whileHover={{ y: -5 }}
         className="group relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-gray-900 shadow-xl cursor-pointer"
       >
@@ -113,6 +116,8 @@ function VideoCard({ item, index }) {
 }
 
 export default function Testimonials() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
     <section
       id="testimonials"
@@ -124,26 +129,88 @@ export default function Testimonials() {
             Client Testimonials
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1]">
-           What our 
-            <span className="text-[var(--color-text-muted)]"> clients say.</span>
+            What our
+            <span className="text-[var(--color-text-muted)]">
+              {" "}
+              clients say.
+            </span>
           </h2>
         </Reveal>
 
         {/* Desktop/Tablet grid */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {videoTestimonials.map((item, i) => (
-            <VideoCard key={i} item={item} index={i} />
+            <VideoCard
+              key={i}
+              item={item}
+              index={i}
+              onClick={() => setIsPopupOpen(true)}
+            />
           ))}
         </div>
+
         {/* Mobile horizontal slider */}
         <div className="sm:hidden flex items-start gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-1 px-1 scrollbar-hide">
           {videoTestimonials.map((item, i) => (
             <div key={i} className="snap-start shrink-0 w-[75vw]">
-              <VideoCard item={item} index={i} />
+              <VideoCard
+                item={item}
+                index={i}
+                onClick={() => setIsPopupOpen(true)}
+              />
             </div>
           ))}
         </div>
       </div>
+
+      {/* Coming Soon Modal - Portal to Body */}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {isPopupOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+                onClick={() => setIsPopupOpen(false)}
+              >
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                  className="relative w-full max-w-md bg-white rounded-3xl p-8 text-center shadow-2xl border border-white/20"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-white"
+                    style={{ background: "var(--gradient-brand)" }}
+                  >
+                    <Code size={32} />
+                  </div>
+                  <h2 className="text-3xl font-black text-[var(--color-text-primary)] mb-2 font-heading">
+                    Coming Soon
+                  </h2>
+                  <p className="text-[var(--color-text-body)] mb-8 leading-relaxed">
+                    We're currently perfecting our video presentation. Check
+                    back soon for a deep dive into our process!
+                  </p>
+                  <button
+                    onClick={() => setIsPopupOpen(false)}
+                    className="w-full py-4 rounded-full text-white font-black text-sm hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                    style={{
+                      background: "var(--gradient-brand)",
+                      boxShadow: "0 10px 30px var(--color-brand-glow)",
+                    }}
+                  >
+                    Got it
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
     </section>
   );
 }

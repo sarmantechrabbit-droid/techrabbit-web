@@ -5,6 +5,7 @@ import PricingComparison from "../components/pricing/PricingComparison";
 import PricingCTA from "../components/pricing/PricingCTA";
 import FAQSection from "../components/FAQSection";
 import ServicesTeam from "../components/services/ServicesTeam";
+import ComparisonSection from "../components/ComparisonSection";
 
 export default function Pricing() {
   return (
@@ -13,8 +14,9 @@ export default function Pricing() {
       <PricingFeatures />
       <PricingHowHoursWork />
       <ServicesTeam />
-
-      <PricingComparison />
+          <ComparisonSection />
+    
+      {/* <PricingComparison /> */}
       <FAQSection />
       <PricingCTA />
     </main>

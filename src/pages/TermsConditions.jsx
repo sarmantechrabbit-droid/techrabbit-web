@@ -1,133 +1,285 @@
-import { motion } from 'framer-motion'
-import { FileText } from 'lucide-react'
+import { motion } from "framer-motion";
+import { FileText, Shield, Mail, Phone, Globe, Scale, Users, Code, Lock, Ban, Gavel } from "lucide-react";
+
+const terms = [
+  {
+    title: "1. Acceptance of Terms",
+    icon: Scale,
+    text: "By accessing or using the Tech Rabbit website or engaging in our services, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions, along with our Privacy Policy. If you do not agree with any part of these terms, please discontinue the use of our website or services.",
+  },
+  {
+    title: "2. Definition of Parties",
+    icon: Users,
+    subsections: [
+      {
+        title: '"We", "Us", "Our"',
+        text: "Refers to Tech Rabbit, located at 939/940, Sun Gravitas, Nr Shyamal Cross Road, Ahmedabad, Gujarat 380058.",
+      },
+      {
+        title: '"You", "Your", "User", "Visitor"',
+        text: "Refers to any natural or legal person using our website and/or purchasing our services.",
+      },
+    ],
+  },
+  {
+    title: "3. Services",
+    icon: Code,
+    text: "Tech Rabbit provides a range of IT development and consulting services, including but not limited to:",
+    items: [
+      "Website development",
+      "Mobile app development",
+      "CRM/ERP systems",
+      "Custom software development",
+      "UI/UX design",
+      "IT and tech consulting",
+    ],
+    footer: "We reserve the right to modify, update, or discontinue any service at any time without notice.",
+  },
+  {
+    title: "4. Client Responsibilities",
+    icon: Shield,
+    text: "Clients agree to:",
+    items: [
+      "Provide accurate project details, requirements, and resources necessary for execution.",
+      "Respond to communications promptly to avoid delays.",
+      "Make timely payments as per agreed terms.",
+    ],
+    footer: "Failure to provide required inputs may result in project delays, additional costs, or discontinuation of services.",
+  },
+  {
+    title: "5. Intellectual Property",
+    icon: Lock,
+    text: "All code, designs, content, and deliverables developed by Tech Rabbit remain our intellectual property until full payment is received.",
+    items: [
+      "Upon full payment, ownership of project deliverables may be transferred to the client (excluding third-party tools, licenses, or open-source components).",
+      "Tech Rabbit may showcase non-confidential work in its portfolio.",
+    ],
+  },
+  {
+    title: "6. Payments & Refunds",
+    icon: FileText,
+    items: [
+      "Payments must be made as per the mutually agreed schedule.",
+      "Once work has begun or services have been delivered, refunds are not applicable.",
+      "Delayed payments may result in service suspension or additional charges.",
+      "We shall not be held liable for any loss arising due to the decline of authorization for any transaction if the cardholder exceeds the preset limits agreed with our acquiring bank.",
+    ],
+  },
+  {
+    title: "7. Confidentiality & NDA",
+    icon: Shield,
+    text: "Both parties agree to maintain the confidentiality of all technical, business, and project-related information. An NDA can be executed at the client’s request. Confidentiality obligations continue even after the project terminates.",
+  },
+  {
+    title: "8. Service Level Agreement (SLA)",
+    icon: FileText,
+    text: "SLAs may vary depending on the nature of the project. General commitments include:",
+    items: [
+      "Response time for support queries: 24–48 business hours",
+      "Periodic updates/progress reports",
+      "Bug-fix support for 30–90 days post-deployment",
+    ],
+    footer: "Specific SLAs (uptime, resolution timelines, maintenance windows) will be defined in the project contract.",
+  },
+  {
+    title: "9. Website Usage Terms",
+    icon: Globe,
+    items: [
+      "Website content may change without prior notice.",
+      "We do not guarantee accuracy, performance, completeness, or suitability of website information. You acknowledge that such information may contain inaccuracies.",
+      "Your use of website information is at your own risk. It is your responsibility to ensure that any service or information meets your requirements.",
+      "Website design, layout, appearance, and graphics are owned by or licensed to us; reproduction is prohibited without consent.",
+      "Any unauthorized use may give rise to civil claims and/or criminal liability.",
+      "Our website may contain external links for convenience. We do not endorse or control third-party content.",
+      "You may not link to our website without prior written permission.",
+    ],
+  },
+  {
+    title: "10. Limitation of Liability",
+    icon: Ban,
+    text: "Tech Rabbit shall not be liable for:",
+    items: [
+      "Indirect, incidental, or consequential damages.",
+      "Issues arising from misuse, external attacks, unauthorized access, or third-party services.",
+      "Data loss caused by factors outside our control.",
+    ],
+  },
+  {
+    title: "11. Termination",
+    icon: Gavel,
+    text: "Either party may terminate the agreement via written notice. Upon termination:",
+    items: [
+      "The client must pay for all work completed up to the termination date.",
+      "Tech Rabbit will hand over all finalized work completed until that point.",
+    ],
+    footer: "To initiate termination or for concerns: hello@techrabbit.io",
+  },
+  {
+    title: "12. Governing Law",
+    icon: Gavel,
+    text: "These Terms and Conditions are governed by the laws of India. Any disputes shall fall under the exclusive jurisdiction of courts located in Ahmedabad, Gujarat, India.",
+  },
+  {
+    title: "13. Updates to Terms",
+    icon: FileText,
+    text: "We may revise these Terms periodically. Continued use of our services or website implies acceptance of updated terms.",
+  },
+  {
+    title: "14. Contact Details",
+    icon: Mail,
+    contact: {
+      email: "hello@techrabbit.io",
+      phone: "+91 76002 13313",
+      website: "www.techrabbit.io",
+    },
+  },
+];
 
 export default function TermsConditions() {
-  const sections = [
-    {
-      title: "1. Acceptance of Terms",
-      content: "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
-    },
-    {
-      title: "2. Use License",
-      content: "Permission is granted to temporarily download one copy of the materials (information or software) on TechRabbit's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not: modify or copy the materials; use the materials for any commercial purpose or for any public display; attempt to decompile or reverse engineer any software contained on the website; remove any copyright or other proprietary notations from the materials; or transfer the materials to another person or 'mirror' the materials on any other server."
-    },
-    {
-      title: "3. Disclaimer",
-      content: "The materials on TechRabbit's website are provided on an 'as is' basis. TechRabbit makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights."
-    },
-    {
-      title: "4. Limitations",
-      content: "In no event shall TechRabbit or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TechRabbit's website, even if TechRabbit or an authorized representative has been notified orally or in writing of the possibility of such damage."
-    },
-    {
-      title: "5. Accuracy of Materials",
-      content: "The materials appearing on TechRabbit's website could include technical, typographical, or photographic errors. TechRabbit does not warrant that any of the materials on its website are accurate, complete, or current. TechRabbit may make changes to the materials contained on its website at any time without notice."
-    },
-    {
-      title: "6. Materials and Content",
-      content: "The materials on TechRabbit's website are protected by copyright law and international treaties. You may not reproduce, distribute, transmit, display, or perform any content from this website without prior written permission from TechRabbit."
-    },
-    {
-      title: "7. Links",
-      content: "TechRabbit has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by TechRabbit of the site. Use of any such linked website is at the user's own risk."
-    },
-    {
-      title: "8. Modifications",
-      content: "TechRabbit may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service."
-    },
-    {
-      title: "9. Governing Law",
-      content: "These terms and conditions are governed by and construed in accordance with the laws of India, and you irrevocably submit to the exclusive jurisdiction of the courts in that location."
-    },
-    {
-      title: "10. Contact Information",
-      content: "If you have any questions about these Terms & Conditions, please contact us at hello@techrabbit.io or write to us at 939/940, Sun Gravitas, Ahmedabad, Gujarat 380061, India."
-    }
-  ]
-
   return (
-    <div className="relative min-h-screen bg-[var(--color-bg-page)]">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, var(--color-brand-blue), transparent)' }}
-          animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+    <div className="relative min-h-screen bg-[var(--color-bg-page)] pt-28 pb-20">
+      {/* Background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute top-0 left-0 w-[600px] h-[600px] opacity-10"
+          style={{ background: 'radial-gradient(circle, var(--color-brand-green), transparent 70%)' }}
         />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, var(--color-brand-green), transparent)' }}
-          animate={{ x: [0, -60, 0], y: [0, -40, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        <div 
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] opacity-10"
+          style={{ background: 'radial-gradient(circle, var(--color-brand-blue), transparent 70%)' }}
         />
       </div>
 
-      <div className="relative z-10 px-6 md:px-12 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-12 md:mb-16"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <motion.div
-                className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-brand-blue)] to-[var(--color-brand-green)] flex items-center justify-center text-white"
-                whileHover={{ scale: 1.1, rotate: 10 }}
-              >
-                <FileText className="w-6 h-6" />
-              </motion.div>
-              <h1 className="text-4xl md:text-5xl font-black text-[var(--color-text-primary)] font-heading">
-                Terms & Conditions
-              </h1>
-            </div>
-            <p className="text-[var(--color-text-body)] text-lg mb-4">
-              Last updated: January 2025
-            </p>
-            <p className="text-[var(--color-text-body)] text-base leading-relaxed">
-              Please read these terms and conditions carefully before using TechRabbit's website. Your access to and use of the website is conditioned on your acceptance of and compliance with these terms and conditions.
-            </p>
-          </motion.div>
-
-          {/* Content Sections */}
-          <div className="space-y-8">
-            {sections.map((section, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className="group"
-              >
-                <div className="relative overflow-hidden rounded-2xl bg-white border border-[var(--color-border-light)] p-6 md:p-8 hover:shadow-lg transition-all duration-300">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[var(--color-brand-green)] to-[var(--color-brand-blue)]" />
-                  
-                  <h2 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] mb-4 pl-4">
-                    {section.title}
-                  </h2>
-                  <p className="text-[var(--color-text-body)] leading-relaxed pl-4">
-                    {section.content}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Footer Note */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 md:px-12">
+        <header className="mb-16 md:mb-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-12 md:mt-16 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-[var(--color-bg-brand-tint)] to-white border border-[var(--color-border-light)]"
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black uppercase tracking-widest mb-6"
           >
-            <p className="text-[var(--color-text-body)] text-sm leading-relaxed">
-              By using TechRabbit's website, you acknowledge that you have read these Terms & Conditions and agree to be bound by them. If you do not agree with any part of these terms, please do not use our website.
-            </p>
+            Agreement & Governance
           </motion.div>
-        </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-7xl font-black text-[var(--color-text-primary)] font-heading leading-[1.1] mb-6"
+          >
+            Terms & <span className="text-[var(--color-text-muted)] font-medium">Conditions.</span>
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="flex items-center justify-center gap-4 text-[var(--color-text-muted)] text-sm font-medium"
+          >
+            <span>Last Updated: Nov 22, 2025</span>
+            <span className="w-1 h-1 rounded-full bg-gray-300" />
+            <span>Version 2.0</span>
+          </motion.div>
+        </header>
+
+        <main className="space-y-6">
+          {terms.map((section, idx) => (
+            <motion.section
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05 }}
+              className="bg-white rounded-3xl border border-[var(--color-border-card)] shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group"
+            >
+              <div className="p-6 md:p-10">
+                <div className="flex items-start gap-4 md:gap-8">
+                  <div className="hidden sm:flex w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 items-center justify-center text-[var(--color-brand-blue)] group-hover:scale-110 group-hover:bg-[var(--color-brand-blue)] group-hover:text-white transition-all duration-500">
+                    <section.icon size={28} />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-xl md:text-2xl font-black text-[var(--color-text-primary)] font-heading mb-4 flex items-center gap-3 sm:gap-0">
+                      <span className="sm:hidden w-8 h-8 rounded-lg bg-[var(--color-brand-blue)]/10 flex items-center justify-center text-[var(--color-brand-blue)]">
+                        <section.icon size={16} />
+                      </span>
+                      {section.title}
+                    </h2>
+
+                    {section.text && (
+                      <p className="text-[var(--color-text-body)] leading-relaxed mb-6 text-sm md:text-base">
+                        {section.text}
+                      </p>
+                    )}
+
+                    {section.subsections && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        {section.subsections.map((sub, sidx) => (
+                          <div key={sidx} className="p-5 rounded-2xl bg-gray-50/50 border border-gray-100">
+                            <h3 className="font-black text-[10px] uppercase tracking-widest text-[var(--color-brand-blue)] mb-2">
+                              {sub.title}
+                            </h3>
+                            <p className="text-[var(--color-text-body)] text-xs md:text-sm leading-relaxed">
+                              {sub.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {section.items && (
+                      <ul className="space-y-4 mb-6">
+                        {section.items.map((item, iidx) => (
+                          <li key={iidx} className="flex items-start gap-3 text-[var(--color-text-body)] text-sm md:text-base">
+                            <div className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-blue)] shrink-0" />
+                            <span className="leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {section.footer && (
+                      <div className="mt-6 p-4 rounded-xl bg-blue-50/30 border-l-4 border-[var(--color-brand-blue)] text-[var(--color-text-primary)] text-sm font-bold italic">
+                        {section.footer}
+                      </div>
+                    )}
+
+                    {section.contact && (
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                        {Object.entries(section.contact).map(([key, val]) => {
+                          const Icons = { email: Mail, phone: Phone, website: Globe };
+                          const Icon = Icons[key] || Globe;
+                          return (
+                            <div key={key} className="p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-[var(--color-brand-blue)] transition-all">
+                              <div className="flex items-center gap-3 mb-1">
+                                <Icon size={14} className="text-[var(--color-brand-blue)]" />
+                                <span className="text-[8px] font-black uppercase tracking-widest text-[var(--color-text-muted)]">{key}</span>
+                              </div>
+                              <p className="text-[var(--color-text-primary)] font-bold text-xs">{val}</p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.section>
+          ))}
+        </main>
+
+        <footer className="mt-20 text-center space-y-8">
+          <p className="text-[var(--color-text-muted)] text-sm max-w-lg mx-auto">
+            These terms define the professional relationship between Tech Rabbit and its clients, ensuring mutual respect and clarity.
+          </p>
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex items-center gap-4">
+               <div className="h-px w-20 bg-gray-200" />
+               <div className="w-3 h-3 rounded-full border-4 border-[var(--color-brand-blue)]" />
+               <div className="h-px w-20 bg-gray-200" />
+            </div>
+            <p className="font-heading font-black text-xs text-[var(--color-text-primary)] uppercase tracking-[0.2em]">
+              Tech Rabbit Legal
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
-  )
+  );
 }

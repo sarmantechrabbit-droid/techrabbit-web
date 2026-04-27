@@ -130,7 +130,10 @@ export default function PricingCTA() {
                 </div>
 
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <motion.button
+                  <motion.a
+                    href="https://calendly.com/techrabbit/meeting"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="group/btn flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-xs font-black uppercase tracking-widest text-white transition-all hover:shadow-lg sm:w-auto sm:px-8"
@@ -142,7 +145,7 @@ export default function PricingCTA() {
                     <Calendar className="h-4 w-4" />
                     Book a Call
                     <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </motion.button>
+                  </motion.a>
 
                   <button className="w-full rounded-xl border-2 border-gray-300 px-6 py-3.5 text-xs font-black uppercase tracking-widest text-gray-900 transition-all hover:border-gray-900 hover:bg-gray-50 sm:w-auto sm:px-8">
                     hello@techrabbit.io

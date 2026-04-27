@@ -1,57 +1,87 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../Reveal";
-import { ArrowRight, ExternalLink, Zap, ChevronRight, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Zap,
+  ChevronRight,
+  Sparkles,
+} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../../assets/Dashboard/Shipora.png";
+import img from "../../assets/Dashboard/Parentician.png";
 import img3 from "../../assets/Dashboard/lexa.png";
 import img4 from "../../assets/Dashboard/oppvia.png";
 
 const projects = [
   {
     id: 1,
-    slug: "shipora",
-    title: "Shipora",
-    category: "Logistics SaaS",
-    description: "Multi-country shipping management. Super Admin, Country Admin, Client roles. China → UK/EU routes.",
+    slug: "parentician",
+    title: "Parentician",
+    category: "Parenting Platform",
+    description:
+      "Parentician is a modern parenting-focused digital platform designed to provide guidance, resources, and support for parents. The platform aims to simplify the parenting journey by offering structured information, health-related insights, and user-friendly tools that enhance child development awareness and decision-making.",
     image: img,
     accent: "var(--color-brand-blue)",
-    features: ["Multi-vendor", "Real-time", "Analytics"],
-    stats: [
-      { label: "Countries", value: "4" },
-      { label: "Roles", value: "3" },
-      { label: "Launch", value: "30d" },
+    features: [
+      "Modern UI/UX design",
+      "Fully responsive layout",
+      "Structured content sections",
+      "Search & filtering",
+      "Optimized performance",
+      "User-friendly dashboard",
     ],
+    // stats: [
+    //   { label: "Total Referrals", value: "51+" },
+    //   { label: "Total Earnings", value: "₹19K+" },
+    //   { label: "Tools Usage", value: "47+" },
+    // ],
   },
   {
     id: 2,
     slug: "oppvia",
     title: "Oppvia",
     category: "AI Hiring Platform",
-    description: "AI interview simulator, resume-JD scoring, AI calling agent, WhatsApp/email automation.",
+    description:
+      "Oppvia is an AI-powered recruitment platform designed to streamline hiring through intelligent automation. It features an advanced AI Interview system that simulates real interview environments using voice interaction, natural language processing, and emotion detection.",
     image: img4,
     accent: "var(--color-brand-green)",
-    features: ["Single vendor", "Inventory", "Delivery"],
-    stats: [
-      { label: "AI modules", value: "5+" },
-      { label: "Tiers", value: "3" },
-      { label: "Live", value: "Active" },
+    features: [
+      "AI Interview System",
+      "Voice Interaction",
+      "Emotion Detection",
+      "Smart Job Matching",
+      "Real-time Notifications",
+      "Subscription Management",
     ],
+    // stats: [
+    //   { label: "AI modules", value: "5+" },
+    //   { label: "Tiers", value: "3" },
+    //   { label: "Live", value: "Active" },
+    // ],
   },
   {
     id: 3,
     slug: "lexa",
     title: "Lexa",
     category: "Algo Trading",
-    description: "TradingView → Python FastAPI → IBKR execution. Real-time signals via Socket.IO.",
+    description:
+      "Lexa Technologies is a production-grade algorithmic trading platform that seamlessly connects TradingView signals with Interactive Brokers (IBKR) for automated trade execution. The system enables real-time monitoring, advanced risk management, and scalable multi-client operations.",
     image: img3,
     accent: "var(--color-brand-blue)",
-    features: ["Real-time tracking", "Payments", "Ratings"],
-    stats: [
-      { label: "Production", value: "Live" },
-      { label: "Backends", value: "2" },
-      { label: "Signals", value: "Real-time" },
+    features: [
+      "TradingView Integration",
+      "Real-time Signal Processing",
+      "Risk Management",
+      "P&L Tracking",
+      "Kill Switch",
+      "Multi-tenant Architecture",
     ],
+    // stats: [
+    //   { label: "Production", value: "Live" },
+    //   { label: "Backends", value: "2" },
+    //   { label: "Signals", value: "Real-time" },
+    // ],
   },
 ];
 
@@ -60,10 +90,16 @@ export default function WorkPortfolio() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedId, setExpandedId] = useState(null);
 
-  const categories = ["All", "Logistics SaaS", "AI Hiring Platform", "Algo Trading"];
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
-    : projects.filter(p => p.category === selectedCategory);
+  const categories = [
+    "All",
+    "AI Development",
+    "Dynamic Website Development",
+    "Web Application Development",
+  ];
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === selectedCategory);
 
   return (
     <section className="relative overflow-hidden bg-[var(--color-bg-page)] px-4 sm:px-6 md:px-8 lg:px-12 py-16">
@@ -71,7 +107,8 @@ export default function WorkPortfolio() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           opacity: 0.3,
         }}
@@ -89,7 +126,8 @@ export default function WorkPortfolio() {
         <div
           className="absolute inset-0 rounded-full blur-[120px]"
           style={{
-            background: "radial-gradient(circle, rgba(42,171,215,0.12) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(42,171,215,0.12) 0%, transparent 70%)",
           }}
         />
       </motion.div>
@@ -105,7 +143,8 @@ export default function WorkPortfolio() {
         <div
           className="absolute inset-0 rounded-full blur-[120px]"
           style={{
-            background: "radial-gradient(circle, rgba(36,181,116,0.12) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(36,181,116,0.12) 0%, transparent 70%)",
           }}
         />
       </motion.div>
@@ -113,11 +152,17 @@ export default function WorkPortfolio() {
       {/* Fade overlays */}
       <div
         className="absolute top-0 inset-x-0 h-24 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, var(--color-bg-page), transparent)" }}
+        style={{
+          background:
+            "linear-gradient(to bottom, var(--color-bg-page), transparent)",
+        }}
       />
       <div
         className="absolute bottom-0 inset-x-0 h-24 pointer-events-none"
-        style={{ background: "linear-gradient(to top, var(--color-bg-page), transparent)" }}
+        style={{
+          background:
+            "linear-gradient(to top, var(--color-bg-page), transparent)",
+        }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -131,17 +176,19 @@ export default function WorkPortfolio() {
           </div>
 
           <div className="max-w-3xl">
-           <h2 className="mb-4 text-4xl md:text-5xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.15]">
-  <span className="block">Projects We're Proud of</span>
-</h2>
+            <h2 className="mb-4 text-4xl md:text-5xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.15]">
+              <span className="block">Projects We're Proud of</span>
+            </h2>
             <p className="text-[var(--color-text-body)] text-sm sm:text-base leading-relaxed font-medium">
-              Explore our portfolio of successful projects across different industries. Each one represents our commitment to quality, innovation, and client success.
+              Explore our portfolio of successful projects across different
+              industries. Each one represents our commitment to quality,
+              innovation, and client success.
             </p>
           </div>
         </Reveal>
 
         {/* Category Filter - Creative Design */}
-        <Reveal className="mb-12 lg:mb-16">
+        {/* <Reveal className="mb-12 lg:mb-16">
           <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:flex-wrap">
             {categories.map((cat, idx) => (
               <motion.button
@@ -152,16 +199,22 @@ export default function WorkPortfolio() {
                 transition={{ delay: idx * 0.05, duration: 0.3 }}
                 className="relative shrink-0 px-4 sm:px-5 py-2.5 rounded-full border transition-all duration-300 text-sm font-bold uppercase tracking-wide overflow-hidden group"
                 style={{
-                  background: selectedCategory === cat
-                    ? "var(--gradient-brand)"
-                    : "white",
-                  borderColor: selectedCategory === cat
-                    ? "transparent"
-                    : "var(--color-border-card)",
-                  color: selectedCategory === cat ? "white" : "var(--color-text-primary)",
-                  boxShadow: selectedCategory === cat
-                    ? "0 8px 24px -8px var(--color-brand-glow)"
-                    : "0 2px 8px rgba(0,0,0,0.04)",
+                  background:
+                    selectedCategory === cat
+                      ? "var(--gradient-brand)"
+                      : "white",
+                  borderColor:
+                    selectedCategory === cat
+                      ? "transparent"
+                      : "var(--color-border-card)",
+                  color:
+                    selectedCategory === cat
+                      ? "white"
+                      : "var(--color-text-primary)",
+                  boxShadow:
+                    selectedCategory === cat
+                      ? "0 8px 24px -8px var(--color-brand-glow)"
+                      : "0 2px 8px rgba(0,0,0,0.04)",
                 }}
                 whileHover={{ y: -2 }}
               >
@@ -169,12 +222,12 @@ export default function WorkPortfolio() {
               </motion.button>
             ))}
           </div>
-        </Reveal>
+        </Reveal> */}
 
         {/* Projects Grid - Creative Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <AnimatePresence mode="wait">
-            {filteredProjects.map((project, idx) => (
+            {filteredProjects?.map((project, idx) => (
               <Reveal key={project.id} delay={idx * 0.05}>
                 <Link to={`/case-study/${project.slug}`} className="h-full">
                   <motion.div
@@ -188,12 +241,14 @@ export default function WorkPortfolio() {
                     className="relative rounded-2xl border overflow-hidden flex flex-col transition-all duration-300 group cursor-pointer h-full"
                     style={{
                       background: "white",
-                      borderColor: hoveredId === project.id || expandedId === project.id
-                        ? project.accent
-                        : "var(--color-border-card)",
-                      boxShadow: hoveredId === project.id || expandedId === project.id
-                        ? `0 16px 48px -8px color-mix(in srgb, ${project.accent} 28%, transparent)`
-                        : "0 2px 8px rgba(0,0,0,0.04)",
+                      borderColor:
+                        hoveredId === project.id || expandedId === project.id
+                          ? project.accent
+                          : "var(--color-border-card)",
+                      boxShadow:
+                        hoveredId === project.id || expandedId === project.id
+                          ? `0 16px 48px -8px color-mix(in srgb, ${project.accent} 28%, transparent)`
+                          : "0 2px 8px rgba(0,0,0,0.04)",
                     }}
                   >
                     {/* Top accent line - animated */}
@@ -201,7 +256,10 @@ export default function WorkPortfolio() {
                       className="absolute top-0 inset-x-0 h-1 z-10"
                       style={{ background: project.accent }}
                       animate={{
-                        scaleX: hoveredId === project.id || expandedId === project.id ? 1 : 0,
+                        scaleX:
+                          hoveredId === project.id || expandedId === project.id
+                            ? 1
+                            : 0,
                       }}
                       transition={{ duration: 0.3 }}
                     />
@@ -222,9 +280,10 @@ export default function WorkPortfolio() {
                       <motion.div
                         className="absolute inset-0"
                         style={{
-                          background: hoveredId === project.id
-                            ? `linear-gradient(135deg, ${project.accent}20 0%, transparent 100%)`
-                            : "transparent",
+                          background:
+                            hoveredId === project.id
+                              ? `linear-gradient(135deg, ${project.accent}20 0%, transparent 100%)`
+                              : "transparent",
                         }}
                         animate={{
                           opacity: hoveredId === project.id ? 1 : 0,
@@ -319,7 +378,7 @@ export default function WorkPortfolio() {
 
                       {/* Stats Section */}
                       <div className="grid grid-cols-3 gap-3 py-4 border-t border-b border-[var(--color-border-light)] mb-5">
-                        {project.stats.map((stat, sidx) => (
+                        {project.stats?.map((stat, sidx) => (
                           <motion.div
                             key={stat.label}
                             initial={{ opacity: 0, y: 5 }}
@@ -337,13 +396,15 @@ export default function WorkPortfolio() {
                         ))}
                       </div>
 
-                      {/* CTA Button - Creative */}
-                      <motion.button
+                      {/* CTA Section - Creative */}
+                      <motion.div
                         className="group/btn flex items-center justify-center gap-2 w-full py-3 rounded-lg border transition-all duration-300 font-bold text-sm relative overflow-hidden"
                         style={{
-                          background: hoveredId === project.id ? project.accent : "white",
+                          background:
+                            hoveredId === project.id ? project.accent : "white",
                           borderColor: project.accent,
-                          color: hoveredId === project.id ? "white" : project.accent,
+                          color:
+                            hoveredId === project.id ? "white" : project.accent,
                         }}
                         whileHover={{ y: -2 }}
                         whileTap={{ y: 0 }}
@@ -361,7 +422,7 @@ export default function WorkPortfolio() {
                         >
                           <ChevronRight className="w-4 h-4 relative" />
                         </motion.div>
-                      </motion.button>
+                      </motion.div>
                     </div>
                   </motion.div>
                 </Link>
@@ -380,7 +441,8 @@ export default function WorkPortfolio() {
             <motion.div
               className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
               style={{
-                background: "color-mix(in srgb, var(--color-brand-blue) 10%, transparent)",
+                background:
+                  "color-mix(in srgb, var(--color-brand-blue) 10%, transparent)",
               }}
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -428,7 +490,8 @@ export default function WorkPortfolio() {
               }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               style={{
-                background: "radial-gradient(circle, rgba(42,171,215,0.08) 0%, transparent 70%)",
+                background:
+                  "radial-gradient(circle, rgba(42,171,215,0.08) 0%, transparent 70%)",
               }}
             />
 
@@ -437,10 +500,11 @@ export default function WorkPortfolio() {
                 Ready to start your project?
               </h3>
               <p className="text-[var(--color-text-body)] text-sm sm:text-base max-w-2xl mb-8 font-medium">
-                Let's discuss your ideas and turn them into reality. Our team is ready to help you build something amazing.
+                Let's discuss your ideas and turn them into reality. Our team is
+                ready to help you build something amazing.
               </p>
               <Link
-                to="/contact"
+                to="https://calendly.com/techrabbit/meeting"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 rounded-lg text-white font-bold text-sm hover:scale-[1.02] transition-all duration-300"
                 style={{
                   background: "var(--gradient-brand)",
@@ -448,10 +512,7 @@ export default function WorkPortfolio() {
                 }}
               >
                 Get Started Today
-                <motion.div
-                  animate={{ x: 0 }}
-                  whileHover={{ x: 4 }}
-                >
+                <motion.div animate={{ x: 0 }} whileHover={{ x: 4 }}>
                   <ArrowRight className="w-4 h-4" />
                 </motion.div>
               </Link>

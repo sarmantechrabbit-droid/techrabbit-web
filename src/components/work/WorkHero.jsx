@@ -42,7 +42,7 @@ export default function WorkHero() {
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
   return (
-    <section className="relative z-0 overflow-hidden bg-[var(--color-bg-page)] px-4 pt-28 sm:px-6 sm:pt-32 md:px-8 lg:px-12 lg:pt-36">
+    <section className="relative z-0 overflow-hidden bg-[var(--color-bg-page)] px-4 pt-40 sm:px-6 sm:pt-32 md:px-8 lg:px-12 lg:pt-40">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -93,8 +93,7 @@ export default function WorkHero() {
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="mb-6 text-4xl font-bold font-heading leading-[1.05] tracking-tight text-[var(--color-text-primary)] sm:text-5xl md:text-6xl">
-                  Products we've {" "}
-                  {/* <br /> */}
+                  Products we've {/* <br /> */}
                   <span
                     className="bg-clip-text text-transparent"
                     style={{ backgroundImage: "var(--gradient-brand)" }}
@@ -104,13 +103,13 @@ export default function WorkHero() {
                 </h1>
 
                 <p className="mb-8 max-w-xl text-sm font-medium leading-relaxed text-[var(--color-text-body)] sm:text-base lg:text-lg">
-                  30+ products shipped across US, UK, Canada, UAE, and India.
+                  50+ products shipped across US, UK, Canada, UAE, and India.
                   Here are some we can share.
                 </p>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                   <Link
-                    to="/contact"
+                    to="https://calendly.com/techrabbit/meeting"
                     className="group flex min-h-14 w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-center text-sm font-black text-white transition-all duration-300 hover:scale-[1.03] sm:w-auto sm:px-8"
                     style={{
                       background: "var(--gradient-brand)",

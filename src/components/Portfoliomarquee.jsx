@@ -138,13 +138,12 @@ function PortfolioMarquee() {
         </div>
       </div>
 
-      <div className="flex justify-end px-4 sm:px-16 mt-6 mb-2">
+      <div className="flex justify-end px-4 sm:px-16 mt-6">
         <Link
           to="/work"
           className="px-7 py-3.5 rounded-full text-sm font-black text-white transition-all duration-300 hover:scale-105"
           style={{
             background: "var(--gradient-brand)",
-            boxShadow: "0 8px 24px var(--color-brand-glow)",
           }}
         >
           View all work →

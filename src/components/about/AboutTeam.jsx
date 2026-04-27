@@ -1,122 +1,202 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../Reveal";
-import { ChevronDown, Share2, Code2, Mail } from "lucide-react";
+import { Share2, Mail } from "lucide-react";
+
+import kunalgangvani from "../../assets/team/Kunal Gangvani.png";
+import nehagangvani from "../../assets/team/Nehagangvani.png";
+
+import sarman from "../../assets/team/sarman.png";
+import aashish from "../../assets/team/aashish.png";
+import dharmik from "../../assets/team/dharmik.png";
+import dhisant from "../../assets/team/dhisant.png";
+import dhrumit from "../../assets/team/dhrumit.png";
+import pramod from "../../assets/team/pramod.png";
+import rushit from "../../assets/team/rushit.png";
+import kalp from "../../assets/team/kalp.png";
+import mamta from "../../assets/team/Mamta.png";
 
 const team = [
   {
     name: "Kunal Gangvani",
-    role: "Founder & PM",
+    role: "Founder & Project Manager ",
     details:
       "Leading strategy since 2019. Product visionary with 6+ years experience.",
-    image:
-      "#",
+    image: kunalgangvani,
     accent: "--color-brand-blue",
     socials: { linkedin: "#", email: "#" },
   },
   {
-    name: "UI/UX Designer",
-    role: "Figma Lead",
+    name: "Neha Gangvani",
+    role: "Co-Founder & Business Analyst",
     details:
-      "Design systems & prototypes. Creating beautiful user experiences.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=600&fit=crop",
+      "Analyzing business needs and turning data into actionable insights.",
+    image: nehagangvani,
     accent: "--color-brand-green",
     socials: { linkedin: "#", email: "#" },
   },
   {
-    name: "Dhrumit",
+    name: "Mamta Kothari",
+    role: "Human Resources",
+    badge: "HR",
+    details: "Building strong teams and positive workplace culture.",
+    image: mamta,
+    accent: "--color-brand-green",
+    socials: { linkedin: "#", email: "#" },
+  },
+  {
+    name: "Sarman Parmar",
     role: "Full-Stack Developer",
-    details: "React, Node.js, PostgreSQL. Building scalable applications.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
+    details:
+      "Building and maintaining both frontend and backend systems seamlessly.",
+    image: sarman,
     accent: "--color-brand-blue",
     socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Dharmik Odedara",
-    role: "Backend Dev",
-    details: "APIs, Integrations & Architecture. System design expert.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
+    role: "Full-Stack Developer",
+    details:
+      "Creating end-to-end solutions for smooth and powerful applications.",
+    image: dharmik,
     accent: "--color-brand-green",
     socials: { linkedin: "#", email: "#" },
   },
   {
-    name: "Sarman Parmar",
-    role: "Frontend Dev",
-    details: "Performance & Animations. Crafting smooth user interactions.",
-    image: "#",
+    name: "Dhrumit Panchal",
+    role: "Full-Stack Developer",
+    details:
+      "Developing scalable applications across frontend and backend technologies.",
+    image: dhrumit,
     accent: "--color-brand-blue",
+    socials: { linkedin: "#", email: "#" },
+  },
+  {
+    name: "Dishant Sangani",
+    role: "Full-Stack Developer",
+    details: "React, Node.js, PostgreSQL. Building scalable applications.",
+    image: dhisant,
+    accent: "--color-brand-green",
+    socials: { linkedin: "#", email: "#" },
+  },
+  {
+    name: "Ruchit Radadiya",
+    role: "Frontend & Shopify Developer",
+    details: "Communication & Growth. Your dedicated point of contact.",
+    image: rushit,
+    accent: "--color-brand-green",
     socials: { linkedin: "#", email: "#" },
   },
   {
     name: "Pramod Kale",
-    role: "QA Engineer",
-    details: "Systems & Ops Excellence. Ensuring quality at every step.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
-    accent: "--color-brand-green",
+    role: "QA Automation Engineer",
+    details: "Ensuring product quality through automated testing.",
+    image: pramod,
+    accent: "--color-brand-blue",
     socials: { linkedin: "#", email: "#" },
   },
+
   {
-    name: "Chirag",
-    role: "Business Analyst",
-    details: "Requirements & Sprint planning. Bridging business and tech.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
+    name: "Ashish Jolapara",
+    role: "Ui / Ux Designer & Motion Designer",
+    badge: "UI/UX",
+    details: "Designing intuitive interfaces with engaging motion experiences.",
+    image: aashish,
     accent: "--color-brand-blue",
     socials: { linkedin: "#", email: "#" },
   },
   {
-    name: "Client Success",
-    role: "Sales & Onboarding",
-    details: "Communication & Growth. Your dedicated point of contact.",
-    image: "#",
-    accent: "--color-brand-green",
-    socials: { linkedin: "#", email: "#" },
-  },
-   {
-    name: "Sarman Parmar",
-    role: "Frontend Dev",
-    details: "Performance & Animations. Crafting smooth user interactions.",
-    image: "#",
-    accent: "--color-brand-blue",
-    socials: { linkedin: "#", email: "#" },
-  },
-  {
-    name: "Pramod Kale",
-    role: "QA Engineer",
-    details: "Systems & Ops Excellence. Ensuring quality at every step.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop",
-    accent: "--color-brand-green",
-    socials: { linkedin: "#", email: "#" },
-  },
-  {
-    name: "Chirag",
-    role: "Business Analyst",
-    details: "Requirements & Sprint planning. Bridging business and tech.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop",
-    accent: "--color-brand-blue",
-    socials: { linkedin: "#", email: "#" },
-  },
-  {
-    name: "Client Success",
-    role: "Sales & Onboarding",
-    details: "Communication & Growth. Your dedicated point of contact.",
-    image: "#",
+    name: "Kalp Prajapati",
+    role: "Graphic Designer",
+    details:
+      "Creating visually compelling designs that communicate ideas effectively.",
+    image: kalp,
     accent: "--color-brand-green",
     socials: { linkedin: "#", email: "#" },
   },
 ];
 
-export default function AboutTeam() {
-  const [expandedIdx, setExpandedIdx] = useState(null);
-
+function TeamCard({ member, idx }) {
   return (
-    <section className="pt-16 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: idx * 0.08, duration: 0.5 }}
+      viewport={{ once: true }}
+      className="group relative h-full min-w-[280px] w-[80vw] sm:w-[50vw] md:w-auto md:min-w-0 snap-center"
+    >
+      <motion.div
+        className="relative rounded-3xl overflow-hidden h-full flex flex-col border transition-all duration-300"
+        style={{
+          borderColor: "var(--color-border-card)",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+        }}
+      >
+        {/* Image Container */}
+        <div className="relative h-80 overflow-hidden bg-[var(--color-bg-card)] rounded-xl">
+          <div className="relative h-full w-full">
+            <motion.img
+              src={member.image}
+              alt={member.name}
+              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500"
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+            />
+          </div>
+
+          {/* Top Accent Bar */}
+          <div
+            className="absolute top-0 inset-x-0 h-1"
+            style={{ background: `var(${member.accent})` }}
+          />
+
+          {/* Role Badge */}
+          <motion.div
+            className="absolute top-4 right-4 px-4 py-2 rounded-full backdrop-blur-md border shadow-sm flex items-center justify-center"
+            style={{
+              background: "rgba(255, 255, 255, 0.9)",
+              borderColor: `var(${member.accent})`,
+            }}
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          >
+            <span
+              className="text-[10px] font-bold uppercase tracking-widest leading-none"
+              style={{ color: `var(${member.accent})` }}
+            >
+              {member.badge || member.role.split(" ")[0]}
+            </span>
+          </motion.div>
+        </div>
+
+        {/* Content Section */}
+        <div className="flex-1 p-6 flex flex-col">
+          <div className="mb-4">
+            <h3 className="text-lg font-bold font-heading text-(--color-text-primary) tracking-tight mb-1">
+              {member.name}
+            </h3>
+            <p
+              className="text-[10px] font-bold uppercase tracking-widest transition-colors duration-300"
+              style={{ color: `var(${member.accent})` }}
+            >
+              {member.role}
+            </p>
+          </div>
+
+          <div className="mb-4 flex-1">
+            <p className="text-sm text-(--color-text-body) leading-relaxed mb-4 font-medium">
+              {member.details}
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+export default function AboutTeam() {
+  return (
+    <section className="pt-16 px-6 md:px-12 bg-(--color-bg-page) overflow-hidden relative">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -159,192 +239,36 @@ export default function AboutTeam() {
             </span>
           </h2>
           <p className="text-[var(--color-text-body)] text-base max-w-2xl mx-auto leading-relaxed font-medium">
-          100% inhouse. One office. Every person in the same room in Ahmedabad.
-
+            100% inhouse. One office. Every person in the same room in
+            Ahmedabad.
           </p>
         </Reveal>
 
-        {/* Team Grid */}
-        <div className="flex overflow-x-auto pb-8 gap-6 mb-6 scrollbar-hide snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0">
+        {/* Mobile: Single horizontal slider with all cards */}
+        <div className="flex overflow-x-auto pb-8 gap-6 mb-6 scrollbar-hide snap-x snap-mandatory -mx-6 px-6 md:hidden">
           {team.map((member, idx) => (
-            <motion.div
-              key={member.name + idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.08, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="group relative h-full min-w-[280px] w-[80vw] sm:w-[50vw] md:w-auto md:min-w-0 snap-center"
-            >
-              {/* Card Container */}
-              <motion.div
-                className="relative rounded-3xl overflow-hidden h-full flex flex-col border transition-all duration-300"
-                style={{
-                  borderColor:
-                    expandedIdx === idx
-                      ? `var(${member.accent})`
-                      : "var(--color-border-card)",
-                  boxShadow:
-                    expandedIdx === idx
-                      ? `0 20px 60px -12px color-mix(in srgb, var(${member.accent}) 30%, transparent)`
-                      : "0 2px 12px rgba(0,0,0,0.04)",
-                }}
-              >
-                {/* Image Container */}
-                <div className="relative h-80 overflow-hidden bg-[var(--color-bg-card)]">
-                  {/* Image */}
-                  <motion.img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-contain transition-transform duration-500"
-                    animate={{
-                      scale: expandedIdx === idx ? 1.05 : 1,
-                    }}
-                  />
+            <TeamCard key={member.name + idx} member={member} idx={idx} />
+          ))}
+        </div>
 
-                  {/* Overlay Gradient */}
-                  <div
-                    className="absolute inset-0 transition-all duration-300"
-                    style={{
-                      background:
-                        expandedIdx === idx
-                          ? `linear-gradient(135deg, color-mix(in srgb, var(${member.accent}) 40%, transparent) 0%, color-mix(in srgb, var(${member.accent}) 20%, transparent) 100%)`
-                          : `linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%)`,
-                    }}
-                  />
+        {/* Desktop: Row 1 — 3 cards */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 lg:max-w-[75%] lg:mx-auto gap-6 mb-6">
+          {team.slice(0, 3).map((member, idx) => (
+            <TeamCard key={member.name + idx} member={member} idx={idx} />
+          ))}
+        </div>
 
-                  {/* Top Accent Bar */}
-                  <div
-                    className="absolute top-0 inset-x-0 h-1"
-                    style={{ background: `var(${member.accent})` }}
-                  />
+        {/* Desktop: Row 2 — 4 cards */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          {team.slice(3, 7).map((member, idx) => (
+            <TeamCard key={member.name + idx} member={member} idx={idx} />
+          ))}
+        </div>
 
-                  {/* Role Badge - Positioned on Image */}
-                  <motion.div
-                    className="absolute top-4 right-4 px-3 py-1.5 rounded-full backdrop-blur-md border transition-all duration-300"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.9)",
-                      borderColor: `var(${member.accent})`,
-                    }}
-                    animate={{
-                      y: expandedIdx === idx ? -8 : 0,
-                    }}
-                  >
-                    <span
-                      className="text-[9px] font-black uppercase tracking-widest"
-                      style={{ color: `var(${member.accent})` }}
-                    >
-                      {member.role.split(" ")[0]}
-                    </span>
-                  </motion.div>
-                </div>
-
-                {/* Content Section */}
-                <div className="flex-1 p-6 flex flex-col">
-                  {/* Name & Role */}
-                  <div className="mb-4">
-                    <h3 className="text-lg font-bold font-heading text-[var(--color-text-primary)] tracking-tight mb-1">
-                      {member.name}
-                    </h3>
-                    <p
-                      className="text-[10px] font-bold uppercase tracking-widest transition-colors duration-300"
-                      style={{ color: `var(${member.accent})` }}
-                    >
-                      {member.role}
-                    </p>
-                  </div>
-
-                  {/* Details - Expandable */}
-                  <AnimatePresence>
-                    {expandedIdx === idx ? (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mb-4 flex-1"
-                      >
-                        <p className="text-base text-[var(--color-text-body)] leading-relaxed mb-4 font-medium">
-                          {member.details}
-                        </p>
-
-                        {/* Social Links */}
-                        <div className="flex gap-2">
-                          <a
-                            href={member.socials.linkedin}
-                            className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 border"
-                            style={{
-                              background: `color-mix(in srgb, var(${member.accent}) 8%, transparent)`,
-                              borderColor: `var(${member.accent})`,
-                              color: `var(${member.accent})`,
-                            }}
-                            title="LinkedIn"
-                          >
-                            <Share2 className="w-4 h-4" />
-                          </a>
-                          {/* <a
-                            href={member.socials.github}
-                            className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 border"
-                            style={{
-                              background: `color-mix(in srgb, var(${member.accent}) 8%, transparent)`,
-                              borderColor: `var(${member.accent})`,
-                              color: `var(${member.accent})`,
-                            }}
-                            title="GitHub"
-                          >
-                            <Code2 className="w-4 h-4" />
-                          </a> */}
-                          <a
-                            href={member.socials.email}
-                            className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 border"
-                            style={{
-                              background: `color-mix(in srgb, var(${member.accent}) 8%, transparent)`,
-                              borderColor: `var(${member.accent})`,
-                              color: `var(${member.accent})`,
-                            }}
-                            title="Email"
-                          >
-                            <Mail className="w-4 h-4" />
-                          </a>
-                        </div>
-                      </motion.div>
-                    ) : (
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="text-base text-[var(--color-text-body)] leading-relaxed line-clamp-2 flex-1 font-medium"
-                      >
-                        {member.details}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Expand Button */}
-                  <motion.button
-                    onClick={() =>
-                      setExpandedIdx(expandedIdx === idx ? null : idx)
-                    }
-                    className="mt-4 w-full py-2.5 rounded-xl border transition-all duration-300 flex items-center justify-center gap-2 font-semibold text-sm"
-                    style={{
-                      background:
-                        expandedIdx === idx
-                          ? `color-mix(in srgb, var(${member.accent}) 10%, transparent)`
-                          : "transparent",
-                      borderColor: `var(${member.accent})`,
-                      color: `var(${member.accent})`,
-                    }}
-                  >
-                    {expandedIdx === idx ? "Show less" : "View profile"}
-                    <motion.div
-                      animate={{ rotate: expandedIdx === idx ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <ChevronDown className="w-4 h-4" />
-                    </motion.div>
-                  </motion.button>
-                </div>
-              </motion.div>
-            </motion.div>
+        {/* Desktop: Row 3 — 4 cards */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          {team.slice(7, 11).map((member, idx) => (
+            <TeamCard key={member.name + idx} member={member} idx={idx} />
           ))}
         </div>
 
@@ -378,9 +302,9 @@ export default function AboutTeam() {
                   </span>
                 </h3>
                 <p className="text-[var(--color-text-body)] text-base leading-relaxed font-medium">
-                 Every person sits in the same office. Same standup. Same accountability. When you message us, a real team member responds.
-
-
+                  Every person sits in the same office. Same standup. Same
+                  accountability. When you message us, a real team member
+                  responds.
                 </p>
               </div>
 

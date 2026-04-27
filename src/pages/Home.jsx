@@ -21,8 +21,8 @@ export default function Home() {
       <PricingSection />
       {/* Timezone Overlap */}
       <TimezoneOverlap />
-            <ServicesOutcomes />
-      
+      <ServicesOutcomes />
+
       {/* Why we stand out - Third Section */}
       <ComparisonSection />
       <ProcessSection />
@@ -30,7 +30,7 @@ export default function Home() {
       <CaseStudies />
 
       {/* Testimonials */}
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       {/* Promises - Fifth Section */}
       <PromisesSection />

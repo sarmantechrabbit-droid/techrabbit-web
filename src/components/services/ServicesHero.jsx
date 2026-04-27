@@ -108,8 +108,10 @@ export default function ServicesHero() {
                 </p>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                  <Link
-                    to="/contact"
+                  <a
+                    href="https://calendly.com/techrabbit/meeting"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group flex min-h-14 w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-center text-sm font-black text-white transition-all duration-300 hover:scale-[1.03] sm:w-auto sm:px-8"
                     style={{
                       background: "var(--gradient-brand)",
@@ -120,7 +122,7 @@ export default function ServicesHero() {
                     <motion.div className="transition-transform group-hover:translate-x-1">
                       <ArrowRight className="h-4 w-4" />
                     </motion.div>
-                  </Link>
+                  </a>
 
                   <Link
                     to="/#pricing"

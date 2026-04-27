@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Zap } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, Zap } from "lucide-react";
 
 export default function ContactHero() {
   return (
@@ -9,7 +10,8 @@ export default function ContactHero() {
         <motion.div
           className="absolute top-0 right-[-10%] w-96 h-96 rounded-full blur-3xl"
           style={{
-            background: "radial-gradient(circle, rgba(42,171,215,0.15) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(42,171,215,0.15) 0%, transparent 70%)",
           }}
           animate={{
             x: [0, 50, 0],
@@ -20,7 +22,8 @@ export default function ContactHero() {
         <motion.div
           className="absolute bottom-0 left-[-10%] w-96 h-96 rounded-full blur-3xl"
           style={{
-            background: "radial-gradient(circle, rgba(36,181,116,0.15) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(36,181,116,0.15) 0%, transparent 70%)",
           }}
           animate={{
             x: [0, -50, 0],
@@ -34,7 +37,8 @@ export default function ContactHero() {
       <div
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)",
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       />
@@ -65,7 +69,8 @@ export default function ContactHero() {
             <br />
             <span
               style={{
-                backgroundImage: "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+                backgroundImage:
+                  "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -82,7 +87,8 @@ export default function ContactHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-base sm:text-lg md:text-xl text-[var(--color-text-body)] max-w-3xl leading-relaxed mb-10 sm:mb-12"
         >
-          We're a team of builders, designers, and strategists ready to bring your product to life. Let's have a conversation about what's possible.
+          We're a team of builders, designers, and strategists ready to bring
+          your product to life. Let's have a conversation about what's possible.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -93,36 +99,43 @@ export default function ContactHero() {
           className="flex flex-col sm:flex-row gap-4 sm:gap-6"
         >
           {/* Primary Button */}
-          <motion.button
+          <motion.a
+            href="https://calendly.com/techrabbit/meeting"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="group flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-white font-black text-sm uppercase tracking-widest transition-all duration-300 hover:shadow-lg"
             style={{
-              background: "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
+              background:
+                "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green))",
               boxShadow: "0 12px 40px rgba(42,171,215,0.2)",
             }}
           >
             Schedule a call
-            <motion.div
-              className="group-hover:translate-x-1 transition-transform"
-            >
+            <motion.div className="group-hover:translate-x-1 transition-transform">
               <ArrowRight className="w-4 h-4" />
             </motion.div>
-          </motion.button>
+          </motion.a>
 
           {/* Secondary Button */}
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 font-black text-sm uppercase tracking-widest transition-all duration-300 hover:shadow-lg"
-            style={{
-              borderColor: "var(--color-brand-blue)",
-              color: "var(--color-brand-blue)",
-            }}
+            className="flex"
           >
-            Learn more
-            <ArrowRight className="w-4 h-4" />
-          </motion.button>
+            <Link
+              to="/about"
+              className="flex w-full items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 font-black text-sm uppercase tracking-widest transition-all duration-300 hover:shadow-lg"
+              style={{
+                borderColor: "var(--color-brand-blue)",
+                color: "var(--color-brand-blue)",
+              }}
+            >
+              Learn more
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* Stats Row */}
@@ -130,13 +143,13 @@ export default function ContactHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-[var(--color-border-light)] grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8"
+          className="sm:mt-20 pt-12 sm:pt-16 border-t border-[var(--color-border-light)] grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8"
         >
           {[
-            { label: "Projects Shipped", value: "150+" },
-            { label: "Team Members", value: "25+" },
-            { label: "Client Satisfaction", value: "98%" },
-            { label: "Years Experience", value: "8+" },
+            { label: "Projects Shipped", value: "50+" },
+            { label: "Team Members", value: "12+" },
+            { label: "Client Satisfaction", value: "100%" },
+            { label: "Years Experience", value: "6+" },
           ].map((stat, idx) => (
             <motion.div
               key={idx}
@@ -156,5 +169,5 @@ export default function ContactHero() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

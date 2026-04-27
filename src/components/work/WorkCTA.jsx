@@ -72,7 +72,7 @@ export default function WorkCTA() {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
-                      to="/contact"
+                      to="https://calendly.com/techrabbit/meeting"
                       className="group flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-black text-sm hover:scale-[1.03] transition-all duration-300"
                       style={{
                         background: "var(--gradient-brand)",
@@ -98,9 +98,9 @@ export default function WorkCTA() {
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { number: "50+", label: "Products" },
-                    { number: "200+", label: "Clients" },
-                    { number: "1M+", label: "Users" },
-                    { number: "15+", label: "Years" },
+                    { number: "12", label: "Team size" },
+                    { number: "6", label: "Countries" },
+                    { number: "6+", label: "Years" },
                   ].map((stat, idx) => (
                     <motion.div
                       key={stat.label}

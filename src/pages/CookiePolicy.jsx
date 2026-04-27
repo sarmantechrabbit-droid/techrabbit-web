@@ -1,64 +1,82 @@
-import { motion } from 'framer-motion'
-import { Cookie } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Cookie } from "lucide-react";
 
 export default function CookiePolicy() {
   const cookieTypes = [
     {
       title: "Essential Cookies",
-      description: "These cookies are necessary for the website to function properly. They enable basic functions like page navigation and access to secure areas. The website cannot function properly without these cookies."
+      description:
+        "These cookies are necessary for the website to function properly. They enable basic functions like page navigation, secure access, and form submissions. The website cannot function properly without these cookies.",
     },
     {
       title: "Performance Cookies",
-      description: "These cookies collect information about how visitors use our website, such as which pages are visited most often and if users receive error messages. These cookies don't collect information that identifies a visitor."
+      description:
+        "These cookies collect anonymous information about how visitors use our website, such as which pages are visited most often and if users receive error messages. They help us improve site performance and user experience.",
     },
     {
       title: "Functional Cookies",
-      description: "These cookies allow the website to remember choices you make (such as your username, language, or the region you're in) and provide enhanced, more personal features."
+      description:
+        "These cookies allow the website to remember choices you make (such as your preferred language, region, or theme) and provide enhanced, more personalized features during your visit.",
     },
     {
       title: "Marketing Cookies",
-      description: "These cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third-party advertisers."
-    }
-  ]
+      description:
+        "These cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third-party advertisers.",
+    },
+  ];
 
   const sections = [
     {
       title: "1. What Are Cookies?",
-      content: "Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently and to provide information to the owners of the site. Cookies allow websites to remember information about your visit, such as your preferred language and other settings."
+      content:
+        "Cookies are small text files stored on your device when you visit our website. They help us recognize your browser, remember your preferences, and improve your overall experience. Cookies may also collect information about how you interact with our services, including project inquiries, service pages, and case studies.",
     },
     {
       title: "2. How We Use Cookies",
-      content: "TechRabbit uses cookies to enhance your experience on our website. We use them to remember your preferences, understand how you use our site, and to improve our services. Cookies help us analyze website traffic, personalize content, and remember your login information."
+      content:
+        "Tech Rabbit uses cookies to provide a seamless and personalized experience. We use them to remember user preferences, measure website performance, analyze traffic patterns, and improve our platform functionality. Cookies also help us understand how visitors engage with our service offerings and portfolio.",
     },
     {
       title: "3. Types of Cookies We Use",
-      content: "We use different types of cookies for different purposes. Essential cookies are necessary for the website to function. Performance cookies help us understand how visitors use our site. Functional cookies remember your choices. Marketing cookies track your activity to show you relevant ads."
+      content:
+        "We use essential cookies to ensure core functionality such as page navigation and secure access. Performance cookies help us analyze usage and improve the website. Functional cookies remember your preferences, while marketing cookies help deliver relevant content and measure campaign effectiveness.",
     },
     {
-      title: "4. Third-Party Cookies",
-      content: "Some cookies on our website are set by third parties, such as analytics providers and advertising networks. These third parties may use cookies to track your online activity across different websites. We do not have control over these cookies, and we encourage you to review their privacy policies."
+      title: "4. Analytics & Tracking",
+      content:
+        "We use analytics tools to understand how visitors interact with our website. These tools may use cookies to collect anonymous data such as pages viewed, time spent on site, and referral sources. This data helps us optimize our website and improve the user experience.",
     },
     {
-      title: "5. Cookie Consent",
-      content: "When you first visit our website, we ask for your consent to use cookies. You can choose to accept all cookies, reject non-essential cookies, or customize your cookie preferences. Your consent is stored and will be remembered for future visits."
+      title: "5. Third-Party Cookies",
+      content:
+        "We may use trusted third-party services such as Google Analytics and other analytics or advertising tools. These providers may place cookies on your device to collect usage data, measure performance, and deliver relevant content. We recommend reviewing their privacy policies for more information.",
     },
     {
-      title: "6. Managing Your Cookies",
-      content: "You can control and manage cookies through your browser settings. Most browsers allow you to refuse cookies or alert you when cookies are being sent. However, blocking cookies may affect the functionality of our website. You can also delete cookies that have already been set."
+      title: "6. Cookie Consent",
+      content:
+        "When you first visit Tech Rabbit's website, you will be asked to provide consent for the use of cookies. You can accept all cookies, reject non-essential cookies, or manage your preferences individually. Your choices will be stored and can be updated at any time.",
     },
     {
-      title: "7. Disabling Cookies",
-      content: "If you choose to disable cookies, some features of our website may not work properly. For example, you may not be able to log in to your account or access certain personalized features. We recommend keeping cookies enabled for the best experience."
+      title: "7. Managing Your Cookies",
+      content:
+        "You can manage or disable cookies through your browser settings. Most browsers allow you to block or delete cookies. However, disabling cookies may impact features such as theme preferences, form functionality, and personalized content recommendations.",
     },
     {
-      title: "8. Changes to This Policy",
-      content: "We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the updated policy on our website."
+      title: "8. Data & Privacy",
+      content:
+        "Cookies used on our website do not typically store sensitive personal information. Any data collected is handled in accordance with our Privacy Policy and applicable data protection laws, including GDPR and Indian IT regulations.",
     },
     {
-      title: "9. Contact Us",
-      content: "If you have questions about our use of cookies or this Cookie Policy, please contact us at hello@techrabbit.io or write to us at 939/940, Sun Gravitas, Ahmedabad, Gujarat 380061, India."
-    }
-  ]
+      title: "9. Changes to This Policy",
+      content:
+        "We may update this Cookie Policy to reflect changes in technology, legal requirements, or website features. Updates will be posted on this page with a revised date.",
+    },
+    {
+      title: "10. Contact Us",
+      content:
+        "If you have any questions about this Cookie Policy or how we use cookies, please contact us at info@techrabbit.co.",
+    },
+  ];
 
   return (
     <div className="relative min-h-screen bg-[var(--color-bg-page)]">
@@ -66,19 +84,25 @@ export default function CookiePolicy() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, var(--color-brand-blue), transparent)' }}
+          style={{
+            background:
+              "radial-gradient(circle, var(--color-brand-blue), transparent)",
+          }}
           animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, var(--color-brand-green), transparent)' }}
+          style={{
+            background:
+              "radial-gradient(circle, var(--color-brand-green), transparent)",
+          }}
           animate={{ x: [0, -60, 0], y: [0, -40, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
-      <div className="relative z-10 px-6 md:px-12 py-16 md:py-24">
+      <div className="relative z-10 px-6 md:px-12 py-24 md:py-24">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
@@ -99,10 +123,12 @@ export default function CookiePolicy() {
               </h1>
             </div>
             <p className="text-[var(--color-text-body)] text-lg mb-4">
-              Last updated: January 2025
+              Last updated: April 2025
             </p>
             <p className="text-[var(--color-text-body)] text-base leading-relaxed">
-              This Cookie Policy explains how TechRabbit uses cookies and similar tracking technologies on our website. We are committed to being transparent about our use of cookies and how they affect your privacy.
+              This Cookie Policy explains how Tech Rabbit uses cookies and
+              similar technologies to enhance your experience, analyze website
+              traffic, and improve our web development and design services.
             </p>
           </motion.div>
 
@@ -127,7 +153,7 @@ export default function CookiePolicy() {
                 >
                   <div className="relative overflow-hidden rounded-2xl bg-white border border-[var(--color-border-light)] p-6 hover:shadow-lg transition-all duration-300 h-full">
                     <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[var(--color-brand-blue)] to-[var(--color-brand-green)]" />
-                    
+
                     <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3 pl-4">
                       {cookie.title}
                     </h3>
@@ -152,7 +178,7 @@ export default function CookiePolicy() {
               >
                 <div className="relative overflow-hidden rounded-2xl bg-white border border-[var(--color-border-light)] p-6 md:p-8 hover:shadow-lg transition-all duration-300">
                   <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[var(--color-brand-green)] to-[var(--color-brand-blue)]" />
-                  
+
                   <h2 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] mb-4 pl-4">
                     {section.title}
                   </h2>
@@ -172,11 +198,15 @@ export default function CookiePolicy() {
             className="mt-12 md:mt-16 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-[var(--color-bg-brand-tint)] to-white border border-[var(--color-border-light)]"
           >
             <p className="text-[var(--color-text-body)] text-sm leading-relaxed">
-              We respect your privacy and are committed to being transparent about our use of cookies. If you have any questions or concerns about our cookie practices, please don't hesitate to contact us. You can manage your cookie preferences at any time through your browser settings.
+              We respect your privacy and are committed to being transparent
+              about our use of cookies. If you have any questions or concerns
+              about our cookie practices, please don't hesitate to contact us at
+              info@techrabbit.co. You can manage your cookie preferences at any
+              time through your browser settings or our cookie consent banner.
             </p>
           </motion.div>
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -13,7 +13,7 @@ export default function Work() {
       {/* <WorkStats /> */}
       {/* <WorkTestimonials /> */}
       {/* <WorkFAQ /> */}
-      <WorkCTA />
+      {/* <WorkCTA /> */}
     </main>
   );
 }

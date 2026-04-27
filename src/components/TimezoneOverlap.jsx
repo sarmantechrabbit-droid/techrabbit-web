@@ -46,20 +46,31 @@ const commitments = [
 
 export default function TimezoneOverlap() {
   return (
-    <section className="pb-16 sm:pb-20 px-4 sm:px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
+    <section className=" px-4 sm:px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(circle, var(--color-grid-dot) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           opacity: 0.5,
         }}
       />
-      <div className="absolute top-0 inset-x-0 h-28 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, var(--color-bg-page), transparent)" }} />
-      <div className="absolute bottom-0 inset-x-0 h-28 pointer-events-none"
-        style={{ background: "linear-gradient(to top, var(--color-bg-page), transparent)" }} />
+      <div
+        className="absolute top-0 inset-x-0 h-28 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, var(--color-bg-page), transparent)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 inset-x-0 h-28 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, var(--color-bg-page), transparent)",
+        }}
+      />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
@@ -71,18 +82,24 @@ export default function TimezoneOverlap() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.1] mb-4">
               We show up when
               <br />
-              <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-brand)" }}>
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "var(--gradient-brand)" }}
+              >
                 you're working
               </span>
             </h2>
             <p className="text-[var(--color-text-body)] text-base leading-relaxed">
-              No "we'll get back to you tomorrow." Real overlap, every day. Daily standups, Slack responses, and calls — all within your working hours.
+              No "we'll get back to you tomorrow." Real overlap, every day.
+              Daily standups, Slack responses, and calls — all within your
+              working hours.
             </p>
           </div>
         </Reveal>
 
         {/* Timezone Cards */}
-        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible -mx-1 md:mx-0 px-1 md:px-0 w-full scrollbar-hide mb-20"
+        <div
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible -mx-1 md:mx-0 px-1 md:px-0 w-full scrollbar-hide mb-20"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {timezones.map((tz, idx) => (
@@ -131,7 +148,10 @@ export default function TimezoneOverlap() {
 
                 {/* Your Time */}
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest mb-2" style={{ color: `var(${tz.accent})` }}>
+                  <p
+                    className="text-[10px] font-black uppercase tracking-widest mb-2"
+                    style={{ color: `var(${tz.accent})` }}
+                  >
                     Your working hours
                   </p>
                   <p className="text-base font-bold text-[var(--color-text-primary)]">
@@ -173,12 +193,14 @@ export default function TimezoneOverlap() {
                 What happens during overlap
               </h3>
               <p className="text-[var(--color-text-body)] text-base leading-relaxed max-w-2xl">
-                Daily standups, Slack responses, and calls — all within your working hours. No waiting. No delays.
+                Daily standups, Slack responses, and calls — all within your
+                working hours. No waiting. No delays.
               </p>
             </div>
 
             {/* Commitment Grid */}
-            <div className="flex gap-8 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible -mx-1 md:mx-0 px-1 md:px-0 w-full scrollbar-hide"
+            <div
+              className="flex gap-8 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible -mx-1 md:mx-0 px-1 md:px-0 w-full scrollbar-hide"
               style={{ WebkitOverflowScrolling: "touch" }}
             >
               {commitments.map((item, idx) => {
@@ -196,7 +218,8 @@ export default function TimezoneOverlap() {
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300"
                       style={{
-                        background: "color-mix(in srgb, var(--color-brand-green) 12%, transparent)",
+                        background:
+                          "color-mix(in srgb, var(--color-brand-green) 12%, transparent)",
                       }}
                     >
                       <Icon
@@ -222,7 +245,10 @@ export default function TimezoneOverlap() {
             {/* Bottom highlight */}
             <div className="mt-12 pt-8 border-t border-[var(--color-border-light)]">
               <p className="text-sm text-[var(--color-text-body)] leading-relaxed italic">
-                <span className="font-bold text-[var(--color-text-primary)]">Daily standups, Slack responses, and calls</span> — all within your working hours.
+                <span className="font-bold text-[var(--color-text-primary)]">
+                  Daily standups, Slack responses, and calls
+                </span>{" "}
+                — all within your working hours.
               </p>
             </div>
           </div>

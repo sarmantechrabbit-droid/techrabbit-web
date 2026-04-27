@@ -14,11 +14,11 @@ import {
 const timeline = [
   {
     year: "2019",
-    title: "Tech Rabbit founded",
-    tagline: "The Beginning",
-    desc: "Started in Ahmedabad with one goal — build a product agency that actually works.",
+    title: "Where It All Began",
+    tagline: "Tech Rabbit founded",
+    desc: "Tech Rabbit was born with just a few laptops, a tiny team, and a big belief: that technology should feel human. No investors, no fancy office — just late nights, honest work, and the dream of building solutions that truly make a difference.",
     highlights: [
-      "Founded with 2 co-founders",
+      "Founded with co-founders",
       "First office in Ahmedabad",
       "3 clients in first month",
       "Focus on quality over quantity",
@@ -28,9 +28,9 @@ const timeline = [
   },
   {
     year: "2020",
-    title: "First international clients",
-    tagline: "Going Global",
-    desc: "First US and UK clients onboarded. Remote-first delivery model proven.",
+    title: "The World Paused, We Pressed Play",
+    tagline: "Tech Rabbit founded",
+    desc: "When the pandemic hit, the world shut down — but we didn’t. We adapted to work-from-home life, stayed connected, and kept delivering for our clients. It was challenging, but it made us stronger, more agile, and even more committed to what we do.",
     highlights: [
       "Expanded to US market",
       "UK clients onboarded",
@@ -42,9 +42,9 @@ const timeline = [
   },
   {
     year: "2021",
-    title: "ISO Certification",
-    tagline: "Quality Standard",
-    desc: "Achieved ISO certification (MMS/EGAC accredited). Quality process standardized.",
+    title: "Growing, Remotely but Boldly",
+    tagline: "Tech Rabbit founded",
+    desc: "Even with the world still finding its feet, we kept moving. We onboarded new clients, refined our processes, and expanded our services — all while still working remotely. Every project became a proof point of what a focused, passionate team could do — even miles apart.",
     highlights: [
       "ISO 9001 Certified",
       "Process standardization",
@@ -56,9 +56,9 @@ const timeline = [
   },
   {
     year: "2022",
-    title: "Canada & Australia",
-    tagline: "Scale Up",
-    desc: "Expanded to Canadian and Australian markets. Full team of 6.",
+    title: "Back Together, Stronger Than Ever",
+    tagline: "Tech Rabbit founded",
+    desc: "We returned to working side-by-side, this time in our first humble office space. It wasn’t big, but it was ours — filled with ideas, energy, and the comfort of being together again. This year marked a turning point — from freelancers to a real team.",
     highlights: [
       "4 countries served",
       "Team of 6 developers",
@@ -70,9 +70,9 @@ const timeline = [
   },
   {
     year: "2023",
-    title: "AI capabilities added",
-    tagline: "AI Era",
-    desc: "Integrated Claude, GPT-4o, custom agents into every sprint. 20+ products shipped.",
+    title: "From a Team to a Tribe",
+    tagline: "Tech Rabbit founded",
+    desc: "Our culture matured. Our processes got sharper. And our client relationships grew deeper. More than just developers, we became strategic partners — supporting startups and businesses from idea to execution, with a clear, caring approach.",
     highlights: [
       "Claude integration",
       "GPT-4o implementation",
@@ -83,10 +83,10 @@ const timeline = [
     accent: "--color-brand-green",
   },
   {
-    year: "2025",
-    title: "Subscription model",
-    tagline: "Today",
-    desc: "Launched Dev-as-a-Service subscription. Full team of 8. New website.",
+    year: "2024",
+    title: "A Big Leap Forward",
+    tagline: "Tech Rabbit founded",
+    desc: "We moved into a bigger, brighter office — a reflection of how far we’d come. Now with 22+ team members, we brought in more expertise, more services, and a stronger commitment to quality. This year felt like our startup spirit finally met its scale.",
     highlights: [
       "Dev-as-a-Service launched",
       "Team of 8 in-house",
@@ -96,13 +96,27 @@ const timeline = [
     icon: TrendingUp,
     accent: "--color-brand-blue",
   },
+  {
+    year: "2025",
+    title: "Still Driven, Still Different",
+    tagline: "Tech Rabbit founded",
+    desc: "Today, Tech Rabbit is a trusted offshore partner for companies worldwide — but our heart is still in the code, the care, and the conversations that started it all. We’re not just building tech — we’re building trust, one partnership at a time.",
+    highlights: [
+      "Dev-as-a-Service launched",
+      "Team of 8 in-house",
+      "30+ products shipped",
+      "6 countries served",
+    ],
+    icon: Globe,
+    accent: "--color-brand-green",
+  },
 ];
 
 export default function AboutTimeline() {
   const [expanded, setExpanded] = useState(0);
 
   return (
-    <section className="py-16 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
+    <section className="pt-16 px-6 md:px-12 bg-[var(--color-bg-page)] overflow-hidden relative">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -135,13 +149,12 @@ export default function AboutTimeline() {
             Our Journey
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-[var(--color-text-primary)] leading-[1.2] mb-4">
-            6 years of{" "}
-            {/* <br /> */}
+            6 years of {/* <br /> */}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "var(--gradient-brand)" }}
             >
-              building 
+              building
             </span>
           </h2>
           <p className="text-[var(--color-text-body)] text-base max-w-xl mx-auto leading-relaxed font-medium">
@@ -181,14 +194,16 @@ export default function AboutTimeline() {
                 >
                   {/* Timeline dot */}
                   <div
-                    className="absolute -left-[2.25rem] top-6 w-5 h-5 rounded-full border-4 transition-all duration-300"
+                    className="absolute -left-[2.25rem] -translate-x-1/6 top-6 w-5 h-5 rounded-full border-4 transition-all duration-300"
                     style={{
-                      borderColor: isExpanded
-                        ? `var(${item.accent})`
-                        : "var(--color-border-card)",
-                      background: isExpanded ? `var(${item.accent})` : "white",
+                      borderColor:
+                        idx <= expanded
+                          ? `var(--color-brand-green)`
+                          : "var(--color-border-card)",
+                      background:
+                        idx <= expanded ? `var(--color-brand-green)` : "white",
                       boxShadow: isExpanded
-                        ? `0 0 0 4px color-mix(in srgb, var(${item.accent}) 10%, transparent)`
+                        ? `0 0 0 4px color-mix(in srgb, var(--color-brand-green) 10%, transparent)`
                         : "none",
                     }}
                   />
@@ -307,13 +322,13 @@ export default function AboutTimeline() {
                             className="px-6 pb-6 border-t"
                             style={{ borderColor: "var(--color-border-light)" }}
                           >
-                            <p className="text-[var(--color-text-body)] text-base leading-relaxed mb-5 font-medium">
+                            {/* <p className="text-[var(--color-text-body)] text-base leading-relaxed mb-5 font-medium">
                               {item.desc}
-                            </p>
+                            </p> */}
 
                             {/* Highlights grid */}
-                            <div className="grid grid-cols-2 gap-3">
-                              {item.highlights.map((highlight) => (
+                            <div className="grid grid-cols-2 gap-3 pt-2">
+                              {item.highlights?.map((highlight) => (
                                 <div
                                   key={highlight}
                                   className="flex items-start gap-2 p-3 rounded-xl transition-colors duration-300"
@@ -349,9 +364,9 @@ export default function AboutTimeline() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { value: "6+", label: "Years" },
-              { value: "30+", label: "Products" },
+              { value: "50+", label: "Products" },
               { value: "6", label: "Countries" },
-              { value: "8", label: "Team size" },
+              { value: "12", label: "Team size" },
             ].map((s) => (
               <div
                 key={s.label}

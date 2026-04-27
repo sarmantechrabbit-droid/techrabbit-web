@@ -66,6 +66,7 @@ const features = [
     desc: "Team working overlapping hours with US, UK, Canada, and Australia. Standups at your time.",
     icon: Target,
     accent: "var(--color-brand-blue)",
+    accent: "var(--color-brand-blue)",
   },
 ];
 
@@ -102,7 +103,7 @@ export default function PricingFeatures() {
               What's included
             </div>
 
-            <h2 className="max-w-[12ch] text-4xl font-bold font-heading leading-[1.15] tracking-tight sm:max-w-[14ch] md:text-5xl">
+            <h2 className="max-w-[16ch] text-4xl font-bold font-heading leading-[1.15] tracking-tight sm:max-w-[16ch] md:text-5xl">
               Everything included
               <br />
               <span

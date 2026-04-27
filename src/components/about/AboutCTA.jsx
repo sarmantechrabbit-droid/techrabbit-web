@@ -3,7 +3,7 @@ import Reveal from "../Reveal";
 
 export default function AboutCTA() {
   return (
-    <section className="bg-[var(--color-bg-card)] py-16 sm:py-20 px-4 sm:px-6 md:px-12 overflow-hidden">
+    <section className=" py-16 sm:py-20 px-4 sm:px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <Reveal className="text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-border-brand-soft)] bg-[var(--color-bg-brand-tint)] text-[var(--color-brand-blue)] text-[10px] font-black tracking-widest uppercase mb-5">
@@ -17,8 +17,10 @@ export default function AboutCTA() {
           <p className="text-[var(--color-text-body)] text-base md:text-lg mb-10 max-w-lg mx-auto leading-relaxed">
            Book a free 30-min call. We'll scope your MVP or plan your first sprint — no commitment needed.
           </p>
-          <Link
-            to="/contact"
+          <a
+            href="https://calendly.com/techrabbit/meeting"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-9 py-4 rounded-full text-white font-black text-sm transition-all hover:scale-[1.03] duration-300"
             style={{
               background: "var(--gradient-brand)",
@@ -26,7 +28,7 @@ export default function AboutCTA() {
             }}
           >
             Book a free call →
-          </Link>
+          </a>
         </Reveal>
       </div>
     </section>
